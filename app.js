@@ -880,9 +880,32 @@ function initAdminPanel() {
   }
 }
 
+function initMobileMenu() {
+  const btn = document.getElementById('mobileMenuBtn');
+  const menu = document.getElementById('mobileGlassMenu');
+  const backdrop = document.getElementById('mobileMenuBackdrop');
+  if (!btn || !menu || !backdrop) return;
+
+  function toggleMenu(forceClose = false) {
+    const isOpen = forceClose ? false : !menu.classList.contains('open');
+    btn.classList.toggle('open', isOpen);
+    menu.classList.toggle('open', isOpen);
+    backdrop.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', () => toggleMenu());
+  backdrop.addEventListener('click', () => toggleMenu(true));
+
+  menu.querySelectorAll('.mobile-menu-link').forEach(link => {
+    link.addEventListener('click', () => toggleMenu(true));
+  });
+}
+
 // --- INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', () => {
   initYandexMetrika();
+  initMobileMenu();
 
   // Навешиваем клик на ссылки автореферата для аналитики
   document.querySelectorAll('.track-abstract-btn').forEach(btn => {

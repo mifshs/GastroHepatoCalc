@@ -15,13 +15,60 @@
         <div class="brand-icon">⚕</div>
         <div class="brand-title">GastroHepato<span>Calc</span></div>
       </a>
+      
+      <!-- Десктопные кнопки -->
       <div class="nav-links">
         <a href="#home" class="nav-btn nav-btn-outline">Каталог</a>
         <a href="#litoliz" class="nav-btn nav-btn-primary">⭐ Литолиз при ЖКБ</a>
         <a href="#admin" class="nav-btn nav-btn-outline" title="Админ-панель и Метрика">⚙ Метрика</a>
       </div>
+
+      <!-- Кнопка бургер-меню для телефонов -->
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+
+    <!-- Мобильное стеклянное меню (iOS 26 Liquid Glass Sheet) -->
+    <div class="mobile-glass-menu" id="mobileGlassMenu">
+      <div class="mobile-menu-header">Навигация по разделам</div>
+      <div class="mobile-menu-items">
+        <a href="#home" class="mobile-menu-link">
+          <span class="menu-icon">📑</span>
+          <span>Каталог всех калькуляторов</span>
+        </a>
+        <a href="#litoliz" class="mobile-menu-link highlight">
+          <span class="menu-icon">⭐</span>
+          <span>Оценка литолиза (Авторский)</span>
+        </a>
+        <a href="#udca" class="mobile-menu-link">
+          <span class="menu-icon">💊</span>
+          <span>Дозирование УДХК</span>
+        </a>
+        <a href="#homa" class="mobile-menu-link">
+          <span class="menu-icon">🧬</span>
+          <span>Индекс HOMA-IR</span>
+        </a>
+        <a href="#cirsg" class="mobile-menu-link">
+          <span class="menu-icon">📋</span>
+          <span>Опросник CIRS-G</span>
+        </a>
+        <a href="#fib4" class="mobile-menu-link">
+          <span class="menu-icon">🔬</span>
+          <span>Индекс фиброза FIB-4</span>
+        </a>
+        <a href="#admin" class="mobile-menu-link">
+          <span class="menu-icon">⚙</span>
+          <span>Админ-панель & Метрика</span>
+        </a>
+      </div>
     </div>
   </header>
+
+  <!-- Оверлей для закрытия меню -->
+  <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
 
   <!-- ОСНОВНОЙ КОНТЕНТ -->
   <main class="main-wrapper">
