@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GastroHepato Calc — Клинические калькуляторы гастроэнтеролога и гепатолога</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- НАВБАР -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="brand">
+        <div class="brand-icon">⚕</div>
+        <div class="brand-title">GastroHepato<span>Calc</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="#home" class="nav-btn nav-btn-outline">Каталог</a>
+        <a href="#litoliz" class="nav-btn nav-btn-primary">⭐ Литолиз при ЖКБ</a>
+        <a href="#admin" class="nav-btn nav-btn-outline" title="Админ-панель и Метрика">⚙ Метрика</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ОСНОВНОЙ КОНТЕНТ -->
+  <main class="main-wrapper">
+
+    <!-- ==================== 1. ГЛАВНАЯ СТРАНИЦА (#home) ==================== -->
+    <div id="page-home" class="page-view active">
+      <div class="hero">
+        <div class="hero-tag">Доказательная гастроэнтерология & гепатология</div>
+        <h1>Профессиональные клинические калькуляторы</h1>
+        <p>Клинические шкалы, формулы дозирования и прогностические модели для врачей-гастроэнтерологов, терапевтов и хирургов.</p>
+      </div>
+
+      <!-- ФЛАГМАНСКИЙ БАННЕР (АВТОРСКИЙ КАЛЬКУЛЯТОР) -->
+      <section class="flagship-banner">
+        <div class="flagship-badge-row">
+          <span class="flagship-badge">⭐ Авторская разработка</span>
+          <span class="patent-badge">Диссертационная модель</span>
+        </div>
+        <h2>Определение вероятности литолиза при желчнокаменной болезни</h2>
+        <p>
+          Оригинальная математическая модель прогнозирования успешности консервативного медикаментозного растворения 
+          камней желчного пузыря препаратами урсодезоксихолевой кислоты (УДХК). Учитывает точный размер конкрементов, 
+          КТ-денситометрию, показатель инсулинорезистентности (HOMA-IR) и соматическую коморбидность (CIRS-G).
+        </p>
+        <div class="flagship-actions">
+          <a href="#litoliz" class="btn-flagship">Открыть калькулятор литолиза →</a>
+          <a href="https://example.com/dissertation" target="_blank" class="btn-dissertation track-abstract-btn" id="hero-abstract-btn">
+            📄 Автореферат диссертации (PDF / eLibrary)
+          </a>
+        </div>
+      </section>
+
+      <!-- РАЗДЕЛ 1: ЖКБ И УДХК -->
+      <div class="section-header">
+        <h3>Желчнокаменная болезнь и терапия УДХК</h3>
+        <p>Расчет вероятности растворения камней и подбор терапевтических доз</p>
+      </div>
+      <div class="calc-grid">
+        <a href="#litoliz" class="calc-card">
+          <div class="calc-card-top">
+            <span class="calc-category-tag" style="background:#e0f2fe; color:#0369a1;">⭐ Авторский</span>
+            <h4>Вероятность литолиза при ЖКБ</h4>
+            <p>Прогноз эффективности терапии препаратами УДХК по формуле логистической регрессии из диссертации.</p>
+          </div>
+          <div class="calc-card-footer">
+            <span>Рассчитать вероятность</span> →
+          </div>
+        </a>
+
+        <a href="#udca" class="calc-card">
+          <div class="calc-card-top">
+            <span class="calc-category-tag">Фармакотерапия</span>
+            <h4>Дозирование УДХК (мг/кг/сут)</h4>
+            <p>Расчет суточной дозы урсодезоксихолевой кислоты по весу пациента (ЖКБ, рефлюкс-гастрит, ПБХ, НАЖБП) и пересчет в капсулы.</p>
+          </div>
+          <div class="calc-card-footer">
+            <span>Подобрать дозу</span> →
+          </div>
+        </a>
+      </div>
+
+      <!-- РАЗДЕЛ 2: МЕТАБОЛИЧЕСКИЙ СТАТУС И КОМОРБИДНОСТЬ -->
+      <div class="section-header">
+        <h3>Метаболический статус и сопутствующая патология</h3>
+        <p>Вспомогательные шкалы (используются в авторской формуле литолиза)</p>
+      </div>
+      <div class="calc-grid">
+        <a href="#homa" class="calc-card">
+          <div class="calc-card-top">
+            <span class="calc-category-tag">Эндокринология & ЖКТ</span>
+            <h4>Индекс HOMA-IR</h4>
+            <p>Оценка резистентности к инсулину по уровню базальной глюкозы и инсулина сыворотки крови.</p>
+          </div>
+          <div class="calc-card-footer">
+            <span>Оценить HOMA-IR</span> →
+          </div>
+        </a>
+
+        <a href="#cirsg" class="calc-card">
+          <div class="calc-card-top">
+            <span class="calc-category-tag">Коморбидность</span>
+            <h4>Шкала CIRS-G (Cumulative Illness Rating)</h4>
+            <p>Интерактивный опросник суммарного индекса соматических заболеваний по 14 системам органов.</p>
+          </div>
+          <div class="calc-card-footer">
+            <span>Заполнить опросник</span> →
+          </div>
+        </a>
+      </div>
+
+      <!-- РАЗДЕЛ 3: СТЕАТОЗ И ФИБРОЗ ПЕЧЕНИ -->
+      <div class="section-header">
+        <h3>Стеатоз и фиброз печени (неинвазивная оценка)</h3>
+        <p>Скрининг жирового гепатоза и выраженности фиброза при НАЖБП и гепатитах</p>
+      </div>
+      <div class="calc-grid">
+        <a href="#fli" class="calc-card">
+          <div class="calc-card-top">
+            <span class="calc-category-tag">Стеатоз</span>
+            <h4>Индекс FLI (Fatty Liver Index)</h4>
+            <p>Предиктор жирового гепатоза по уровню триглицеридов, ГГТП, ИМТ и окружности талии.</p>
+          </div>
+          <div class="calc-card-footer">
+            <span>Рассчитать FLI</span> →
+          </div>
+        </a>
+
+        <a href="#fib4" class="calc-card">
+          <div class="calc-card-top">
+            <span class="calc-category-tag">Фиброз</span>
+            <h4>Индекс FIB-4</h4>
+            <p>Неинвазивная оценка фиброза печени по возрасту, уровням АСТ, АЛТ и числу тромбоцитов.</p>
+          </div>
+          <div class="calc-card-footer">
+            <span>Рассчитать FIB-4</span> →
+          </div>
+        </a>
+
+        <a href="#apri" class="calc-card">
+          <div class="calc-card-top">
+            <span class="calc-category-tag">Фиброз</span>
+            <h4>Индекс APRI</h4>
+            <p>Отношение АСТ к уровню тромбоцитов для исключения или выявления выраженного фиброза.</p>
+          </div>
+          <div class="calc-card-footer">
+            <span>Рассчитать APRI</span> →
+          </div>
+        </a>
+      </div>
+
+      <!-- РАЗДЕЛ 4: ЦИРРОЗ И ПРОГНОЗ -->
+      <div class="section-header">
+        <h3>Хронические заболевания печени и цирроз</h3>
+        <p>Стратификация тяжести, периоперационный риск и прогноз выживаемости</p>
+      </div>
+      <div class="calc-grid">
+        <a href="#childpugh" class="calc-card">
+          <div class="calc-card-top">
+            <span class="calc-category-tag">Цирроз</span>
+            <h4>Шкала Чайлд-Пью (Child-Pugh)</h4>
+            <p>Оценка степени печеночной недостаточности (классы A, B, C) по билирубину, альбумину, МНО, асциту и энцефалопатии.</p>
+          </div>
+          <div class="calc-card-footer">
+            <span>Оценить класс</span> →
+          </div>
+        </a>
+
+        <a href="#meld" class="calc-card">
+          <div class="calc-card-top">
+            <span class="calc-category-tag">Терминальные состояния</span>
+            <h4>Шкала MELD</h4>
+            <p>Прогноз 90-дневной госпитальной летальности при терминальных поражениях печени (креатинин, билирубин, МНО).</p>
+          </div>
+          <div class="calc-card-footer">
+            <span>Рассчитать MELD</span> →
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ==================== 2. СТРАНИЦА: АВТОРСКИЙ КАЛЬКУЛЯТОР ЛИТОЛИЗА (#litoliz) ==================== -->
+    <div id="page-litoliz" class="page-view">
+      <div class="breadcrumbs">
+        <a href="#home">Главная</a> <span>/</span> <span>Литолиз при ЖКБ</span>
+      </div>
+
+      <div class="calc-container">
+        <!-- БЛОК ССЫЛКИ НА АВТОРЕФЕРАТ ДИССЕРТАЦИИ -->
+        <div class="dissertation-box">
+          <div class="dissertation-box-header">
+            <span>🎓 Научная публикация & Автореферат</span>
+          </div>
+          <h4>Диссертационное исследование</h4>
+          <p>
+            Математическая формула прогнозирования получена методом многофакторного логистического регрессионного анализа 
+            в рамках диссертационного исследования эффективности медикаментозного литолиза при холелитиазе.
+          </p>
+          <a href="https://example.com/dissertation-abstract" target="_blank" class="dissertation-link-btn track-abstract-btn" id="litoliz-abstract-btn">
+            📖 Читать автореферат / описание методики (ссылка на публикацию)
+          </a>
+        </div>
+
+        <div class="calc-box">
+          <div class="calc-header">
+            <span class="calc-category-tag" style="background:#e0f2fe; color:#0369a1;">⭐ Авторская модель</span>
+            <h1>Определение вероятности литолиза при ЖКБ</h1>
+            <p>Расчет шанса растворения конкрементов желчного пузыря терапией УДХК.</p>
+          </div>
+
+          <form id="form-litoliz">
+            <div class="form-group">
+              <label for="lit-rk">Размер конкрементов, мм (по УЗИ)</label>
+              <input type="number" id="lit-rk" step="0.1" min="1" max="50" placeholder="Например: 8" required>
+              <div class="field-hint">Максимальный линейный диаметр крупнейшего конкремента в просвете пузыря</div>
+            </div>
+
+            <div class="form-group">
+              <label for="lit-homa">
+                Индекс HOMA-IR, балл
+                <a href="#homa" class="field-helper-link">Рассчитать HOMA-IR →</a>
+              </label>
+              <input type="number" id="lit-homa" step="0.01" min="0" max="30" placeholder="Например: 2.1" required>
+              <div class="field-hint">Показатель инсулинорезистентности (референс: &lt; 2.7)</div>
+            </div>
+
+            <div class="form-group">
+              <label>Плотность конкрементов по КТ (рентген-плотность)</label>
+              <div class="radio-group">
+                <label class="radio-label checked" id="lit-lbl-bsd0">
+                  <input type="radio" name="bsd" value="0" checked>
+                  <span class="title">&lt; 100 HU</span>
+                  <span class="sub">Холестериновые (низкая плотность)</span>
+                </label>
+                <label class="radio-label" id="lit-lbl-bsd1">
+                  <input type="radio" name="bsd" value="1">
+                  <span class="title">&ge; 100 HU</span>
+                  <span class="sub">Кальцинированные (высокая плотность)</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="lit-cirs">
+                Индекс коморбидности CIRS-G, балл
+                <a href="#cirsg" class="field-helper-link">Заполнить шкалу CIRS-G →</a>
+              </label>
+              <input type="number" id="lit-cirs" step="1" min="0" max="56" placeholder="Например: 2" required>
+              <div class="field-hint">Суммарная балльная оценка соматической патологии пациента</div>
+            </div>
+
+            <button type="submit" class="btn-calc">Рассчитать вероятность литолиза</button>
+          </form>
+
+          <div class="result-section" id="res-litoliz">
+            <div class="result-card">
+              <div class="result-title">Вероятность успешного растворения</div>
+              <div class="result-value" id="lit-val">--%</div>
+              <div class="result-status" id="lit-status">--</div>
+              <div class="result-desc" id="lit-desc"></div>
+              <div class="actions-row">
+                <button type="button" class="btn-secondary" id="lit-copy">Скопировать для медкарты</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 3. СТРАНИЦА: ДОЗИРОВАНИЕ УДХК (#udca) ==================== -->
+    <div id="page-udca" class="page-view">
+      <div class="breadcrumbs">
+        <a href="#home">Главная</a> <span>/</span> <span>Дозирование УДХК</span>
+      </div>
+
+      <div class="calc-container">
+        <div class="calc-box">
+          <div class="calc-header">
+            <span class="calc-category-tag">Фармакотерапия</span>
+            <h1>Калькулятор дозирования УДХК</h1>
+            <p>Расчет суточной дозировки урсодезоксихолевой кислоты (Урсосан, Урсофальк, Эксхол) по массе тела.</p>
+          </div>
+
+          <form id="form-udca">
+            <div class="form-group">
+              <label for="udca-weight">Масса тела пациента, кг</label>
+              <input type="number" id="udca-weight" step="0.5" min="20" max="250" placeholder="Например: 75" required>
+            </div>
+
+            <div class="form-group">
+              <label for="udca-indication">Клиническое показание</label>
+              <select id="udca-indication">
+                <option value="litoliz">Растворение холестериновых камней (ЖКБ): 10–15 мг/кг/сут</option>
+                <option value="reflux">Билиарный рефлюкс-гастрит: 250 мг на ночь</option>
+                <option value="pbc">Первичный билиарный холангит (ПБХ/ПСХ): 13–15 мг/кг/сут</option>
+                <option value="nash">Неалкогольный стеатогепатит (НАЖБП/МАСЖБ): 13–15 мг/кг/сут</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-calc">Рассчитать дозировку</button>
+          </form>
+
+          <div class="result-section" id="res-udca">
+            <div class="result-card">
+              <div class="result-title">Суточная терапевтическая доза</div>
+              <div class="result-value" id="udca-val" style="color:var(--primary);">-- мг/сут</div>
+              <div class="result-status status-high" id="udca-caps">--</div>
+              <div class="result-desc" id="udca-desc"></div>
+              <div class="actions-row">
+                <button type="button" class="btn-secondary" id="udca-copy">Скопировать схему</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 4. СТРАНИЦА: HOMA-IR (#homa) ==================== -->
+    <div id="page-homa" class="page-view">
+      <div class="breadcrumbs">
+        <a href="#home">Главная</a> <span>/</span> <span>Индекс HOMA-IR</span>
+      </div>
+
+      <div class="calc-container">
+        <div class="calc-box">
+          <div class="calc-header">
+            <span class="calc-category-tag">Метаболизм</span>
+            <h1>Расчет индекса HOMA-IR</h1>
+            <p>Оценка инсулинорезистентности методом гомеостатической модели (Homeostasis Model Assessment).</p>
+          </div>
+
+          <form id="form-homa">
+            <div class="form-group">
+              <label for="homa-glucose">Глюкоза венозной плазмы натощак, ммоль/л</label>
+              <input type="number" id="homa-glucose" step="0.01" min="1" max="40" placeholder="Например: 5.4" required>
+            </div>
+
+            <div class="form-group">
+              <label for="homa-insulin">Иммунореактивный инсулин натощак, мкЕд/мл (мкМЕ/мл)</label>
+              <input type="number" id="homa-insulin" step="0.1" min="1" max="300" placeholder="Например: 12.5" required>
+            </div>
+
+            <button type="submit" class="btn-calc">Рассчитать индекс HOMA</button>
+          </form>
+
+          <div class="result-section" id="res-homa">
+            <div class="result-card">
+              <div class="result-title">Значение индекса HOMA-IR</div>
+              <div class="result-value" id="homa-val" style="color:var(--primary);">--</div>
+              <div class="result-status" id="homa-status">--</div>
+              <div class="result-desc" id="homa-desc"></div>
+              <div class="actions-row">
+                <button type="button" class="btn-secondary" id="homa-use-in-lit" style="background:#eff6ff; color:#1d4ed8; border-color:#bfdbfe;">
+                  👉 Использовать в калькуляторе литолиза
+                </button>
+                <button type="button" class="btn-secondary" id="homa-copy">Скопировать</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 5. СТРАНИЦА: CIRS-G ОПРОСНИК (#cirsg) ==================== -->
+    <div id="page-cirsg" class="page-view">
+      <div class="breadcrumbs">
+        <a href="#home">Главная</a> <span>/</span> <span>Шкала CIRS-G</span>
+      </div>
+
+      <div class="calc-container" style="max-width: 760px;">
+        <div class="calc-box">
+          <div class="calc-header">
+            <span class="calc-category-tag">Коморбидность</span>
+            <h1>Опросник шкалы коморбидности CIRS-G</h1>
+            <p>
+              Cumulative Illness Rating Scale for Geriatrics. Выберите степень тяжести поражения по каждой из 14 функциональных систем: 
+              <b>0</b> — норма; <b>1</b> — легкое; <b>2</b> — умеренное; <b>3</b> — тяжелое; <b>4</b> — крайне тяжелое.
+            </p>
+          </div>
+
+          <form id="form-cirsg">
+            <table class="cirsg-table">
+              <thead>
+                <tr>
+                  <th>Органная система</th>
+                  <th style="width: 170px;">Степень (0–4)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1. Сердечная система (ИБС, ХСН, аритмии)</td>
+                  <td>
+                    <select class="cirsg-select">
+                      <option value="0">0 - Нет патологии</option>
+                      <option value="1">1 - Легкая</option>
+                      <option value="2">2 - Умеренная (терапия)</option>
+                      <option value="3">3 - Тяжелая (декомпенсация)</option>
+                      <option value="4">4 - Терминальная</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2. Сосудистая система (АГ, атеросклероз артерий)</td>
+                  <td>
+                    <select class="cirsg-select">
+                      <option value="0">0 - Нет патологии</option>
+                      <option value="1">1 - Легкая</option>
+                      <option value="2">2 - Умеренная (АГ 1-2 ст)</option>
+                      <option value="3">3 - Тяжелая (АГ 3 ст)</option>
+                      <option value="4">4 - Острая / терминальная</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3. Кроветворение (анемии, лейкопении, коагулопатии)</td>
+                  <td>
+                    <select class="cirsg-select">
+                      <option value="0">0 - Норма</option>
+                      <option value="1">1 - Легкая</option>
+                      <option value="2">2 - Умеренная</option>
+                      <option value="3">3 - Тяжелая</option>
+                      <option value="4">4 - Жизнеугрожающая</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>4. Дыхательная система (ХОБЛ, БА, эмфизема)</td>
+                  <td>
+                    <select class="cirsg-select">
+                      <option value="0">0 - Норма</option>
+                      <option value="1">1 - Легкая</option>
+                      <option value="2">2 - Умеренная</option>
+                      <option value="3">3 - Тяжелая ДН</option>
+                      <option value="4">4 - Терминальная</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>5. Органы чувств (зрение, слух, ЛОР)</td>
+                  <td>
+                    <select class="cirsg-select">
+                      <option value="0">0 - Норма</option>
+                      <option value="1">1 - Легкое снижение</option>
+                      <option value="2">2 - Коррекция очками/аппаратом</option>
+                      <option value="3">3 - Тяжелая глухота/слепота</option>
+                      <option value="4">4 - Полная инвалидность</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>6. Верхние отделы ЖКТ (пищевод, желудок, 12-п.к.)</td>
+                  <td>
+                    <select class="cirsg-select">
+                      <option value="0">0 - Норма</option>
+                      <option value="1">1 - Легкий гастрит</option>
+                      <option value="2">2 - ЯБЖ / рефлюкс (ИПП)</option>
+                      <option value="3">3 - Осложненная язва</option>
+                      <option value="4">4 - Кровотечение / прободение</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>7. Нижние отделы ЖКТ (кишечник, колит)</td>
+                  <td>
+                    <select class="cirsg-select">
+                      <option value="0">0 - Норма</option>
+                      <option value="1">1 - Легкие симптомы</option>
+                      <option value="2">2 - СРК / дивертикулез</option>
+                      <option value="3">3 - ВЗК / свищи</option>
+                      <option value="4">4 - Непроходимость / перфорация</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>8. Печень и желчевыводящая система (ЖКБ, гепатит)</td>
+                  <td>
+                    <select class="cirsg-select">
+                      <option value="0">0 - Норма</option>
+                      <option value="1">1 - ЖКБ бессимптомная</option>
+                      <option value="2" selected>2 - ЖКБ с приступами / стеатоз</option>
+                      <option value="3">3 - Хронический гепатит</option>
+                      <option value="4">4 - Цирроз декомпенсированный</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>9. Почки (ХБП, нефропатии)</td>
+                  <td>
+                    <select class="cirsg-select">
+                      <option value="0">0 - Норма</option>
+                      <option value="1">1 - Легкое снижение СКФ</option>
+                      <option value="2">2 - ХБП 2-3 ст</option>
+                      <option value="3">3 - ХБП 4 ст</option>
+                      <option value="4">4 - Терминальная ХПН / диализ</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>10. Мочеполовая система (ДГПЖ, цистит, гинекология)</td>
+                  <td>
+                    <select class="cirsg-select">
+                      <option value="0">0 - Норма</option>
+                      <option value="1">1 - Легкие жалобы</option>
+                      <option value="2">2 - ДГПЖ на терапии</option>
+                      <option value="3">3 - Задержка мочи / стома</option>
+                      <option value="4">4 - Тяжелые осложнения</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>11. Опорно-двигательный аппарат (артроз, остеопороз)</td>
+                  <td>
+                    <select class="cirsg-select">
+                      <option value="0">0 - Норма</option>
+                      <option value="1">1 - Легкий артроз</option>
+                      <option value="2">2 - Ограничение движений</option>
+                      <option value="3">3 - Трость / костыли</option>
+                      <option value="4">4 - Прикован к постели</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>12. Нервная система (ОНМК, болезнь Паркинсона, ХИМ)</td>
+                  <td>
+                    <select class="cirsg-select">
+                      <option value="0">0 - Норма</option>
+                      <option value="1">1 - Легкая ХИМ</option>
+                      <option value="2">2 - ОНМК в анамнезе (легкий дефицит)</option>
+                      <option value="3">3 - Выраженный парез</option>
+                      <option value="4">4 - Кома / тяжелая плегия</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>13. Эндокринная система и обмен веществ (СД, ожирение)</td>
+                  <td>
+                    <select class="cirsg-select">
+                      <option value="0">0 - Норма</option>
+                      <option value="1">1 - Ожирение 1 ст</option>
+                      <option value="2">2 - СД 2 типа (диета/метформин)</option>
+                      <option value="3">3 - СД с осложнениями</option>
+                      <option value="4">4 - Тяжелый СД / кетоацидоз</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>14. Психическая сфера (депрессия, деменция)</td>
+                  <td>
+                    <select class="cirsg-select">
+                      <option value="0">0 - Норма</option>
+                      <option value="1">1 - Легкая тревожность</option>
+                      <option value="2">2 - Депрессия на антидепрессантах</option>
+                      <option value="3">3 - Выраженная деменция</option>
+                      <option value="4">4 - Тяжелый психоз</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <button type="submit" class="btn-calc">Подсчитать суммарный балл CIRS-G</button>
+          </form>
+
+          <div class="result-section" id="res-cirsg">
+            <div class="result-card">
+              <div class="result-title">Суммарный балл CIRS-G</div>
+              <div class="result-value" id="cirsg-val" style="color:var(--primary);">--</div>
+              <div class="result-status" id="cirsg-status">--</div>
+              <div class="result-desc" id="cirsg-desc"></div>
+              <div class="actions-row">
+                <button type="button" class="btn-secondary" id="cirsg-use-in-lit" style="background:#eff6ff; color:#1d4ed8; border-color:#bfdbfe;">
+                  👉 Перенести балл в калькулятор литолиза
+                </button>
+                <button type="button" class="btn-secondary" id="cirsg-copy">Скопировать</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 6. СТРАНИЦА: FIB-4 (#fib4) ==================== -->
+    <div id="page-fib4" class="page-view">
+      <div class="breadcrumbs">
+        <a href="#home">Главная</a> <span>/</span> <span>Индекс FIB-4</span>
+      </div>
+
+      <div class="calc-container">
+        <div class="calc-box">
+          <div class="calc-header">
+            <span class="calc-category-tag">Фиброз печени</span>
+            <h1>Индекс фиброза FIB-4</h1>
+            <p>Неинвазивная оценка степени фиброза печени при НАЖБП/МАСЖБ, хронических гепатитах B и C.</p>
+          </div>
+
+          <form id="form-fib4">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fib-age">Возраст, полных лет</label>
+                <input type="number" id="fib-age" min="18" max="110" placeholder="Например: 52" required>
+              </div>
+              <div class="form-group">
+                <label for="fib-plt">Тромбоциты, × 10⁹/л</label>
+                <input type="number" id="fib-plt" min="10" max="1000" placeholder="Например: 210" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fib-ast">АСТ (аспартатаминотрансфераза), Ед/л</label>
+                <input type="number" id="fib-ast" step="0.1" min="1" max="2000" placeholder="Например: 38" required>
+              </div>
+              <div class="form-group">
+                <label for="fib-alt">АЛТ (аланинаминотрансфераза), Ед/л</label>
+                <input type="number" id="fib-alt" step="0.1" min="1" max="2000" placeholder="Например: 45" required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-calc">Рассчитать FIB-4</button>
+          </form>
+
+          <div class="result-section" id="res-fib4">
+            <div class="result-card">
+              <div class="result-title">Значение индекса FIB-4</div>
+              <div class="result-value" id="fib4-val">--</div>
+              <div class="result-status" id="fib4-status">--</div>
+              <div class="result-desc" id="fib4-desc"></div>
+              <div class="actions-row">
+                <button type="button" class="btn-secondary" id="fib4-copy">Скопировать для медкарты</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 7. СТРАНИЦА: APRI (#apri) ==================== -->
+    <div id="page-apri" class="page-view">
+      <div class="breadcrumbs">
+        <a href="#home">Главная</a> <span>/</span> <span>Индекс APRI</span>
+      </div>
+
+      <div class="calc-container">
+        <div class="calc-box">
+          <div class="calc-header">
+            <span class="calc-category-tag">Фиброз печени</span>
+            <h1>Индекс APRI</h1>
+            <p>AST to Platelet Ratio Index — оценка вероятности фиброза печени и цирроза по соотношению АСТ к тромбоцитам.</p>
+          </div>
+
+          <form id="form-apri">
+            <div class="form-group">
+              <label for="apri-ast">АСТ сыворотки, Ед/л</label>
+              <input type="number" id="apri-ast" step="0.1" min="1" max="2000" placeholder="Например: 65" required>
+            </div>
+
+            <div class="form-group">
+              <label for="apri-uln">Верхняя граница нормы АСТ лаборатории (ВГН), Ед/л</label>
+              <input type="number" id="apri-uln" step="1" value="40" required>
+              <div class="field-hint">По умолчанию 40 Ед/л (измените при других референсах вашей лаборатории)</div>
+            </div>
+
+            <div class="form-group">
+              <label for="apri-plt">Уровень тромбоцитов, × 10⁹/л</label>
+              <input type="number" id="apri-plt" step="1" min="10" max="1000" placeholder="Например: 160" required>
+            </div>
+
+            <button type="submit" class="btn-calc">Рассчитать APRI</button>
+          </form>
+
+          <div class="result-section" id="res-apri">
+            <div class="result-card">
+              <div class="result-title">Значение индекса APRI</div>
+              <div class="result-value" id="apri-val">--</div>
+              <div class="result-status" id="apri-status">--</div>
+              <div class="result-desc" id="apri-desc"></div>
+              <div class="actions-row">
+                <button type="button" class="btn-secondary" id="apri-copy">Скопировать для медкарты</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 8. СТРАНИЦА: FLI (#fli) ==================== -->
+    <div id="page-fli" class="page-view">
+      <div class="breadcrumbs">
+        <a href="#home">Главная</a> <span>/</span> <span>Индекс FLI</span>
+      </div>
+
+      <div class="calc-container">
+        <div class="calc-box">
+          <div class="calc-header">
+            <span class="calc-category-tag">Стеатоз печени</span>
+            <h1>Индекс жирового гепатоза FLI (Fatty Liver Index)</h1>
+            <p>Валидированный алгоритм выявления стеатоза печени по биохимическим и антропометрическим маркерам.</p>
+          </div>
+
+          <form id="form-fli">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fli-tg">Триглицериды, ммоль/л</label>
+                <input type="number" id="fli-tg" step="0.01" min="0.2" max="30" placeholder="Например: 1.9" required>
+              </div>
+              <div class="form-group">
+                <label for="fli-ggt">ГГТП (гамма-ГТ), Ед/л</label>
+                <input type="number" id="fli-ggt" step="0.1" min="5" max="1000" placeholder="Например: 42" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fli-bmi">Индекс массы тела (ИМТ), кг/м²</label>
+                <input type="number" id="fli-bmi" step="0.1" min="15" max="70" placeholder="Например: 28.5" required>
+              </div>
+              <div class="form-group">
+                <label for="fli-wc">Окружность талии, см</label>
+                <input type="number" id="fli-wc" step="0.5" min="50" max="200" placeholder="Например: 94" required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-calc">Рассчитать FLI</button>
+          </form>
+
+          <div class="result-section" id="res-fli">
+            <div class="result-card">
+              <div class="result-title">Балл индекса FLI</div>
+              <div class="result-value" id="fli-val">--</div>
+              <div class="result-status" id="fli-status">--</div>
+              <div class="result-desc" id="fli-desc"></div>
+              <div class="actions-row">
+                <button type="button" class="btn-secondary" id="fli-copy">Скопировать для медкарты</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 9. СТРАНИЦА: CHILD-PUGH (#childpugh) ==================== -->
+    <div id="page-childpugh" class="page-view">
+      <div class="breadcrumbs">
+        <a href="#home">Главная</a> <span>/</span> <span>Шкала Child-Pugh</span>
+      </div>
+
+      <div class="calc-container">
+        <div class="calc-box">
+          <div class="calc-header">
+            <span class="calc-category-tag">Цирроз печени</span>
+            <h1>Шкала Чайлд-Пью (Child-Pugh)</h1>
+            <p>Оценка степени тяжести цирроза печени и выживаемости.</p>
+          </div>
+
+          <form id="form-childpugh">
+            <div class="form-group">
+              <label for="cp-bili">Общий билирубин</label>
+              <select id="cp-bili">
+                <option value="1">&lt; 34 мкмоль/л (&lt; 2 мг/дл) — 1 балл</option>
+                <option value="2">34–50 мкмоль/л (2–3 мг/дл) — 2 балла</option>
+                <option value="3">&gt; 50 мкмоль/л (&gt; 3 мг/дл) — 3 балла</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="cp-alb">Сывороточный альбумин</label>
+              <select id="cp-alb">
+                <option value="1">&gt; 35 г/л (&gt; 3.5 г/дл) — 1 балл</option>
+                <option value="2">28–35 г/л (2.8–3.5 г/дл) — 2 балла</option>
+                <option value="3">&lt; 28 г/л (&lt; 2.8 г/дл) — 3 балла</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="cp-inr">МНО (международное нормализованное отношение)</label>
+              <select id="cp-inr">
+                <option value="1">&lt; 1.7 (ПТИ &gt; 50%) — 1 балл</option>
+                <option value="2">1.7–2.3 (ПТИ 30–50%) — 2 балла</option>
+                <option value="3">&gt; 2.3 (ПТИ &lt; 30%) — 3 балла</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="cp-ascites">Асцит</label>
+              <select id="cp-ascites">
+                <option value="1">Отсутствует — 1 балл</option>
+                <option value="2">Мягкий / легко купируется диуретиками — 2 балла</option>
+                <option value="3">Напряженный / рефрактерный — 3 балла</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="cp-enceph">Печеночная энцефалопатия</label>
+              <select id="cp-enceph">
+                <option value="1">Отсутствует — 1 балл</option>
+                <option value="2">I–II степень (легкая заторможенность/инверсия сна) — 2 балла</option>
+                <option value="3">III–IV степень (сопор / кома) — 3 балла</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-calc">Определить класс Child-Pugh</button>
+          </form>
+
+          <div class="result-section" id="res-childpugh">
+            <div class="result-card">
+              <div class="result-title">Сумма баллов по шкале</div>
+              <div class="result-value" id="cp-val">--</div>
+              <div class="result-status" id="cp-status">--</div>
+              <div class="result-desc" id="cp-desc"></div>
+              <div class="actions-row">
+                <button type="button" class="btn-secondary" id="cp-copy">Скопировать для медкарты</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 10. СТРАНИЦА: MELD (#meld) ==================== -->
+    <div id="page-meld" class="page-view">
+      <div class="breadcrumbs">
+        <a href="#home">Главная</a> <span>/</span> <span>Шкала MELD</span>
+      </div>
+
+      <div class="calc-container">
+        <div class="calc-box">
+          <div class="calc-header">
+            <span class="calc-category-tag">Терминальные состояния</span>
+            <h1>Шкала MELD (Model for End-Stage Liver Disease)</h1>
+            <p>Прогностическая шкала 90-дневной летальности пациентов с терминальной стадией болезней печени.</p>
+          </div>
+
+          <form id="form-meld">
+            <div class="form-group">
+              <label for="meld-cr">Сывороточный креатинин, мкмоль/л</label>
+              <input type="number" id="meld-cr" step="1" min="20" max="1000" placeholder="Например: 95" required>
+            </div>
+
+            <div class="form-group">
+              <label for="meld-bili">Общий билирубин, мкмоль/л</label>
+              <input type="number" id="meld-bili" step="1" min="5" max="1000" placeholder="Например: 35" required>
+            </div>
+
+            <div class="form-group">
+              <label for="meld-inr">МНО (INR)</label>
+              <input type="number" id="meld-inr" step="0.01" min="0.8" max="10" placeholder="Например: 1.25" required>
+            </div>
+
+            <button type="submit" class="btn-calc">Рассчитать MELD</button>
+          </form>
+
+          <div class="result-section" id="res-meld">
+            <div class="result-card">
+              <div class="result-title">Итоговый балл MELD</div>
+              <div class="result-value" id="meld-val">--</div>
+              <div class="result-status" id="meld-status">--</div>
+              <div class="result-desc" id="meld-desc"></div>
+              <div class="actions-row">
+                <button type="button" class="btn-secondary" id="meld-copy">Скопировать</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 11. СТРАНИЦА: АДМИН-ПАНЕЛЬ И МЕТРИКА (#admin) ==================== -->
+    <div id="page-admin" class="page-view">
+      <div class="breadcrumbs">
+        <a href="#home">Главная</a> <span>/</span> <span>Админ-панель & Аналитика</span>
+      </div>
+
+      <!-- ФОРМА ВХОДА В АДМИНКУ (ЗАЩИТА ОТ НЕСАНКЦИОНИРОВАННОГО ДОСТУПА) -->
+      <div id="admin-login-box" class="admin-card" style="max-width: 440px; margin: 40px auto; text-align: center;">
+        <div style="font-size: 36px; margin-bottom: 12px;">🔒</div>
+        <h2 style="font-size: 20px; margin-bottom: 8px;">Вход в панель управления</h2>
+        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">
+          Доступ защищен. Введите пароль администратора для управления метрикой и просмотра статистики.
+        </p>
+
+        <form id="admin-login-form">
+          <div class="form-group" style="text-align: left;">
+            <label for="admin-pwd-input">Пароль администратора:</label>
+            <input type="password" id="admin-pwd-input" placeholder="Введите пароль..." required style="padding: 12px 14px;">
+            <div id="admin-login-err" style="color: var(--danger); font-size: 12px; margin-top: 6px; min-height: 16px;"></div>
+          </div>
+          <button type="submit" class="btn-calc" style="margin-top: 4px;">Войти в панель</button>
+        </form>
+        <div style="font-size: 11px; color: var(--text-light); margin-top: 14px;">
+          Пароль по умолчанию: <code>gastro2026</code> (можно сменить в server.js)
+        </div>
+      </div>
+
+      <!-- ОСНОВНОЙ КОНТЕНТ АДМИНКИ (ТОЛЬКО ДЛЯ АВТОРИЗОВАННОГО АДМИНИСТРАТОРА) -->
+      <div id="admin-content-box" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+          <span class="badge" style="background:#dcfce7; color:#15803d; font-size:12px;">🛡️ Режим администратора активен</span>
+          <button type="button" class="btn-secondary" id="admin-logout-btn" style="flex:none; padding:6px 14px;">Выйти из панели</button>
+        </div>
+
+        <div class="admin-card">
+          <h2 style="font-size:22px; margin-bottom:8px;">⚙ Управление Яндекс.Метрикой</h2>
+          <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">
+            Укажите номер счетчика Яндекс.Метрики. После сохранения код счетчика будет автоматически загружаться для каждого посетителя, передавая данные о просмотрах и достижении целей (расчеты, копирования в медкарту).
+          </p>
+
+          <div style="background:var(--surface-subtle); padding:18px; border-radius:8px; border:1px solid var(--border); margin-bottom:20px;">
+            <label style="display:block; font-weight:700; font-size:14px; margin-bottom:8px;">Номер счетчика Яндекс.Метрики:</label>
+            <div style="display:flex; gap:10px; max-width:480px;">
+              <input type="text" id="admin-ym-id" placeholder="Например: 98765432" style="flex:1;">
+              <button type="button" class="btn-calc" id="admin-save-ym" style="margin-top:0; width:auto; padding:10px 18px;">Сохранить</button>
+            </div>
+            <div style="margin-top:10px; font-size:13px;">
+              Статус: <span id="admin-ym-status">○ Не настроен</span>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="https://metrika.yandex.ru" target="_blank" class="btn-dissertation" style="color:var(--primary); border-color:var(--primary-border);">
+              📊 Открыть кабинет Яндекс.Метрики →
+            </a>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+            <div>
+              <h2 style="font-size:20px;">📈 Локальная статистика использования</h2>
+              <p style="color:var(--text-muted); font-size:13px;">Счетчик действий посетителей (работает прямо в браузере)</p>
+            </div>
+            <button type="button" class="btn-secondary" id="admin-reset-stats" style="color:var(--danger); border-color:#fecaca;">
+              Сбросить статистику
+            </button>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-num" id="stat-total-calcs">0</div>
+              <div class="stat-label">Всего расчетов</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" id="stat-litoliz-calcs" style="color:#0284c7;">0</div>
+              <div class="stat-label">Авторский литолиз при ЖКБ</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" id="stat-copies" style="color:var(--success);">0</div>
+              <div class="stat-label">Копирований для медкарты</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" id="stat-abstract-clicks" style="color:var(--gold);">0</div>
+              <div class="stat-label">Кликов по автореферату</div>
+            </div>
+          </div>
+
+          <h4 style="font-size:15px; margin-top:24px; margin-bottom:8px;">Детализация расчетов по калькуляторам:</h4>
+          <table class="table-stats">
+            <thead>
+              <tr>
+                <th>Калькулятор</th>
+                <th>Выполнено расчетов</th>
+                <th>Доля</th>
+              </tr>
+            </thead>
+            <tbody id="admin-stats-tbody">
+              <!-- Заполняется из JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ИНФОРМАЦИЯ О СИСТЕМЕ БЕЗОПАСНОСТИ -->
+        <div class="admin-card" style="border-left: 4px solid var(--primary);">
+          <h3 style="font-size: 16px; margin-bottom: 8px;">🛡️ Архитектура безопасности сайта</h3>
+          <ul style="font-size: 13px; color: var(--text-muted); line-height: 1.7; padding-left: 18px;">
+            <li><b>Изоляция формулы:</b> Все коэффициенты и математическая логика авторского литолиза обрабатываются на защищенном бэкенде (<code>server.js</code>). Исходный код формулы не отправляется в браузер.</li>
+            <li><b>Встроенный Anti-DDoS & Rate Limiter:</b> Ограничение до 30 расчетов/мин и 120 запросов/мин на один IP для защиты от ботов и скрейпинга формулы перебором.</li>
+            <li><b>Защита админ-панели:</b> Защита от брутфорса (блокировка IP на 15 минут при 5 неверных вводах пароля).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==================== ФУТЕР САЙТА С КОНТАКТАМИ ==================== -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Колонка 1: О проекте -->
+        <div class="footer-col">
+          <h4>GastroHepato Calc</h4>
+          <p>
+            Специализированная клинико-диагностическая платформа для врачей гастроэнтерологов, гепатологов и хирургов. 
+            Флагманский модуль основан на диссертационном исследовании оценки вероятности литолиза конкрементов желчного пузыря.
+          </p>
+          <p style="font-size: 12px; color: #64748b;">
+            Все калькуляторы соответствуют клиническим рекомендациям Минздрава РФ и профильных ассоциаций (РГА, EASL, AASLD).
+          </p>
+        </div>
+
+        <!-- Колонка 2: Контакты автора -->
+        <div class="footer-col">
+          <h4>Связь с автором</h4>
+          <p>По вопросам клинического сотрудничества, научной работы и спонсорства:</p>
+          
+          <div class="contact-item">
+            <span>Telegram:</span>
+            <!-- Заполните ваш логин Telegram вместо @your_telegram_here -->
+            <a href="https://t.me/your_telegram_here" target="_blank" class="contact-badge" style="text-decoration:none;">
+              @your_telegram_here
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span>Email:</span>
+            <!-- Заполните вашу почту вместо doctor@example.com -->
+            <a href="mailto:doctor@example.com" class="contact-badge" style="text-decoration:none;">
+              doctor@example.com
+            </a>
+          </div>
+
+          <div style="margin-top:14px; font-size:11px; color:#64748b; line-height:1.4;">
+            * Заполните логин Telegram и Email в файле <code>index.html</code> (строки с классом contact-badge).
+          </div>
+        </div>
+
+        <!-- Колонка 3: Ссылки -->
+        <div class="footer-col">
+          <h4>Разделы</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Главная страница</a></li>
+            <li><a href="#litoliz">⭐ Калькулятор литолиза при ЖКБ</a></li>
+            <li><a href="#udca">Дозирование УДХК</a></li>
+            <li><a href="#homa">Индекс HOMA-IR</a></li>
+            <li><a href="#cirsg">Опросник CIRS-G</a></li>
+            <li><a href="#fib4">Индекс FIB-4</a></li>
+            <li><a href="#admin">⚙ Админ-панель и Метрика</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© GastroHepato Calc. Авторская научная модель оценки вероятности литолиза.</div>
+        <div>Медицинский информационно-справочный сервис. Не заменяет очный прием врача.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Всплывающее уведомление (Toast) -->
+  <div class="toast" id="toast">Скопировано в буфер обмена</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
