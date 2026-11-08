@@ -19,8 +19,8 @@
       <!-- Десктопные кнопки -->
       <div class="nav-links">
         <a href="#home" class="nav-btn nav-btn-outline">Каталог</a>
-        <a href="#litoliz" class="nav-btn nav-btn-primary">⭐ Литолиз при ЖКБ</a>
-        <a href="#admin" class="nav-btn nav-btn-outline" title="Админ-панель и Метрика">⚙ Метрика</a>
+        <a href="#litoliz" class="nav-btn nav-btn-primary">⭐ 1. Литолиз при ЖКБ</a>
+        <a href="#steatoz" class="nav-btn nav-btn-primary" style="background: linear-gradient(135deg, #0284c7, #0369a1);">⭐ 2. Регресс стеатоза</a>
       </div>
 
       <!-- Кнопка бургер-меню для телефонов -->
@@ -41,7 +41,11 @@
         </a>
         <a href="#litoliz" class="mobile-menu-link highlight">
           <span class="menu-icon">⭐</span>
-          <span>Оценка литолиза (Авторский)</span>
+          <span>1. Оценка литолиза ЖКБ (Авторский)</span>
+        </a>
+        <a href="#steatoz" class="mobile-menu-link highlight" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.8), rgba(240, 253, 244, 0.8));">
+          <span class="menu-icon">⭐</span>
+          <span>2. Регресс стеатоза печени (Авторский)</span>
         </a>
         <a href="#udca" class="mobile-menu-link">
           <span class="menu-icon">💊</span>
@@ -55,13 +59,13 @@
           <span class="menu-icon">📋</span>
           <span>Опросник CIRS-G</span>
         </a>
+        <a href="#fli" class="mobile-menu-link">
+          <span class="menu-icon">📊</span>
+          <span>Индекс стеатоза FLI</span>
+        </a>
         <a href="#fib4" class="mobile-menu-link">
           <span class="menu-icon">🔬</span>
           <span>Индекс фиброза FIB-4</span>
-        </a>
-        <a href="#admin" class="mobile-menu-link">
-          <span class="menu-icon">⚙</span>
-          <span>Админ-панель & Метрика</span>
         </a>
       </div>
     </div>
@@ -81,11 +85,11 @@
         <p>Клинические шкалы, формулы дозирования и прогностические модели для врачей-гастроэнтерологов, терапевтов и хирургов.</p>
       </div>
 
-      <!-- ФЛАГМАНСКИЙ БАННЕР (АВТОРСКИЙ КАЛЬКУЛЯТОР) -->
+      <!-- ФЛАГМАНСКИЙ БАННЕР 1 (АВТОРСКИЙ КАЛЬКУЛЯТОР ЛИТОЛИЗА) -->
       <section class="flagship-banner">
         <div class="flagship-badge-row">
-          <span class="flagship-badge">⭐ Авторская разработка</span>
-          <span class="patent-badge">Диссертационная модель</span>
+          <span class="flagship-badge">⭐ Авторская разработка №1</span>
+          <span class="patent-badge">Диссертационная модель (табл. 3.20)</span>
         </div>
         <h2>Определение вероятности литолиза при желчнокаменной болезни</h2>
         <p>
@@ -96,6 +100,26 @@
         <div class="flagship-actions">
           <a href="#litoliz" class="btn-flagship">Открыть калькулятор литолиза →</a>
           <a href="https://example.com/dissertation" target="_blank" class="btn-dissertation track-abstract-btn" id="hero-abstract-btn">
+            📄 Автореферат диссертации (PDF / eLibrary)
+          </a>
+        </div>
+      </section>
+
+      <!-- ФЛАГМАНСКИЙ БАННЕР 2 (АВТОРСКИЙ КАЛЬКУЛЯТОР СТЕАТОЗА) -->
+      <section class="flagship-banner" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.7) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(240, 253, 244, 0.7) 100%); border-color: rgba(2, 132, 199, 0.3);">
+        <div class="flagship-badge-row">
+          <span class="flagship-badge" style="background: linear-gradient(135deg, #0284c7, #0369a1);">⭐ Авторская разработка №2</span>
+          <span class="patent-badge">Диссертационная модель (табл. 3.22)</span>
+        </div>
+        <h2>Прогнозирование регресса стеатоза печени при консервативной терапии</h2>
+        <p>
+          Оригинальная математическая модель прогнозирования вероятности регресса стеатоза (жирового гепатоза) на фоне проводимой терапии. 
+          Построена на базе многофакторной бинарной логистической регрессии по результатам диссертационного исследования (ROC AUC = 0.827, 
+          чувствительность 92.6%, специфичность 73.3%). Учитывает базальную гликемию, ИМТ, окружность талии и расчетный индекс стеатоза FLI.
+        </p>
+        <div class="flagship-actions">
+          <a href="#steatoz" class="btn-flagship" style="background: linear-gradient(135deg, #0284c7, #0369a1);">Открыть калькулятор регресса стеатоза →</a>
+          <a href="https://example.com/dissertation" target="_blank" class="btn-dissertation track-abstract-btn" id="hero-steatoz-abstract-btn">
             📄 Автореферат диссертации (PDF / eLibrary)
           </a>
         </div>
@@ -165,6 +189,17 @@
         <p>Скрининг жирового гепатоза и выраженности фиброза при НАЖБП и гепатитах</p>
       </div>
       <div class="calc-grid">
+        <a href="#steatoz" class="calc-card" style="border-color: rgba(2, 132, 199, 0.35); background: linear-gradient(180deg, rgba(240, 249, 255, 0.7) 0%, var(--surface-card) 100%);">
+          <div class="calc-card-top">
+            <span class="calc-category-tag" style="background:#e0f2fe; color:#0369a1;">⭐ Авторский (Модель 2)</span>
+            <h4>Регресс стеатоза печени при терапии</h4>
+            <p>Прогноз вероятности купирования жирового гепатоза по уровню глюкозы, ИМТ, окружности талии и индексу FLI.</p>
+          </div>
+          <div class="calc-card-footer" style="color:#0284c7;">
+            <span>Рассчитать прогноз</span> →
+          </div>
+        </a>
+
         <a href="#fli" class="calc-card">
           <div class="calc-card-top">
             <span class="calc-category-tag">Стеатоз</span>
@@ -310,6 +345,85 @@
               <div class="result-desc" id="lit-desc"></div>
               <div class="actions-row">
                 <button type="button" class="btn-secondary" id="lit-copy">Скопировать для медкарты</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 2B. СТРАНИЦА: АВТОРСКИЙ КАЛЬКУЛЯТОР РЕГРЕССА СТЕАТОЗА (#steatoz) ==================== -->
+    <div id="page-steatoz" class="page-view">
+      <div class="breadcrumbs">
+        <a href="#home">Главная</a> <span>/</span> <span>Регресс стеатоза печени</span>
+      </div>
+
+      <div class="calc-container">
+        <!-- БЛОК ССЫЛКИ НА АВТОРЕФЕРАТ ДИССЕРТАЦИИ -->
+        <div class="dissertation-box" style="border-color: rgba(2, 132, 199, 0.25);">
+          <div class="dissertation-box-header">
+            <span>🎓 Научная публикация & Автореферат</span>
+          </div>
+          <h4>Вторая авторская диссертационная модель</h4>
+          <p>
+            Математическая модель прогнозирования вероятности регресса стеатоза печени получена методом 
+            многофакторной бинарной логистической регрессии в рамках диссертационного исследования (Таблица 3.22, ROC AUC = 0.827, точность 84.1%).
+          </p>
+          <a href="https://example.com/dissertation-abstract" target="_blank" class="dissertation-link-btn track-abstract-btn" id="steat-abstract-btn">
+            📖 Читать автореферат / описание методики (ссылка на публикацию)
+          </a>
+        </div>
+
+        <div class="calc-box">
+          <div class="calc-header">
+            <span class="calc-category-tag" style="background:#e0f2fe; color:#0369a1;">⭐ Авторская модель №2</span>
+            <h1>Прогнозирование регресса стеатоза печени при терапии</h1>
+            <p>Оценка вероятности регресса жирового гепатоза на фоне консервативного лечения.</p>
+          </div>
+
+          <form id="form-steatoz">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="steat-glucose">Глюкоза плазмы натощак, ммоль/л</label>
+                <input type="number" id="steat-glucose" step="0.1" min="1" max="40" placeholder="Например: 5.4" required>
+                <div class="field-hint">Базальный уровень гликемии (референс: 3.3 – 6.1)</div>
+              </div>
+
+              <div class="form-group">
+                <label for="steat-bmi">Индекс массы тела (ИМТ), кг/м²</label>
+                <input type="number" id="steat-bmi" step="0.1" min="10" max="80" placeholder="Например: 29.2" required>
+                <div class="field-hint">Масса тела (кг) / рост² (м)</div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="steat-wc">Окружность талии (ОТ), см</label>
+                <input type="number" id="steat-wc" step="0.5" min="30" max="250" placeholder="Например: 92" required>
+                <div class="field-hint">Измерение посередине между нижним ребром и гребнем подвздошной кости</div>
+              </div>
+
+              <div class="form-group">
+                <label for="steat-fli">
+                  Индекс FLI (Fatty Liver Index), балл
+                  <a href="#fli" class="field-helper-link">Рассчитать индекс FLI →</a>
+                </label>
+                <input type="number" id="steat-fli" step="0.1" min="0" max="100" placeholder="Например: 64" required>
+                <div class="field-hint">Расчетный балл стеатоза (шкала 0 – 100)</div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-calc" style="background: linear-gradient(135deg, #0284c7, #0369a1);">Рассчитать вероятность регресса стеатоза</button>
+          </form>
+
+          <div class="result-section" id="res-steatoz">
+            <div class="result-card">
+              <div class="result-title">Вероятность регресса стеатоза печени</div>
+              <div class="result-value" id="steat-val">--%</div>
+              <div class="result-status" id="steat-status">--</div>
+              <div class="result-desc" id="steat-desc"></div>
+              <div class="actions-row">
+                <button type="button" class="btn-secondary" id="steat-copy">Скопировать для медкарты</button>
               </div>
             </div>
           </div>
@@ -780,6 +894,9 @@
               <div class="result-status" id="fli-status">--</div>
               <div class="result-desc" id="fli-desc"></div>
               <div class="actions-row">
+                <button type="button" class="btn-secondary" id="fli-use-in-steat" style="background:#eff6ff; color:#0369a1; border-color:#bae6fd;">
+                  👉 Перенести в калькулятор регресса стеатоза
+                </button>
                 <button type="button" class="btn-secondary" id="fli-copy">Скопировать для медкарты</button>
               </div>
             </div>
@@ -936,9 +1053,6 @@
           </div>
           <button type="submit" class="btn-calc" style="margin-top: 4px;">Войти в панель</button>
         </form>
-        <div style="font-size: 11px; color: var(--text-light); margin-top: 14px;">
-          Пароль по умолчанию: <code>gastro2026</code> (можно сменить в server.js)
-        </div>
       </div>
 
       <!-- ОСНОВНОЙ КОНТЕНТ АДМИНКИ (ТОЛЬКО ДЛЯ АВТОРИЗОВАННОГО АДМИНИСТРАТОРА) -->
@@ -1050,26 +1164,20 @@
         <!-- Колонка 2: Контакты автора -->
         <div class="footer-col">
           <h4>Связь с автором</h4>
-          <p>По вопросам клинического сотрудничества, научной работы и спонсорства:</p>
+          <p>По вопросам клинического сотрудничества, научной работы и обратной связи:</p>
           
           <div class="contact-item">
             <span>Telegram:</span>
-            <!-- Заполните ваш логин Telegram вместо @your_telegram_here -->
-            <a href="https://t.me/your_telegram_here" target="_blank" class="contact-badge" style="text-decoration:none;">
-              @your_telegram_here
+            <a href="https://t.me/alfosx" target="_blank" class="contact-badge" style="text-decoration:none;">
+              @alfosx
             </a>
           </div>
 
           <div class="contact-item">
             <span>Email:</span>
-            <!-- Заполните вашу почту вместо doctor@example.com -->
-            <a href="mailto:doctor@example.com" class="contact-badge" style="text-decoration:none;">
-              doctor@example.com
+            <a href="mailto:ufimtsevaiv77@mail.ru" class="contact-badge" style="text-decoration:none;">
+              ufimtsevaiv77@mail.ru
             </a>
-          </div>
-
-          <div style="margin-top:14px; font-size:11px; color:#64748b; line-height:1.4;">
-            * Заполните логин Telegram и Email в файле <code>index.html</code> (строки с классом contact-badge).
           </div>
         </div>
 
@@ -1078,18 +1186,20 @@
           <h4>Разделы</h4>
           <ul class="footer-links">
             <li><a href="#home">Главная страница</a></li>
-            <li><a href="#litoliz">⭐ Калькулятор литолиза при ЖКБ</a></li>
+            <li><a href="#litoliz">⭐ 1. Оценка литолиза при ЖКБ</a></li>
+            <li><a href="#steatoz">⭐ 2. Регресс стеатоза печени</a></li>
             <li><a href="#udca">Дозирование УДХК</a></li>
             <li><a href="#homa">Индекс HOMA-IR</a></li>
             <li><a href="#cirsg">Опросник CIRS-G</a></li>
+            <li><a href="#fli">Индекс стеатоза FLI</a></li>
             <li><a href="#fib4">Индекс FIB-4</a></li>
-            <li><a href="#admin">⚙ Админ-панель и Метрика</a></li>
+            <li><a href="#admin">⚙ Панель управления & Метрика</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>© GastroHepato Calc. Авторская научная модель оценки вероятности литолиза.</div>
+        <div>© GastroHepato Calc. Авторские научные модели (диссертационное исследование).</div>
         <div>Медицинский информационно-справочный сервис. Не заменяет очный прием врача.</div>
       </div>
     </div>

@@ -116,7 +116,7 @@ setInterval(() => {
   }
 }, 30000);
 
-// --- 4. ЗАКРЫТАЯ ФОРМУЛА ЛИТОЛИЗА ---
+// --- 4. ЗАКРЫТАЯ ФОРМУЛА 1: ЛИТОЛИЗ ПРИ ЖКБ ---
 function calculateLitolizSecret(rk, homa, bsd, cirs) {
   const x = 11.06 + (-0.205 * rk) + (-0.948 * homa) + (-2.27 * bsd) + (-3.378 * cirs);
   const p = 1 / (1 + Math.exp(-x));
@@ -126,18 +126,38 @@ function calculateLitolizSecret(rk, homa, bsd, cirs) {
   let statusClass = '';
   let desc = '';
 
-  if (p >= 0.70) {
-    status = 'Высокая вероятность успеха (≥ 70%)';
+  if (p > 0.50) {
+    status = 'Высокая вероятность успеха (> 50%) — Литолиз произойдет';
     statusClass = 'status-high';
-    desc = '<strong>Клиническое заключение:</strong> Высокий потенциал растворения конкрементов препаратами УДХК (доза 10–15 мг/кг/сут). Конкременты рентгеннегативные/холестериновые, сохранная функция ЖП и низкий коморбидный фон способствуют полному литолизу. Рекомендован контрольный УЗ-мониторинг через 3 и 6 месяцев.';
-  } else if (p >= 0.40) {
-    status = 'Умеренная вероятность (40–69%)';
-    statusClass = 'status-medium';
-    desc = '<strong>Клиническое заключение:</strong> Промежуточный прогноз. Возможно назначение пробного курса литолитической терапии на 3–6 месяцев. При отсутствии положительной динамики размеров конкрементов через 6 месяцев консервативную терапию следует пересмотреть.';
+    desc = '<strong>Клиническое заключение:</strong> Согласно диссертационной модели (ROC AUC = 0.918, чувствительность 83.9%, специфичность 82.8%), при значении P > 0.5 прогнозируется успешный литолиз конкрементов препаратами УДХК (10–15 мг/кг/сут). Рекомендован контрольный УЗ-мониторинг через 3 и 6 месяцев.';
   } else {
-    status = 'Низкая вероятность (< 40%)';
+    status = 'Низкая вероятность успеха (≤ 50%) — Литолиз маловероятен';
     statusClass = 'status-low';
-    desc = '<strong>Клиническое заключение:</strong> Консервативный литолиз малоэффективен (высокая плотность конкрементов по КТ, крупные размеры, инсулинорезистентность или высокий балл коморбидности CIRS-G). Рекомендована консультация хирурга для решения вопроса о плановой холецистэктомии.';
+    desc = '<strong>Клиническое заключение:</strong> По прогностической модели вероятность растворения конкрементов не превышает порог отсечения (P ≤ 0.5). Факторы низкой эффективности: размеры/высокая КТ-плотность камней, выраженная инсулинорезистентность или тяжелый соматический фон CIRS-G. Рекомендована консультация хирурга для рассмотрения плановой холецистэктомии.';
+  }
+
+  return { p, percent, status, statusClass, desc };
+}
+
+// --- ЗАКРЫТАЯ ФОРМУЛА 2: РЕГРЕСС СТЕАТОЗА ПЕЧЕНИ ---
+function calculateSteatozSecret(glucose, bmi, wc, fli) {
+  // z = 33.501 + (-3.100 * glucose) + (0.439 * bmi) + (-0.376 * wc) + (0.106 * fli)
+  const z = 33.501 + (-3.100 * glucose) + (0.439 * bmi) + (-0.376 * wc) + (0.106 * fli);
+  const p = 1 / (1 + Math.exp(-z));
+  const percent = Number((p * 100).toFixed(1));
+
+  let status = '';
+  let statusClass = '';
+  let desc = '';
+
+  if (p > 0.50) {
+    status = 'Высокая вероятность регресса (> 50%) — Регресс стеатоза произойдет';
+    statusClass = 'status-high';
+    desc = '<strong>Клиническое заключение:</strong> Согласно диссертационной модели (Таблица 3.22, ROC AUC = 0.827, чувствительность 92.6%, специфичность 73.3%), при значении P > 0.5 прогнозируется регресс жирового гепатоза на фоне гепатопротективной терапии УДХК и коррекции метаболического статуса.';
+  } else {
+    status = 'Низкая вероятность регресса (≤ 50%) — Регресс стеатоза маловероятен';
+    statusClass = 'status-low';
+    desc = '<strong>Клиническое заключение:</strong> Значение вероятности регресса стеатоза ниже критического порога (P ≤ 0.5). Ограничивающие факторы: высокий уровень гликемии натощак и абдоминальное ожирение (окружность талии). Требуется интенсификация гипогликемической терапии и снижение массы тела.';
   }
 
   return { p, percent, status, statusClass, desc };
@@ -281,6 +301,59 @@ const server = http.createServer((req, res) => {
           }
 
           const result = calculateLitolizSecret(rk, homa, bsd, cirs);
+
+          res.writeHead(200, { 
+            'Content-Type': 'application/json; charset=utf-8',
+            'Cache-Control': 'no-store, no-cache, must-revalidate'
+          });
+          res.end(JSON.stringify(result));
+        } catch (e) {
+          res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
+          res.end(JSON.stringify({ error: 'Неверный формат JSON.' }));
+        }
+      });
+      return;
+    }
+
+    // API: Расчет формулы 2 (Регресс стеатоза печени)
+    if (pathname === '/api/calc/steatoz' && req.method === 'POST') {
+      if (!checkRateLimit(`calc_${ip}`, 30, 60000)) {
+        res.writeHead(429, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ error: 'Лимит расчетов превышен. Пожалуйста, подождите 1 минуту.' }));
+        return;
+      }
+
+      let body = '';
+      let isDone = false;
+
+      req.on('data', chunk => {
+        if (isDone) return;
+        body += chunk;
+        if (body.length > 8192) {
+          isDone = true;
+          res.writeHead(413, { 'Content-Type': 'application/json; charset=utf-8' });
+          res.end(JSON.stringify({ error: 'Payload too large' }));
+          req.destroy();
+        }
+      });
+
+      req.on('end', () => {
+        if (isDone) return;
+        try {
+          const data = JSON.parse(body);
+          const glucose = parseFloat(data.glucose);
+          const bmi = parseFloat(data.bmi);
+          const wc = parseFloat(data.wc);
+          const fli = parseFloat(data.fli);
+
+          if (isNaN(glucose) || isNaN(bmi) || isNaN(wc) || isNaN(fli) ||
+              glucose < 1 || glucose > 40 || bmi < 10 || bmi > 80 || wc < 30 || wc > 250 || fli < 0 || fli > 100) {
+            res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
+            res.end(JSON.stringify({ error: 'Некорректные параметры расчета регресса стеатоза.' }));
+            return;
+          }
+
+          const result = calculateSteatozSecret(glucose, bmi, wc, fli);
 
           res.writeHead(200, { 
             'Content-Type': 'application/json; charset=utf-8',

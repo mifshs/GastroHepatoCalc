@@ -13,6 +13,7 @@ function getStats() {
     abstractClicks: 0,
     byType: {
       litoliz: 0,
+      steatoz: 0,
       udca: 0,
       homa: 0,
       cirsg: 0,
@@ -91,7 +92,7 @@ function initYandexMetrika() {
 }
 
 // --- 2. HASH ROUTER ---
-const routes = ['home', 'litoliz', 'udca', 'homa', 'cirsg', 'fib4', 'apri', 'fli', 'childpugh', 'meld', 'admin'];
+const routes = ['home', 'litoliz', 'steatoz', 'udca', 'homa', 'cirsg', 'fib4', 'apri', 'fli', 'childpugh', 'meld', 'admin'];
 
 function navigateTo(route) {
   if (!routes.includes(route)) route = 'home';
@@ -293,6 +294,102 @@ function initLitolizCalc() {
 - Плотность по КТ: ${bsdTxt}
 - Коморбидность CIRS-G: ${d.cirs} балла(ов)
 Результат: расчётная вероятность успеха литолиза: ${d.percent}%.
+Заключение: ${d.status}.`;
+    copyText(text);
+  });
+}
+
+// А-2) АВТОРСКИЙ КАЛЬКУЛЯТОР 2: РЕГРЕСС СТЕАТОЗА ПЕЧЕНИ
+let lastSteatozData = null;
+
+function initSteatozCalc() {
+  const form = document.getElementById('form-steatoz');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const glucose = parseFloat(document.getElementById('steat-glucose').value);
+    const bmi = parseFloat(document.getElementById('steat-bmi').value);
+    const wc = parseFloat(document.getElementById('steat-wc').value);
+    const fli = parseFloat(document.getElementById('steat-fli').value);
+
+    if (isNaN(glucose) || isNaN(bmi) || isNaN(wc) || isNaN(fli)) {
+      alert('Заполните корректно все поля.');
+      return;
+    }
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.textContent = '🔒 Защищенный расчет...';
+    submitBtn.disabled = true;
+
+    let resData = null;
+
+    try {
+      const response = await fetch('/api/calc/steatoz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ glucose, bmi, wc, fli })
+      });
+
+      if (response.ok) {
+        resData = await response.json();
+      } else if (response.status === 429) {
+        alert('Защита от флуда (Anti-DDoS): слишком много расчетов. Подождите 1 минуту.');
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+        return;
+      } else {
+        const err = await response.json().catch(() => ({}));
+        alert(err.error || 'Ошибка при вычислении на сервере.');
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+        return;
+      }
+    } catch (err) {
+      alert('🔒 Формула защищена от копирования и рассчитывается на бэкенде.\nДля расчета запустите сервер: node server.js и откройте http://localhost:3000');
+      submitBtn.textContent = originalBtnText;
+      submitBtn.disabled = false;
+      return;
+    }
+
+    submitBtn.textContent = originalBtnText;
+    submitBtn.disabled = false;
+
+    const { p, percent, status, statusClass, desc } = resData;
+
+    lastSteatozData = { glucose, bmi, wc, fli, p, percent, status };
+    trackCalculation('steatoz');
+
+    const resSec = document.getElementById('res-steatoz');
+    const valEl = document.getElementById('steat-val');
+    const statusEl = document.getElementById('steat-status');
+    const descEl = document.getElementById('steat-desc');
+
+    valEl.textContent = `${percent}%`;
+    statusEl.className = `result-status ${statusClass}`;
+    statusEl.textContent = status;
+
+    if (p > 0.50) {
+      valEl.style.color = 'var(--success)';
+    } else {
+      valEl.style.color = 'var(--danger)';
+    }
+
+    descEl.innerHTML = desc;
+    resSec.style.display = 'block';
+    resSec.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  document.getElementById('steat-copy')?.addEventListener('click', () => {
+    if (!lastSteatozData) return;
+    const d = lastSteatozData;
+    const text = `Прогноз регресса стеатоза печени (диссертационная модель):
+- Глюкоза натощак: ${d.glucose} ммоль/л
+- ИМТ: ${d.bmi} кг/м²
+- Окружность талии: ${d.wc} см
+- Индекс FLI: ${d.fli} балла(ов)
+Результат: расчётная вероятность регресса стеатоза: ${d.percent}%.
 Заключение: ${d.status}.`;
     copyText(text);
   });
@@ -643,6 +740,21 @@ function initFliCalc() {
 Заключение: ${document.getElementById('fli-status').textContent}.`;
     copyText(text);
   });
+
+  // Перенос значения FLI в калькулятор регресса стеатоза
+  document.getElementById('fli-use-in-steat')?.addEventListener('click', () => {
+    const val = document.getElementById('fli-val').textContent;
+    if (val && val !== '--') {
+      navigateTo('steatoz');
+      const steatField = document.getElementById('steat-fli');
+      if (steatField) steatField.value = val;
+      const bmiVal = document.getElementById('fli-bmi').value;
+      const wcVal = document.getElementById('fli-wc').value;
+      if (bmiVal) document.getElementById('steat-bmi').value = bmiVal;
+      if (wcVal) document.getElementById('steat-wc').value = wcVal;
+      showToast(`Параметры FLI (${val}), ИМТ и талия перенесены в модель стеатоза`);
+    }
+  });
 }
 
 // З) ШКАЛА CHILD-PUGH
@@ -777,7 +889,8 @@ function renderAdminStats() {
 
   // Заполнение таблицы
   const names = {
-    litoliz: '⭐ Оценка вероятности литолиза (Авторский)',
+    litoliz: '⭐ Оценка вероятности литолиза (Авторский 1)',
+    steatoz: '⭐ Прогноз регресса стеатоза (Авторский 2)',
     udca: 'Дозирование УДХК (мг/кг)',
     homa: 'Индекс HOMA-IR',
     cirsg: 'Опросник CIRS-G',
@@ -914,6 +1027,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Инициализация калькуляторов
   initLitolizCalc();
+  initSteatozCalc();
   initUdcaCalc();
   initHomaCalc();
   initCirsgCalc();
