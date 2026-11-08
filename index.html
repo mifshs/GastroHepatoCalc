@@ -13,14 +13,18 @@
     <div class="nav-container">
       <a href="#home" class="brand">
         <div class="brand-icon">⚕</div>
-        <div class="brand-title">GastroHepato<span>Calc</span></div>
+        <div class="brand-title">Доктор Уфимцева<span> И.В.</span></div>
       </a>
       
       <!-- Десктопные кнопки -->
       <div class="nav-links">
-        <a href="#home" class="nav-btn nav-btn-outline">Каталог</a>
-        <a href="#litoliz" class="nav-btn nav-btn-primary">⭐ 1. Литолиз при ЖКБ</a>
-        <a href="#steatoz" class="nav-btn nav-btn-primary" style="background: linear-gradient(135deg, #0284c7, #0369a1);">⭐ 2. Регресс стеатоза</a>
+        <a href="#home" class="nav-btn nav-btn-outline">Главная</a>
+        <a href="#home-symptoms" class="nav-btn nav-btn-outline">Симптомы</a>
+        <a href="#home-services" class="nav-btn nav-btn-outline">Направления</a>
+        <a href="#home-articles" class="nav-btn nav-btn-outline">Статьи</a>
+        <a href="#home-reviews" class="nav-btn nav-btn-outline">Отзывы</a>
+        <a href="#calcs" class="nav-btn nav-btn-primary">🩺 Калькуляторы</a>
+        <a href="https://www.lotos74.ru/specialists/ufimtseva-irina-vladimirovna/" target="_blank" class="nav-btn btn-appointment-nav">Запись на прием</a>
       </div>
 
       <!-- Кнопка бургер-меню для телефонов -->
@@ -33,39 +37,51 @@
 
     <!-- Мобильное стеклянное меню (iOS 26 Liquid Glass Sheet) -->
     <div class="mobile-glass-menu" id="mobileGlassMenu">
-      <div class="mobile-menu-header">Навигация по разделам</div>
+      <div class="mobile-menu-header">Навигация по порталу</div>
       <div class="mobile-menu-items">
         <a href="#home" class="mobile-menu-link">
-          <span class="menu-icon">📑</span>
-          <span>Каталог всех калькуляторов</span>
+          <span class="menu-icon">👩‍⚕️</span>
+          <span>Главная: О враче</span>
+        </a>
+        <a href="#home-symptoms" class="mobile-menu-link">
+          <span class="menu-icon">🩺</span>
+          <span>С какими вопросами обратиться</span>
+        </a>
+        <a href="#home-services" class="mobile-menu-link">
+          <span class="menu-icon">📋</span>
+          <span>Направление деятельности</span>
+        </a>
+        <a href="#home-articles" class="mobile-menu-link">
+          <span class="menu-icon">📚</span>
+          <span>Статьи и публикации</span>
+        </a>
+        <a href="#home-achievements" class="mobile-menu-link">
+          <span class="menu-icon">🏆</span>
+          <span>Достижения и наука</span>
+        </a>
+        <a href="#home-clinic" class="mobile-menu-link">
+          <span class="menu-icon">🏥</span>
+          <span>Место работы (МЦ «Лотос»)</span>
+        </a>
+        <a href="#home-reviews" class="mobile-menu-link">
+          <span class="menu-icon">💬</span>
+          <span>Отзывы пациентов</span>
+        </a>
+        <a href="#calcs" class="mobile-menu-link highlight">
+          <span class="menu-icon">🩺</span>
+          <span>Каталог калькуляторов</span>
         </a>
         <a href="#litoliz" class="mobile-menu-link highlight">
           <span class="menu-icon">⭐</span>
-          <span>1. Оценка литолиза ЖКБ (Авторский)</span>
+          <span>1. Оценка литолиза ЖКБ</span>
         </a>
         <a href="#steatoz" class="mobile-menu-link highlight" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.8), rgba(240, 253, 244, 0.8));">
           <span class="menu-icon">⭐</span>
-          <span>2. Регресс стеатоза печени (Авторский)</span>
+          <span>2. Регресс стеатоза печени</span>
         </a>
-        <a href="#udca" class="mobile-menu-link">
-          <span class="menu-icon">💊</span>
-          <span>Дозирование УДХК</span>
-        </a>
-        <a href="#homa" class="mobile-menu-link">
-          <span class="menu-icon">🧬</span>
-          <span>Индекс HOMA-IR</span>
-        </a>
-        <a href="#cirsg" class="mobile-menu-link">
-          <span class="menu-icon">📋</span>
-          <span>Опросник CIRS-G</span>
-        </a>
-        <a href="#fli" class="mobile-menu-link">
-          <span class="menu-icon">📊</span>
-          <span>Индекс стеатоза FLI</span>
-        </a>
-        <a href="#fib4" class="mobile-menu-link">
-          <span class="menu-icon">🔬</span>
-          <span>Индекс фиброза FIB-4</span>
+        <a href="https://www.lotos74.ru/specialists/ufimtseva-irina-vladimirovna/" target="_blank" class="mobile-menu-link" style="background:#15803d; color:#fff; font-weight:700;">
+          <span class="menu-icon">🗓️</span>
+          <span>Записаться на прием (МЦ «Лотос»)</span>
         </a>
       </div>
     </div>
@@ -77,12 +93,535 @@
   <!-- ОСНОВНОЙ КОНТЕНТ -->
   <main class="main-wrapper">
 
-    <!-- ==================== 1. ГЛАВНАЯ СТРАНИЦА (#home) ==================== -->
+    <!-- ==================== 1. ГЛАВНАЯ СТРАНИЦА: ПОРТАЛ ВРАЧА (#home) ==================== -->
     <div id="page-home" class="page-view active">
+      
+      <!-- 1.1. HERO-СЕКЦИЯ ВРАЧА (100VH) -->
+      <section class="doctor-hero" id="doctor-hero">
+        <div class="doctor-hero-container">
+          
+          <!-- ЛЕВАЯ КОЛОНКА: КРУПНЫЙ ПЛАН - ФОТО ВРАЧА (КВАДРАТ 1:1) -->
+          <div class="doctor-photo-col">
+            <div class="doctor-photo-frame" id="doctorPhotoFrame">
+              <div class="doctor-photo-placeholder">
+                <div class="placeholder-icon">
+                  <svg width="68" height="68" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="placeholder-title">Фото врача</div>
+                <div class="placeholder-sub">Квадратный контейнер 1:1<br><span>(вставьте doctor-photo.jpg)</span></div>
+              </div>
+              <div class="doctor-photo-badge">
+                <span class="pulse-dot"></span>
+                <span>Очный прием в МЦ «Лотос»</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ПРАВАЯ КОЛОНКА: ИМЯ, РЕГАЛИИ, СЛОГАН И БИО КРУПНЫМ ПЛАНОМ -->
+          <div class="doctor-info-col">
+            <div class="doctor-tag-row">
+              <span class="doctor-tag">⚕ Доказательная гастроэнтерология & гепатология</span>
+              <span class="doctor-tag tag-science">🎓 Автор диссертационных моделей</span>
+            </div>
+
+            <h1 class="doctor-name">Уфимцева Ирина Владимировна</h1>
+            <div class="doctor-specialty">Врач-гастроэнтеролог • Гепатолог • Автор диссертационного исследования</div>
+
+            <div class="doctor-slogan-box">
+              <div class="slogan-quote-icon">“</div>
+              <p class="doctor-slogan">
+                Доказательный подход к здоровью пищеварительной системы: от фундаментальной научной модели к точному и бережному лечению каждого пациента.
+              </p>
+            </div>
+
+            <p class="doctor-lead-text">
+              Специализируюсь на консервативном лечении желчнокаменной болезни (литолиз без операции), жирового гепатоза (стеатоза печени), воспалительных заболеваний желудка, кишечника и поджелудочной железы. Разработчик двух валидированных математических моделей прогнозирования результатов терапии.
+            </p>
+
+            <div class="doctor-hero-actions">
+              <a href="https://www.lotos74.ru/specialists/ufimtseva-irina-vladimirovna/" target="_blank" class="btn-primary-action">
+                <span>🗓️ Записаться на прием (МЦ «Лотос»)</span>
+              </a>
+              <a href="#calcs" class="btn-glass-action">
+                <span>🩺 Клинические калькуляторы</span>
+              </a>
+              <a href="https://t.me/alfosx" target="_blank" class="btn-glass-action">
+                <span>💬 Telegram: @alfosx</span>
+              </a>
+            </div>
+
+            <div class="doctor-mini-stats">
+              <div class="mini-stat">
+                <strong>15+ лет</strong>
+                <span>клинической практики</span>
+              </div>
+              <div class="mini-stat">
+                <strong>2 модели</strong>
+                <span>в диссертации (ЖКБ и стеатоз)</span>
+              </div>
+              <div class="mini-stat">
+                <strong>1000+</strong>
+                <span>сохраненных желчных пузырей</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 1.2. БЛОК-СЛАЙДЕР СО СТАТЬЯМИ -->
+      <section class="section-block reveal-on-scroll" id="home-articles">
+        <div class="section-header-row">
+          <div>
+            <div class="block-kicker">База знаний & публикации</div>
+            <h2 class="section-title">Статьи и клинические рекомендации</h2>
+            <p class="section-subtitle">Авторские разборы современных протоколов диагностики и лечения ЖКТ, основанные на доказательной медицине</p>
+          </div>
+          <div class="slider-controls">
+            <button type="button" class="slider-btn" id="artSliderPrev" aria-label="Предыдущая статья">←</button>
+            <button type="button" class="slider-btn" id="artSliderNext" aria-label="Следующая статья">→</button>
+          </div>
+        </div>
+
+        <div class="articles-slider-wrapper">
+          <div class="articles-slider-track" id="articlesSliderTrack">
+            
+            <!-- Статья 1 -->
+            <article class="article-card">
+              <div class="article-card-cover" style="background: linear-gradient(135deg, #0284c7, #075985);">
+                <div class="article-cover-icon">💊</div>
+                <span class="article-cat-badge">ЖКБ • УДХК</span>
+              </div>
+              <div class="article-card-body">
+                <div class="article-date">14 октября 2026</div>
+                <h3 class="article-title">Консервативный литолиз камней желчного пузыря: когда операция не нужна?</h3>
+                <p class="article-desc">
+                  Критерии отбора пациентов для медикаментозного растворения камней препаратами УДХК. Роль плотности по КТ, размера конкрементов и инсулинорезистентности.
+                </p>
+                <div class="article-footer">
+                  <a href="#litoliz" class="article-read-link">Оценить в калькуляторе литолиза →</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Статья 2 -->
+            <article class="article-card">
+              <div class="article-card-cover" style="background: linear-gradient(135deg, #0d9488, #115e59);">
+                <div class="article-cover-icon">🔬</div>
+                <span class="article-cat-badge">Гепатология • Стеатоз</span>
+              </div>
+              <div class="article-card-body">
+                <div class="article-date">28 сентября 2026</div>
+                <h3 class="article-title">Жировой гепатоз печени: от скрытого стеатоза к полному регрессу</h3>
+                <p class="article-desc">
+                  Как прогнозировать обратное развитие стеатоза печени по авторской диссертационной модели, учитывающей гликемию натощак, ИМТ, окружность талии и индекс FLI.
+                </p>
+                <div class="article-footer">
+                  <a href="#steatoz" class="article-read-link">Оценить регресс стеатоза →</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Статья 3 -->
+            <article class="article-card">
+              <div class="article-card-cover" style="background: linear-gradient(135deg, #6366f1, #4338ca);">
+                <div class="article-cover-icon">🧬</div>
+                <span class="article-cat-badge">Эндокринология & ЖКТ</span>
+              </div>
+              <div class="article-card-body">
+                <div class="article-date">05 сентября 2026</div>
+                <h3 class="article-title">Инсулинорезистентность и индекс HOMA-IR: невидимый фактор камнеобразования</h3>
+                <p class="article-desc">
+                  Почему повышенный базальный инсулин меняет биохимический состав желчи и ускоряет образование холестериновых кристаллов в желчном пузыре.
+                </p>
+                <div class="article-footer">
+                  <a href="#homa" class="article-read-link">Рассчитать индекс HOMA-IR →</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Статья 4 -->
+            <article class="article-card">
+              <div class="article-card-cover" style="background: linear-gradient(135deg, #f59e0b, #b45309);">
+                <div class="article-cover-icon">🩺</div>
+                <span class="article-cat-badge">Кишечник & Микробиота</span>
+              </div>
+              <div class="article-card-body">
+                <div class="article-date">18 августа 2026</div>
+                <h3 class="article-title">Вздутие, боли и нарушение стула: как отличить СРК от воспаления кишечника</h3>
+                <p class="article-desc">
+                  Пошаговый алгоритм дифференциальной диагностики синдрома раздраженного кишечника (Римские критерии IV), исключение органической патологии и диета Low-FODMAP.
+                </p>
+                <div class="article-footer">
+                  <a href="https://www.lotos74.ru/specialists/ufimtseva-irina-vladimirovna/" target="_blank" class="article-read-link">Записаться на консультацию →</a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 1.3. БЛОК: С КАКИМИ ВОПРОСАМИ ВЫ МОЖЕТЕ ОБРАТИТЬСЯ К ВРАЧУ (ПО СКРИНШОТУ 1) -->
+      <section class="section-block reveal-on-scroll" id="home-symptoms">
+        <div class="symptoms-glass-panel">
+          <h2 class="symptoms-title">С какими вопросами вы можете обратиться к врачу</h2>
+          
+          <div class="symptoms-grid">
+            
+            <div class="symptom-card">
+              <div class="symptom-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="6" width="18" height="15" rx="3"></rect>
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  <circle cx="12" cy="13.5" r="2.5"></circle>
+                  <line x1="12" y1="10" x2="12" y2="17"></line>
+                  <line x1="8.5" y1="13.5" x2="15.5" y2="13.5"></line>
+                </svg>
+              </div>
+              <span class="symptom-text">Боль в животе после еды</span>
+            </div>
+
+            <div class="symptom-card">
+              <div class="symptom-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="6" width="18" height="15" rx="3"></rect>
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  <circle cx="12" cy="13.5" r="2.5"></circle>
+                  <line x1="12" y1="10" x2="12" y2="17"></line>
+                  <line x1="8.5" y1="13.5" x2="15.5" y2="13.5"></line>
+                </svg>
+              </div>
+              <span class="symptom-text">Тошнота, рвота, отрыжка, изжога</span>
+            </div>
+
+            <div class="symptom-card">
+              <div class="symptom-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="6" width="18" height="15" rx="3"></rect>
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  <circle cx="12" cy="13.5" r="2.5"></circle>
+                  <line x1="12" y1="10" x2="12" y2="17"></line>
+                  <line x1="8.5" y1="13.5" x2="15.5" y2="13.5"></line>
+                </svg>
+              </div>
+              <span class="symptom-text">Нарушение стула: запоры, диарея и т.п.</span>
+            </div>
+
+            <div class="symptom-card">
+              <div class="symptom-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="6" width="18" height="15" rx="3"></rect>
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  <circle cx="12" cy="13.5" r="2.5"></circle>
+                  <line x1="12" y1="10" x2="12" y2="17"></line>
+                  <line x1="8.5" y1="13.5" x2="15.5" y2="13.5"></line>
+                </svg>
+              </div>
+              <span class="symptom-text">Потеря веса</span>
+            </div>
+
+            <div class="symptom-card">
+              <div class="symptom-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="6" width="18" height="15" rx="3"></rect>
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  <circle cx="12" cy="13.5" r="2.5"></circle>
+                  <line x1="12" y1="10" x2="12" y2="17"></line>
+                  <line x1="8.5" y1="13.5" x2="15.5" y2="13.5"></line>
+                </svg>
+              </div>
+              <span class="symptom-text">Набор веса</span>
+            </div>
+
+            <div class="symptom-card">
+              <div class="symptom-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="6" width="18" height="15" rx="3"></rect>
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  <circle cx="12" cy="13.5" r="2.5"></circle>
+                  <line x1="12" y1="10" x2="12" y2="17"></line>
+                  <line x1="8.5" y1="13.5" x2="15.5" y2="13.5"></line>
+                </svg>
+              </div>
+              <span class="symptom-text">Высыпания на коже</span>
+            </div>
+
+            <div class="symptom-card">
+              <div class="symptom-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="6" width="18" height="15" rx="3"></rect>
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  <circle cx="12" cy="13.5" r="2.5"></circle>
+                  <line x1="12" y1="10" x2="12" y2="17"></line>
+                  <line x1="8.5" y1="13.5" x2="15.5" y2="13.5"></line>
+                </svg>
+              </div>
+              <span class="symptom-text">Вздутие живота, урчание</span>
+            </div>
+
+            <div class="symptom-card">
+              <div class="symptom-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="6" width="18" height="15" rx="3"></rect>
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  <circle cx="12" cy="13.5" r="2.5"></circle>
+                  <line x1="12" y1="10" x2="12" y2="17"></line>
+                  <line x1="8.5" y1="13.5" x2="15.5" y2="13.5"></line>
+                </svg>
+              </div>
+              <span class="symptom-text">Газообразование</span>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 1.4. БЛОК: НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ (ПО СКРИНШОТУ 2) -->
+      <section class="section-block reveal-on-scroll" id="home-services">
+        <div class="services-glass-panel">
+          <h2 class="services-title">Направление деятельности</h2>
+
+          <div class="services-list-container" id="servicesListContainer">
+            <ul class="services-bullet-list">
+              <li><strong>Заболевания желудка:</strong> гастрит, язвенная болезнь желудка и двенадцатиперстной кишки, эрозивные поражения слизистой.</li>
+              <li><strong>Заболевания пищевода:</strong> гастроэзофагеальная рефлюксная болезнь (ГЭРБ), грыжи пищеводного отверстия диафрагмы, эзофагиты, ахалазия кардии.</li>
+              <li><strong>Заболевания кишечника:</strong> дисбиоз кишечника, колиты, язвенный колит, болезнь Крона, дивертикулярная болезнь, полипы кишечника, синдром раздраженного кишечника (СРК).</li>
+              <li><strong>Заболевания печени:</strong> стеатоз (жировой гепатоз), неалкогольная жировая болезнь печени (НАЖБП/МАСЖБ), фиброз, цирроз печени, хронические гепатиты.</li>
+              <li><strong>Заболевания желчного пузыря:</strong> хронический и калькулезный холецистит, желчнокаменная болезнь (ЖКБ), полипы желчного пузыря, билиарный сладж.</li>
+              <li><strong>Заболевания поджелудочной железы:</strong> панкреатиты (острый и хронический), дисфункция сфинктера Одди, кисты поджелудочной железы.</li>
+              <li class="extra-service"><strong>Инфекционные заболевания ЖКТ:</strong> лямблиоз, аскаридоз, энтеробиоз, вирусный гепатит С, сальмонеллез, бластоцистоз.</li>
+              <li class="extra-service"><strong>Метаболические нарушения:</strong> абдоминальное ожирение, инсулинорезистентность, метаболический синдром, жировая болезнь печени.</li>
+            </ul>
+          </div>
+
+          <div class="services-toggle-row">
+            <button type="button" class="btn-toggle-services" id="toggleServicesBtn">
+              <span id="toggleServicesText">Скрыть</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" id="toggleServicesIcon" style="transform: rotate(180deg); transition: transform 0.3s ease;">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 1.5. БЛОК: ДОСТИЖЕНИЯ ВРАЧА -->
+      <section class="section-block reveal-on-scroll" id="home-achievements">
+        <div class="block-kicker" style="text-align: center;">Квалификация & Доказательная база</div>
+        <h2 class="section-title" style="text-align: center;">Научные достижения и клинический опыт</h2>
+        <p class="section-subtitle" style="text-align: center; margin: 0 auto 36px;">Синтез фундаментальной академической науки и ежедневной врачебной практики</p>
+
+        <div class="achievements-grid">
+          
+          <div class="achievement-card">
+            <div class="achieve-num">2</div>
+            <div class="achieve-title">Авторские модели</div>
+            <p class="achieve-desc">Математические модели прогноза литолиза при ЖКБ (AUC 0.918) и регресса стеатоза печени (AUC 0.827), выведенные в диссертационном исследовании.</p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achieve-num">15+</div>
+            <div class="achieve-title">Лет практики</div>
+            <p class="achieve-desc">Непрерывный врачебный стаж в гастроэнтерологии и гепатологии. Регулярное ведение пациентов со сложными коморбидными патологиями.</p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achieve-num">1000+</div>
+            <div class="achieve-title">Пациентов без операции</div>
+            <p class="achieve-desc">Успешное сохранение функционирующего желчного пузыря при ЖКБ благодаря точному математическому отбору и доказательному литолизу.</p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achieve-num">ВАК</div>
+            <div class="achieve-title">Научные публикации</div>
+            <p class="achieve-desc">Автор научных статей в ведущих рецензируемых изданиях, рекомендованных ВАК РФ, участник всероссийских съездов гастроэнтерологов.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 1.6. БЛОК: МЕСТО РАБОТЫ (МЦ «ЛОТОС») -->
+      <section class="section-block reveal-on-scroll" id="home-clinic">
+        <div class="clinic-banner-card">
+          <div class="clinic-backdrop-overlay"></div>
+          
+          <div class="clinic-content">
+            <div class="clinic-badge">🏥 Место работы и очного приема</div>
+            <h2 class="clinic-title">Медицинский центр «Лотос» (г. Челябинск)</h2>
+            <p class="clinic-desc">
+              «Лотос» — один из ведущих и наиболее технологичных многопрофильных медицинских центров на Южном Урале. 
+              Для пациентов гастроэнтерологического профиля здесь доступен полный спектр экспертной диагностики: 
+              УЗИ экспертного класса с эластографией печени, мультиспиральная компьютерная томография (КТ-денситометрия желчных камней), 
+              эндоскопия во сне (ФГДС, колоноскопия) и собственная высокоточная клинико-диагностическая лаборатория.
+            </p>
+
+            <div class="clinic-features-row">
+              <div class="clinic-feat">
+                <span class="feat-icon">⚡</span>
+                <span>КТ-денситометрия плотности конкрементов</span>
+              </div>
+              <div class="clinic-feat">
+                <span class="feat-icon">🔬</span>
+                <span>Лабораторный профиль HOMA-IR, FLI, биохимия</span>
+              </div>
+              <div class="clinic-feat">
+                <span class="feat-icon">🛡️</span>
+                <span>Современный стационар и бережная эндоскопия</span>
+              </div>
+            </div>
+
+            <div class="clinic-actions">
+              <a href="https://www.lotos74.ru/specialists/ufimtseva-irina-vladimirovna/" target="_blank" class="btn-clinic-primary">
+                <span>🗓️ Записаться на прием к врачу Уфимцевой И.В. на сайте клиники →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 1.7. БЛОК: ОТЗЫВЫ ПАЦИЕНТОВ (БОЛЬШОЙ И ДЛИННЫЙ) -->
+      <section class="section-block reveal-on-scroll" id="home-reviews">
+        <div class="block-kicker" style="text-align: center;">Мнения пациентов</div>
+        <h2 class="section-title" style="text-align: center;">Отзывы и истории выздоровления</h2>
+        <p class="section-subtitle" style="text-align: center; margin: 0 auto 36px;">Реальный опыт людей, избавившихся от боли и сохранивших здоровье органов ЖКТ</p>
+
+        <div class="reviews-grid">
+          
+          <!-- Отзыв 1 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-author-avatar">АМ</div>
+              <div class="review-meta">
+                <div class="review-author-name">Анна М., 44 года</div>
+                <div class="review-date">Челябинск • 18 сентября 2026</div>
+              </div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-tag">Диагноз: Калькулезный холецистит (камень 8.5 мм)</div>
+            <p class="review-text">
+              «В поликлинике по месту жительства мне сразу сказали: только вырезать желчный пузырь, без вариантов. Я очень боялась операции и обратилась к Ирине Владимировне в "Лотос". Доктор тщательно изучила КТ брюшной полости, плотность камня оказалась низкой (холестериновый), по ее формуле вероятность растворения вышла 82%. Мы начали терапию УДХК в правильной дозировке по весу. Через 6 месяцев контрольное УЗИ показало: камень растворился полностью! Желчный пузырь чистый и сохранен. Огромное спасибо за высочайший профессионализм!»
+            </p>
+          </div>
+
+          <!-- Отзыв 2 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-author-avatar">СВ</div>
+              <div class="review-meta">
+                <div class="review-author-name">Сергей В., 52 года</div>
+                <div class="review-date">Челябинск • 02 августа 2026</div>
+              </div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-tag">Диагноз: Жировой гепатоз (стеатоз 2 ст.), повышенный АЛТ/АСТ</div>
+            <p class="review-text">
+              «Пришел на прием с плохими печеночными ферментами и тяжестью в правом подреберье. Ирина Владимировна не стала назначать горы бесполезных БАДов, а провела детальный расчет по своей авторской шкале стеатоза и метаболическому индексу. Подобрали доказательное лечение, скорректировали сахар и питание. Через полгода показатели печени полностью в норме, по УЗИ выраженный регресс жирового гепатоза. Чувствую себя на 10 лет моложе!»
+            </p>
+          </div>
+
+          <!-- Отзыв 3 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-author-avatar">ЕД</div>
+              <div class="review-meta">
+                <div class="review-author-name">Елена Д., 38 лет</div>
+                <div class="review-date">Челябинск • 12 июля 2026</div>
+              </div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-tag">Диагноз: ГЭРБ, рефлюкс-эзофагит, мучительная изжога</div>
+            <p class="review-text">
+              «Мучилась с постоянной изжогой после каждого приема пищи больше двух лет. Предыдущие врачи только увеличивали дозы омепразола, от которых становилось только хуже при отмене. Ирина Владимировна нашла первопричину — нарушение моторики и билиарный рефлюкс. Назначила комплексную терапию, нормализовала отток желчи. Изжога ушла на первой же неделе лечения. Замечательный, вдумчивый врач!»
+            </p>
+          </div>
+
+          <!-- Отзыв 4 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-author-avatar">МК</div>
+              <div class="review-meta">
+                <div class="review-author-name">Михаил К., 47 лет</div>
+                <div class="review-date">Челябинск • 29 мая 2026</div>
+              </div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-tag">Диагноз: Хронический панкреатит, билиарный сладж</div>
+            <p class="review-text">
+              «Редкий доктор, который объясняет пациенту всё понятным языком с цифрами и научными данными, а не на глазок. Очень впечатлило, что у доктора свои диссертационные формулы, всё разложено по полочкам. Пролечили сладж, сняли воспаление поджелудочной железы, прошли постоянные боли и вздутие. Теперь наблюдаюсь только у Ирины Владимировны.»
+            </p>
+          </div>
+
+          <!-- Отзыв 5 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-author-avatar">ОС</div>
+              <div class="review-meta">
+                <div class="review-author-name">Ольга С., 59 лет</div>
+                <div class="review-date">Копейск • 14 апреля 2026</div>
+              </div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-tag">Диагноз: Множественный микрохолелитиаз, СРК</div>
+            <p class="review-text">
+              «Очень деликатный и чуткий подход. Были постоянные спазмы, расстройства стула и песок в желчном. Доктор Уфимцева составила подробнейший план диеты и лечения, всегда на связи, поддерживает морально. Через три месяца УЗИ показало полную эвакуацию осадка, кишечник работает как часы. Огромное человеческое спасибо!»
+            </p>
+          </div>
+
+          <!-- Отзыв 6 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-author-avatar">ДН</div>
+              <div class="review-meta">
+                <div class="review-author-name">Дмитрий Н., 35 лет</div>
+                <div class="review-date">Челябинск • 03 марта 2026</div>
+              </div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-tag">Диагноз: Эрозивный гастрит, синдром диспепсии</div>
+            <p class="review-text">
+              «После курса антибиотиков начались сильные боли в желудке и постоянная тошнота. Ирина Владимировна оперативно провела обследование в клинике "Лотос", выявила причину и подобрала эффективную схему заживления слизистой. Буквально за 10 дней вернулся к нормальной жизни без боли и дискомфорта.»
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 1.8. ТИЗЕР-БАННЕР ПЕРЕХОДА В КЛИНИЧЕСКИЕ КАЛЬКУЛЯТОРЫ -->
+      <section class="section-block reveal-on-scroll">
+        <div class="calcs-teaser-banner">
+          <div class="teaser-icon-glow">🩺</div>
+          <div class="teaser-content">
+            <div class="teaser-tag">Интерактивный научный модуль</div>
+            <h2>Клинические калькуляторы и математические модели</h2>
+            <p>
+              Оцените вероятность растворения желчных камней, прогноз регресса стеатоза печени, 
+              дозировку препаратов УДХК, индексы HOMA-IR, FIB-4, APRI, FLI и шкалы CIRS-G, Child-Pugh, MELD в режиме онлайн.
+            </p>
+            <div class="teaser-actions">
+              <a href="#calcs" class="btn-teaser-primary">Открыть каталог всех калькуляторов →</a>
+              <a href="#litoliz" class="btn-teaser-outline">⭐ Калькулятор литолиза при ЖКБ</a>
+              <a href="#steatoz" class="btn-teaser-outline">⭐ Регресс стеатоза печени</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ==================== 1B. СТРАНИЦА: КАТАЛОГ КАЛЬКУЛЯТОРОВ (#calcs) ==================== -->
+    <div id="page-calcs" class="page-view">
+      <div class="breadcrumbs">
+        <a href="#home">Главная (О враче)</a> <span>/</span> <span>Клинические калькуляторы</span>
+      </div>
+
       <div class="hero">
         <div class="hero-tag">Доказательная гастроэнтерология & гепатология</div>
         <h1>Профессиональные клинические калькуляторы</h1>
-        <p>Клинические шкалы, формулы дозирования и прогностические модели для врачей-гастроэнтерологов, терапевтов и хирургов.</p>
+        <p>Клинические шкалы, формулы дозирования и оригинальные диссертационные прогностические модели врача-гастроэнтеролога Уфимцевой И.В.</p>
       </div>
 
       <!-- ФЛАГМАНСКИЙ БАННЕР 1 (АВТОРСКИЙ КАЛЬКУЛЯТОР ЛИТОЛИЗА) -->
@@ -106,9 +645,9 @@
       </section>
 
       <!-- ФЛАГМАНСКИЙ БАННЕР 2 (АВТОРСКИЙ КАЛЬКУЛЯТОР СТЕАТОЗА) -->
-      <section class="flagship-banner">
+      <section class="flagship-banner" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.7) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(240, 253, 244, 0.7) 100%); border-color: rgba(2, 132, 199, 0.3);">
         <div class="flagship-badge-row">
-          <span class="flagship-badge">⭐ Авторская разработка №2</span>
+          <span class="flagship-badge" style="background: linear-gradient(135deg, #0284c7, #0369a1);">⭐ Авторская разработка №2</span>
           <span class="patent-badge">Диссертационная модель (табл. 3.22)</span>
         </div>
         <h2>Прогнозирование регресса стеатоза печени при консервативной терапии</h2>
@@ -118,7 +657,7 @@
           чувствительность 92.6%, специфичность 73.3%). Учитывает базальную гликемию, ИМТ, окружность талии и расчетный индекс стеатоза FLI.
         </p>
         <div class="flagship-actions">
-          <a href="#steatoz" class="btn-flagship">Открыть калькулятор регресса стеатоза →</a>
+          <a href="#steatoz" class="btn-flagship" style="background: linear-gradient(135deg, #0284c7, #0369a1);">Открыть калькулятор регресса стеатоза →</a>
           <a href="https://example.com/dissertation" target="_blank" class="btn-dissertation track-abstract-btn" id="hero-steatoz-abstract-btn">
             📄 Автореферат диссертации (PDF / eLibrary)
           </a>
@@ -133,7 +672,7 @@
       <div class="calc-grid">
         <a href="#litoliz" class="calc-card">
           <div class="calc-card-top">
-            <span class="calc-category-tag" style="background:#e0f2fe; color:#0369a1;">⭐ Авторский</span>
+            <span class="calc-category-tag" style="background:#e0f2fe; color:#0369a1;">⭐ Авторский (Модель 1)</span>
             <h4>Вероятность литолиза при ЖКБ</h4>
             <p>Прогноз эффективности терапии препаратами УДХК по формуле логистической регрессии из диссертации.</p>
           </div>
@@ -265,6 +804,11 @@
     </div>
 
     <!-- ==================== 2. СТРАНИЦА: АВТОРСКИЙ КАЛЬКУЛЯТОР ЛИТОЛИЗА (#litoliz) ==================== -->
+    <div id="page-litoliz" class="page-view">
+      <div class="breadcrumbs">
+        <a href="#calcs">Каталог</a> <span>/</span> <span>Литолиз при ЖКБ</span>
+      </div>
+
     <div id="page-litoliz" class="page-view">
       <div class="breadcrumbs">
         <a href="#home">Главная</a> <span>/</span> <span>Литолиз при ЖКБ</span>
@@ -1149,22 +1693,22 @@
   <footer>
     <div class="footer-container">
       <div class="footer-grid">
-        <!-- Колонка 1: О проекте -->
+        <!-- Колонка 1: О враче -->
         <div class="footer-col">
-          <h4>GastroHepato Calc</h4>
+          <h4>Доктор Уфимцева И.В.</h4>
           <p>
-            Специализированная клинико-диагностическая платформа для врачей гастроэнтерологов, гепатологов и хирургов. 
-            Флагманский модуль основан на диссертационном исследовании оценки вероятности литолиза конкрементов желчного пузыря.
+            Персональный клинический и научный портал врача-гастроэнтеролога, гепатолога Уфимцевой Ирины Владимировны (МЦ «Лотос», г. Челябинск). 
+            Доказательная медицина, консервативный литолиз ЖКБ, персонализированная гепатология и авторские прогностические модели.
           </p>
           <p style="font-size: 12px; color: #64748b;">
-            Все калькуляторы соответствуют клиническим рекомендациям Минздрава РФ и профильных ассоциаций (РГА, EASL, AASLD).
+            Все калькуляторы и шкалы строго соответствуют клиническим рекомендациям Минздрава РФ, РГА, EASL и AASLD.
           </p>
         </div>
 
-        <!-- Колонка 2: Контакты автора -->
+        <!-- Колонка 2: Контакты врача -->
         <div class="footer-col">
-          <h4>Связь с автором</h4>
-          <p>По вопросам клинического сотрудничества, научной работы и обратной связи:</p>
+          <h4>Связь с врачом</h4>
+          <p>По вопросам клинических консультаций, сотрудничества и научной работы:</p>
           
           <div class="contact-item">
             <span>Telegram:</span>
@@ -1179,27 +1723,35 @@
               ufimtsevaiv77@mail.ru
             </a>
           </div>
+
+          <div class="contact-item" style="margin-top: 10px;">
+            <span>Прием в клинике:</span>
+            <a href="https://www.lotos74.ru/specialists/ufimtseva-irina-vladimirovna/" target="_blank" class="contact-badge" style="text-decoration:none; background:#ecfdf5; color:#047857; border-color:#a7f3d0;">
+              МЦ «Лотос» (Челябинск)
+            </a>
+          </div>
         </div>
 
         <!-- Колонка 3: Ссылки -->
         <div class="footer-col">
-          <h4>Разделы</h4>
+          <h4>Навигация по сайту</h4>
           <ul class="footer-links">
-            <li><a href="#home">Главная страница</a></li>
+            <li><a href="#home">Главная (О враче)</a></li>
+            <li><a href="#home-symptoms">Симптомы и жалобы</a></li>
+            <li><a href="#home-services">Направления деятельности</a></li>
+            <li><a href="#home-articles">Статьи и публикации</a></li>
+            <li><a href="#home-reviews">Отзывы пациентов</a></li>
+            <li><a href="#home-clinic">Место работы (МЦ «Лотос»)</a></li>
+            <li><a href="#calcs">🩺 Каталог всех калькуляторов</a></li>
             <li><a href="#litoliz">⭐ 1. Оценка литолиза при ЖКБ</a></li>
             <li><a href="#steatoz">⭐ 2. Регресс стеатоза печени</a></li>
-            <li><a href="#udca">Дозирование УДХК</a></li>
-            <li><a href="#homa">Индекс HOMA-IR</a></li>
-            <li><a href="#cirsg">Опросник CIRS-G</a></li>
-            <li><a href="#fli">Индекс стеатоза FLI</a></li>
-            <li><a href="#fib4">Индекс FIB-4</a></li>
             <li><a href="#admin">⚙ Панель управления & Метрика</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>© GastroHepato Calc. Авторские научные модели (диссертационное исследование).</div>
+        <div>© Доктор Уфимцева Ирина Владимировна. Персональный врачебный портал & научные модели.</div>
         <div>Медицинский информационно-справочный сервис. Не заменяет очный прием врача.</div>
       </div>
     </div>

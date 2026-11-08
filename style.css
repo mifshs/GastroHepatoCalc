@@ -1193,6 +1193,1008 @@ footer {
   pointer-events: auto;
 }
 
+
+/* ==================== DOCTOR PORTAL (IOS 26 LIQUID GLASS) ==================== */
+
+.btn-appointment-nav {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3) !important;
+  font-weight: 700 !important;
+}
+
+.btn-appointment-nav:hover {
+  transform: translateY(-1.5px) !important;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
+}
+
+/* 1. HERO ВРАЧА (100VH) */
+.doctor-hero {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0 60px;
+  position: relative;
+}
+
+.doctor-hero-container {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Фрейм для фото врача */
+.doctor-photo-col {
+  display: flex;
+  justify-content: center;
+}
+
+.doctor-photo-frame {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(120% 120% at 50% 15%, rgba(255, 255, 255, 0.85) 0%, rgba(224, 242, 254, 0.5) 100%);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 24px 50px rgba(10, 132, 255, 0.12), var(--glass-specular);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.doctor-photo-frame:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 30px 60px rgba(10, 132, 255, 0.16), var(--glass-specular);
+}
+
+.doctor-photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.placeholder-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.12), rgba(10, 132, 255, 0.22));
+  color: var(--system-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  border: 2px dashed rgba(2, 132, 199, 0.35);
+  animation: pulseAvatar 3s ease-in-out infinite;
+}
+
+@keyframes pulseAvatar {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); border-color: var(--system-blue); }
+}
+
+.placeholder-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0c4a6e;
+  margin-bottom: 6px;
+  letter-spacing: -0.3px;
+}
+
+.placeholder-sub {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.placeholder-sub span {
+  font-weight: 600;
+  color: var(--system-blue);
+}
+
+.doctor-photo-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-pill);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #065f46;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Правая колонка врача */
+.doctor-info-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.doctor-tag-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.doctor-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(2, 132, 199, 0.1);
+  color: #0284c7;
+  border: 1px solid rgba(2, 132, 199, 0.2);
+}
+
+.doctor-tag.tag-science {
+  background: linear-gradient(135deg, rgba(238, 242, 255, 0.9), rgba(224, 231, 255, 0.9));
+  color: #4338ca;
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.doctor-name {
+  font-size: 38px;
+  font-weight: 850;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  color: #0c4a6e;
+  margin-bottom: 6px;
+}
+
+.doctor-specialty {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0284c7;
+  margin-bottom: 20px;
+}
+
+.doctor-slogan-box {
+  background: linear-gradient(135deg, rgba(224, 242, 254, 0.6) 0%, rgba(240, 249, 255, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  border-left: 4px solid var(--system-blue);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  position: relative;
+  box-shadow: 0 4px 18px rgba(10, 132, 255, 0.05);
+}
+
+.slogan-quote-icon {
+  font-size: 32px;
+  line-height: 0.8;
+  color: rgba(2, 132, 199, 0.3);
+  font-family: serif;
+  margin-bottom: 4px;
+}
+
+.doctor-slogan {
+  font-size: 16px;
+  font-weight: 600;
+  font-style: italic;
+  color: #0f172a;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.doctor-lead-text {
+  font-size: 14.5px;
+  color: #334155;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.doctor-hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.btn-primary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 24px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  font-size: 14.5px;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(16, 185, 129, 0.4);
+}
+
+.btn-glass-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 20px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  color: #0369a1;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-glass-action:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+  border-color: #38bdf8;
+  color: #0284c7;
+}
+
+.doctor-mini-stats {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-top: 18px;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.mini-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-stat strong {
+  font-size: 20px;
+  font-weight: 850;
+  color: #0c4a6e;
+  line-height: 1.1;
+}
+
+.mini-stat span {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* ОБЩИЕ СТИЛИ СЕКЦИЙ */
+.section-block {
+  margin-bottom: 64px;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.block-kicker {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--system-blue);
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 850;
+  letter-spacing: -0.6px;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.55;
+  max-width: 680px;
+}
+
+/* 2. СЛАЙДЕР СТАТЕЙ */
+.slider-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.slider-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  color: #0c4a6e;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.slider-btn:hover {
+  background: #ffffff;
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 18px rgba(10, 132, 255, 0.15);
+  color: var(--system-blue);
+}
+
+.articles-slider-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 4px;
+}
+
+.articles-slider-track {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 8px 4px 24px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(2, 132, 199, 0.2) transparent;
+}
+
+.articles-slider-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.articles-slider-track::-webkit-scrollbar-thumb {
+  background: rgba(2, 132, 199, 0.25);
+  border-radius: 10px;
+}
+
+.article-card {
+  flex: 0 0 340px;
+  scroll-snap-align: start;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05), var(--glass-specular);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 42px rgba(10, 132, 255, 0.12), var(--glass-specular);
+  border-color: rgba(56, 189, 248, 0.5);
+}
+
+.article-card-cover {
+  height: 140px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.article-cover-icon {
+  font-size: 52px;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
+  transition: transform 0.3s ease;
+}
+
+.article-card:hover .article-cover-icon {
+  transform: scale(1.1);
+}
+
+.article-cat-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.article-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.article-date {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.article-title {
+  font-size: 16.5px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.35;
+  margin-bottom: 10px;
+  letter-spacing: -0.2px;
+}
+
+.article-desc {
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.55;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.article-footer {
+  padding-top: 12px;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.article-read-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0284c7;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.article-read-link:hover {
+  color: #0369a1;
+  transform: translateX(3px);
+}
+
+/* 3. С КАКИМИ ВОПРОСАМИ ВЫ МОЖЕТЕ ОБРАТИТЬСЯ (ПО СКРИНШОТУ 1) */
+.symptoms-glass-panel {
+  background: linear-gradient(135deg, rgba(224, 242, 254, 0.75) 0%, rgba(240, 253, 244, 0.75) 100%);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-xl);
+  padding: 40px 36px;
+  box-shadow: 0 20px 45px rgba(2, 132, 199, 0.08), var(--glass-specular);
+}
+
+.symptoms-title {
+  font-size: 26px;
+  font-weight: 850;
+  letter-spacing: -0.5px;
+  color: #0c4a6e;
+  margin-bottom: 30px;
+  line-height: 1.25;
+}
+
+.symptoms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 28px;
+  row-gap: 20px;
+}
+
+.symptom-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-md);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.symptom-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.1);
+}
+
+.symptom-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(2, 132, 199, 0.12);
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.symptom-text {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+/* 4. НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ (ПО СКРИНШОТУ 2) */
+.services-glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-xl);
+  padding: 38px 36px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), var(--glass-specular);
+}
+
+.services-title {
+  font-size: 26px;
+  font-weight: 850;
+  letter-spacing: -0.5px;
+  color: #0f172a;
+  margin-bottom: 24px;
+}
+
+.services-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.services-bullet-list li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 14px;
+  font-size: 14.5px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.services-bullet-list li::before {
+  content: "•";
+  position: absolute;
+  left: 8px;
+  top: -2px;
+  font-size: 22px;
+  color: #0284c7;
+}
+
+.services-bullet-list strong {
+  color: #0c4a6e;
+  font-weight: 700;
+}
+
+.services-toggle-row {
+  margin-top: 24px;
+  text-align: center;
+  padding-top: 16px;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.btn-toggle-services {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: #0284c7;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-toggle-services:hover {
+  background: rgba(2, 132, 199, 0.08);
+  color: #0369a1;
+}
+
+/* 5. ДОСТИЖЕНИЯ ВРАЧА */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.achievement-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-lg);
+  padding: 28px 22px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04), var(--glass-specular);
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(10, 132, 255, 0.1), var(--glass-specular);
+}
+
+.achieve-num {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  background: linear-gradient(135deg, #0284c7, #0a84ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.achieve-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0c4a6e;
+  margin-bottom: 8px;
+}
+
+.achieve-desc {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 6. МЕСТО РАБОТЫ (МЦ «ЛОТОС») */
+.clinic-banner-card {
+  position: relative;
+  background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 50%, #0284c7 100%);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(3, 105, 161, 0.25);
+  padding: 48px 44px;
+  color: #ffffff;
+}
+
+.clinic-backdrop-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.clinic-content {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+}
+
+.clinic-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-pill);
+  font-size: 12.5px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.clinic-title {
+  font-size: 32px;
+  font-weight: 850;
+  letter-spacing: -0.8px;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.clinic-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #e0f2fe;
+  margin-bottom: 28px;
+}
+
+.clinic-features-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.clinic-feat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.feat-icon {
+  font-size: 18px;
+}
+
+.btn-clinic-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 32px;
+  background: #ffffff;
+  color: #0369a1;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-clinic-primary:hover {
+  transform: translateY(-2px);
+  background: #f0f9ff;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.25);
+  color: #0284c7;
+}
+
+/* 7. ОТЗЫВЫ ПАЦИЕНТОВ */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.review-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04), var(--glass-specular);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(2, 132, 199, 0.1), var(--glass-specular);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.review-author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+  color: #0284c7;
+  font-size: 15px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.review-meta {
+  flex: 1;
+}
+
+.review-author-name {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.review-date {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.review-stars {
+  color: #f59e0b;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.review-tag {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0369a1;
+  background: rgba(2, 132, 199, 0.08);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 14px;
+}
+
+.review-text {
+  font-size: 13.5px;
+  color: #334155;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+/* 8. ТИЗЕР КАЛЬКУЛЯТОРОВ */
+.calcs-teaser-banner {
+  background: linear-gradient(135deg, rgba(224, 242, 254, 0.8) 0%, rgba(255, 255, 255, 0.85) 50%, rgba(240, 253, 244, 0.8) 100%);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-xl);
+  padding: 42px 40px;
+  box-shadow: 0 20px 50px rgba(10, 132, 255, 0.1), var(--glass-specular);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.teaser-icon-glow {
+  font-size: 64px;
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.15), rgba(10, 132, 255, 0.25));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px rgba(10, 132, 255, 0.15);
+}
+
+.teaser-content {
+  flex: 1;
+}
+
+.teaser-tag {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #0284c7;
+  margin-bottom: 6px;
+}
+
+.calcs-teaser-banner h2 {
+  font-size: 26px;
+  font-weight: 850;
+  letter-spacing: -0.6px;
+  color: #0c4a6e;
+  margin-bottom: 10px;
+}
+
+.calcs-teaser-banner p {
+  font-size: 14.5px;
+  color: #334155;
+  line-height: 1.6;
+  margin-bottom: 22px;
+  max-width: 760px;
+}
+
+.teaser-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-teaser-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 22px;
+  background: var(--system-blue);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(10, 132, 255, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-teaser-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(10, 132, 255, 0.35);
+}
+
+.btn-teaser-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.7);
+  color: #0c4a6e;
+  border: 1px solid rgba(2, 132, 199, 0.3);
+  font-size: 13.5px;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-teaser-outline:hover {
+  background: #ffffff;
+  border-color: #0284c7;
+  color: #0284c7;
+  transform: translateY(-1.5px);
+}
+
 @media (max-width: 768px) {
   body {
     overflow-x: hidden;
@@ -1282,4 +2284,100 @@ footer {
     grid-template-columns: 1fr; 
     gap: 28px; 
   }
+}
+  /* Адаптив для портала врача */
+  .doctor-hero {
+    min-height: auto;
+    padding: 20px 0 40px;
+  }
+
+  .doctor-hero-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .doctor-photo-frame {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .doctor-name {
+    font-size: 28px;
+    letter-spacing: -0.6px;
+  }
+
+  .doctor-specialty {
+    font-size: 15px;
+  }
+
+  .doctor-tag-row {
+    justify-content: center;
+  }
+
+  .doctor-hero-actions {
+    justify-content: center;
+  }
+
+  .doctor-mini-stats {
+    justify-content: center;
+  }
+
+  .symptoms-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .symptoms-glass-panel,
+  .services-glass-panel {
+    padding: 24px 18px;
+  }
+
+  .symptoms-title,
+  .services-title {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .clinic-banner-card {
+    padding: 28px 20px;
+  }
+
+  .clinic-title {
+    font-size: 22px;
+  }
+
+  .clinic-features-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .calcs-teaser-banner {
+    flex-direction: column;
+    padding: 28px 20px;
+    text-align: center;
+  }
+
+  .teaser-icon-glow {
+    margin: 0 auto;
+  }
+
+  .teaser-actions {
+    justify-content: center;
+  }
+
+  .article-card {
+    flex: 0 0 280px;
+  }
+
 }

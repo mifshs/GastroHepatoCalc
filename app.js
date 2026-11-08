@@ -92,7 +92,7 @@ function initYandexMetrika() {
 }
 
 // --- 2. HASH ROUTER ---
-const routes = ['home', 'litoliz', 'steatoz', 'udca', 'homa', 'cirsg', 'fib4', 'apri', 'fli', 'childpugh', 'meld', 'admin'];
+const routes = ['home', 'calcs', 'litoliz', 'steatoz', 'udca', 'homa', 'cirsg', 'fib4', 'apri', 'fli', 'childpugh', 'meld', 'admin'];
 
 function navigateTo(route) {
   if (!routes.includes(route)) route = 'home';
@@ -110,6 +110,23 @@ function renderRoute(route) {
     checkAdminAuth();
   }
 }
+
+function handleHashChange() {
+  const hash = window.location.hash.replace('#', '') || 'home';
+  if (hash.startsWith('home-') || hash === 'doctor-hero') {
+    renderRoute('home');
+    setTimeout(() => {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 60);
+    return;
+  }
+  const route = routes.includes(hash) ? hash : 'home';
+  renderRoute(route);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.addEventListener('hashchange', handleHashChange);
 
 async function checkAdminAuth() {
   const token = sessionStorage.getItem('gastro_admin_token');
@@ -146,11 +163,6 @@ async function checkAdminAuth() {
     }
   }
 }
-
-window.addEventListener('hashchange', () => {
-  const hash = window.location.hash.replace('#', '') || 'home';
-  renderRoute(hash);
-});
 
 // Toast notification
 function showToast(text = 'Скопировано в буфер обмена') {
@@ -1015,10 +1027,75 @@ function initMobileMenu() {
   });
 }
 
+// --- 3. СЛАЙДЕР СТАТЕЙ ---
+function initArticlesSlider() {
+  const track = document.getElementById('articlesSliderTrack');
+  const prevBtn = document.getElementById('artSliderPrev');
+  const nextBtn = document.getElementById('artSliderNext');
+  if (!track || !prevBtn || !nextBtn) return;
+
+  const getCardWidth = () => {
+    const card = track.querySelector('.article-card');
+    return card ? card.offsetWidth + 20 : 340;
+  };
+
+  nextBtn.addEventListener('click', () => {
+    track.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+  });
+
+  prevBtn.addEventListener('click', () => {
+    track.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+  });
+}
+
+// --- 4. АККОРДЕОН НАПРАВЛЕНИЙ ДЕЯТЕЛЬНОСТИ ---
+function initServicesToggle() {
+  const toggleBtn = document.getElementById('toggleServicesBtn');
+  const textEl = document.getElementById('toggleServicesText');
+  const iconEl = document.getElementById('toggleServicesIcon');
+  const extraItems = document.querySelectorAll('.extra-service');
+  if (!toggleBtn || !textEl || !iconEl || !extraItems.length) return;
+
+  let isExpanded = true;
+
+  toggleBtn.addEventListener('click', () => {
+    isExpanded = !isExpanded;
+    extraItems.forEach(item => {
+      item.style.display = isExpanded ? 'list-item' : 'none';
+    });
+    textEl.textContent = isExpanded ? 'Скрыть' : 'Показать всё (еще 2 направления)';
+    iconEl.style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
+  });
+}
+
+// --- 5. АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ (INTERSECTION OBSERVER) ---
+function initScrollReveal() {
+  const targets = document.querySelectorAll('.reveal-on-scroll');
+  if (!targets.length) return;
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    targets.forEach(el => observer.observe(el));
+  } else {
+    targets.forEach(el => el.classList.add('is-revealed'));
+  }
+}
+
 // --- INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', () => {
   initYandexMetrika();
   initMobileMenu();
+  initArticlesSlider();
+  initServicesToggle();
+  initScrollReveal();
 
   // Навешиваем клик на ссылки автореферата для аналитики
   document.querySelectorAll('.track-abstract-btn').forEach(btn => {
@@ -1039,6 +1116,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initAdminPanel();
 
   // Стартовый роутинг
-  const initialHash = window.location.hash.replace('#', '') || 'home';
-  renderRoute(initialHash);
+  handleHashChange();
 });
