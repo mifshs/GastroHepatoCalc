@@ -92,7 +92,7 @@ function initYandexMetrika() {
 }
 
 // --- 2. HASH ROUTER ---
-const routes = ['home', 'calcs', 'litoliz', 'steatoz', 'udca', 'homa', 'cirsg', 'fib4', 'apri', 'fli', 'childpugh', 'meld', 'admin'];
+const routes = ['home', 'articles', 'calcs', 'litoliz', 'steatoz', 'udca', 'homa', 'cirsg', 'fib4', 'apri', 'fli', 'childpugh', 'meld', 'admin'];
 
 function navigateTo(route) {
   if (!routes.includes(route)) route = 'home';
@@ -1068,7 +1068,7 @@ function initServicesToggle() {
   });
 }
 
-// --- 5. АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ (INTERSECTION OBSERVER) ---
+// --- 5. АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ (INTERSECTION OBSERVER С КАСКАДНЫМ ЭФФЕКТОМ) ---
 function initScrollReveal() {
   const targets = document.querySelectorAll('.reveal-on-scroll');
   if (!targets.length) return;
@@ -1078,15 +1078,44 @@ function initScrollReveal() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-revealed');
+          const staggerItems = entry.target.querySelectorAll('.symptom-card, .achievement-card, .review-card, .article-card');
+          staggerItems.forEach((item, idx) => {
+            item.style.setProperty('--i', idx);
+          });
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     targets.forEach(el => observer.observe(el));
   } else {
     targets.forEach(el => el.classList.add('is-revealed'));
   }
+}
+
+// --- 6. СТРАНИЦА СТАТЕЙ И ФИЛЬТРАЦИЯ ---
+function initArticlesPage() {
+  const filterBtns = document.querySelectorAll('.article-filter-btn');
+  const cards = document.querySelectorAll('.article-full-card');
+  if (!filterBtns.length || !cards.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          card.style.display = 'flex';
+          card.style.animation = 'springItemIn 0.5s cubic-bezier(0.34, 1.3, 0.64, 1) both';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
 }
 
 // --- INITIALIZATION ---
@@ -1096,6 +1125,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initArticlesSlider();
   initServicesToggle();
   initScrollReveal();
+  initArticlesPage();
 
   // Навешиваем клик на ссылки автореферата для аналитики
   document.querySelectorAll('.track-abstract-btn').forEach(btn => {
