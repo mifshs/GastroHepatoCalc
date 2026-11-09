@@ -139,6 +139,22 @@ body::after {
   flex-shrink: 0;
 }
 
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-subtitle {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.brand-doctor-name {
+  white-space: nowrap;
+}
+
 .brand-title {
   font-weight: 700;
   font-size: 16px;
@@ -2593,6 +2609,30 @@ footer {
 .reveal-on-scroll.is-revealed .review-card:nth-child(5) { animation-delay: 0.25s; }
 .reveal-on-scroll.is-revealed .review-card:nth-child(6) { animation-delay: 0.30s; }
 
+
+/* BURGER MENU & RESPONSIVE NAVBAR: ПОЯВЛЯЕТСЯ ОТ ШИРИНЫ 1200PX */
+@media (max-width: 1200px) {
+  .nav-links {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+
+  .mobile-glass-menu {
+    display: block;
+  }
+
+  .mobile-menu-backdrop {
+    display: block;
+  }
+
+  .nav-container {
+    padding: 10px 18px;
+  }
+}
+
 @media (max-width: 768px) {
   body {
     overflow-x: hidden;
@@ -3503,5 +3543,41 @@ footer {
     top: 24px;
     transform: rotate(15deg) scale(0.6);
     opacity: 0.32;
+  }
+}
+
+/* МОБИЛЬНАЯ АДАПТАЦИЯ ХЕДЕРА ДО 420-480PX (ПЕРЕНОС ФАМИЛИИ И ИНИЦИАЛОВ БЕЗ РАЗРЫВА) */
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 8px 12px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 17px;
+  }
+
+  .brand-title {
+    font-size: 14.5px;
+    line-height: 1.2;
+  }
+
+  .brand-subtitle {
+    font-size: 11px;
+    line-height: 1.25;
+  }
+
+  .brand-subtitle .brand-spec {
+    display: block;
+  }
+
+  .brand-subtitle .brand-doctor-name {
+    display: block;
+    white-space: nowrap;
   }
 }
