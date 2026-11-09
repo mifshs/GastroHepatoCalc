@@ -92,7 +92,7 @@ function initYandexMetrika() {
 }
 
 // --- 2. HASH ROUTER ---
-const routes = ['home', 'articles', 'calcs', 'litoliz', 'steatoz', 'udca', 'homa', 'cirsg', 'fib4', 'apri', 'fli', 'childpugh', 'meld', 'admin'];
+const routes = ['home', 'articles', 'article', 'calcs', 'litoliz', 'steatoz', 'udca', 'homa', 'cirsg', 'fib4', 'apri', 'fli', 'childpugh', 'meld', 'admin'];
 
 function navigateTo(route) {
   if (!routes.includes(route)) route = 'home';
@@ -119,6 +119,13 @@ function handleHashChange() {
       const el = document.getElementById(hash);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }, 60);
+    return;
+  }
+  if (hash.startsWith('article-')) {
+    const articleId = hash.replace('article-', '');
+    loadArticleDetail(articleId);
+    renderRoute('article');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     return;
   }
   const route = routes.includes(hash) ? hash : 'home';
@@ -1078,14 +1085,16 @@ function initScrollReveal() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-revealed');
-          const staggerItems = entry.target.querySelectorAll('.symptom-card, .achievement-card, .review-card, .article-card');
+          const staggerItems = entry.target.querySelectorAll('.symptom-card, .achievement-card, .review-card, .article-card, .catalog-article-card');
           staggerItems.forEach((item, idx) => {
             item.style.setProperty('--i', idx);
           });
-          observer.unobserve(entry.target);
+        } else {
+          // Сбрасываем класс при выходе за пределы экрана для повторного проигрывания анимации при каждом скролле
+          entry.target.classList.remove('is-revealed');
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
 
     targets.forEach(el => observer.observe(el));
   } else {
@@ -1094,29 +1103,7 @@ function initScrollReveal() {
 }
 
 // --- 6. СТРАНИЦА СТАТЕЙ И ФИЛЬТРАЦИЯ ---
-function initArticlesPage() {
-  const filterBtns = document.querySelectorAll('.article-filter-btn');
-  const cards = document.querySelectorAll('.article-full-card');
-  if (!filterBtns.length || !cards.length) return;
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.getAttribute('data-filter');
-
-      cards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        if (filter === 'all' || cat === filter) {
-          card.style.display = 'flex';
-          card.style.animation = 'springItemIn 0.5s cubic-bezier(0.34, 1.3, 0.64, 1) both';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-}
 
 // --- INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -1125,7 +1112,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initArticlesSlider();
   initServicesToggle();
   initScrollReveal();
-  initArticlesPage();
+  initArticlesCatalog();
 
   // Навешиваем клик на ссылки автореферата для аналитики
   document.querySelectorAll('.track-abstract-btn').forEach(btn => {
@@ -1148,3 +1135,447 @@ document.addEventListener('DOMContentLoaded', () => {
   // Стартовый роутинг
   handleHashChange();
 });
+
+
+// ==================== БАЗА СТАТЕЙ И ПУБЛИКАЦИЙ (ARTICLES_DATA) ====================
+const ARTICLES_DATA = [
+  {
+    id: 'litoliz',
+    title: 'Консервативный литолиз камней желчного пузыря: когда операция не нужна?',
+    category: 'ЖКБ и Литолиз',
+    categoryKey: 'litoliz',
+    date: '14 октября 2026',
+    readTime: '5 мин чтения',
+    coverGrad: 'linear-gradient(135deg, #0284c7, #075985)',
+    coverIcon: '💊',
+    badge: '⭐ Авторская модель №1',
+    excerpt: 'Критерии отбора пациентов для медикаментозного растворения камней препаратами УДХК. Роль плотности по КТ, размера конкрементов, моторики желчного пузыря и HOMA-IR.',
+    calcRoute: '#litoliz',
+    calcBtnText: '🧮 Открыть калькулятор литолиза при ЖКБ',
+    photos: [
+      {
+        title: 'УЗИ: Одиночный холестериновый конкремент 8 мм с акустической тенью',
+        badge: 'УЗИ Желчного Пузыря',
+        caption: 'Эхографическая картина мягкого холестеринового конкремента в просвете желчного пузыря без утолщения стенки (идеальный кандидат для консервативного литолиза).'
+      },
+      {
+        title: 'КТ-денситометрия желчных камней (< 100 HU)',
+        badge: 'Компьютерная Томография',
+        caption: 'Денситометрический срез: плотность конкремента составляет 42 HU (рентген-негативный камень, отсутствие кальцификации).'
+      },
+      {
+        title: 'Динамическое УЗИ с пробным завтраком (оценка моторики)',
+        badge: 'Функциональная Проба',
+        caption: 'Фракция выброса желчи составила 62% (норма > 50%), что подтверждает сохранную эвакуаторную функцию и готовность к терапии УДХК.'
+      },
+      {
+        title: 'ROC-кривая прогностической модели литолиза (AUC = 0.918)',
+        badge: 'Диссертационная Модель',
+        caption: 'Многофакторная регрессионная модель Уфимцевой И.В., превосходящая традиционные эмпирические методы отбора пациентов.'
+      }
+    ],
+    content: `
+      <div class="article-lead-box">
+        <p><strong>Клинический парадокс:</strong> Холецистэктомия (хирургическое удаление органа) — одна из наиболее частых операций в абдоминальной хирургии. Однако удаление пузыря не устраняет метаболическую причину литогенеза (камнеобразования) в печени и нередко приводит к развитию постхолецистэктомического синдрома. В рамках нашего диссертационного исследования доказана высокая клиническая эффективность медикаментозного растворения конкрементов при соблюдении строгих критериев доказательного протокола.</p>
+      </div>
+
+      <h2>1. Ключевые критерии отбора пациентов на консервативный литолиз</h2>
+      <p>Медикаментозный литолиз препаратами урсодезоксихолевой кислоты (УДХК) показан строго при соблюдении следующих условий:</p>
+      <ul class="article-styled-list">
+        <li><strong>Плотность по данным КТ &lt; 100 HU:</strong> Это подтверждает преобладание мягкой холестериновой матрицы и отсутствие кальциевой «скорлупы», непроницаемой для желчных кислот.</li>
+        <li><strong>Размер конкрементов до 10–12 мм:</strong> Чем меньше диаметр, тем выше отношение площади поверхности к объему и тем быстрее протекает процесс растворения.</li>
+        <li><strong>Сохранная сократительная функция желчного пузыря:</strong> Фракция выброса при динамическом УЗИ с пробным завтраком должна быть не менее 50%. Пузырь обязан активно опорожняться.</li>
+        <li><strong>Проходимость пузырного и общего желчного протоков:</strong> Отсутствие холедохолитиаза, стриктур и механического блока билиарного тракта.</li>
+      </ul>
+
+      <h2>2. Роль метаболического статуса и инсулинорезистентности</h2>
+      <p>В ходе исследования установлена сильная статистическая корреляция между базальной гиперинсулинемией (индекс HOMA-IR) и литогенным индексом желчи. При высоком HOMA-IR печень гиперсекретирует неэстерифицированный холестерин, что замедляет растворение камней даже на фоне высоких доз УДХК. Именно поэтому наша математическая модель включает индекс HOMA-IR и оценку коморбидности по CIRS-G.</p>
+
+      <h2>3. Протокол фармакотерапии и мониторинга</h2>
+      <p>Стандартная дозировка УДХК составляет 10–15 мг/кг массы тела строго однократно на ночь (в период физиологического покоя билиарного тракта и максимального насыщения желчи холестерином). Контрольное УЗИ проводится каждые 3 месяца для оценки динамики уменьшения объема конкрементов.</p>
+    `
+  },
+  {
+    id: 'steatoz',
+    title: 'Жировой гепатоз печени: от скрытого стеатоза к полному регрессу',
+    category: 'Стеатоз печени',
+    categoryKey: 'steatoz',
+    date: '28 сентября 2026',
+    readTime: '6 мин чтения',
+    coverGrad: 'linear-gradient(135deg, #0d9488, #115e59)',
+    coverIcon: '🔬',
+    badge: '⭐ Авторская модель №2',
+    excerpt: 'Как прогнозировать обратное развитие стеатоза печени по авторской диссертационной модели, учитывающей гликемию натощак, ИМТ, окружность талии и индекс FLI.',
+    calcRoute: '#steatoz',
+    calcBtnText: '🧮 Открыть калькулятор прогноза регресса стеатоза',
+    photos: [
+      {
+        title: 'Ультразвуковая эластометрия с функцией CAP (Стеатометрия)',
+        badge: 'Стеатометрия CAP',
+        caption: 'Измерение коэффициента контролируемого затухания ультразвука: параметр CAP 310 дБ/м (выраженный стеатоз S3).'
+      },
+      {
+        title: 'Морфологическая схема: Накопление липидных капель в гепатоците',
+        badge: 'Гистологический Разбор',
+        caption: 'Сравнение нормального гепатоцита и клетки при жировой дистрофии с оттеснением ядра к периферии.'
+      },
+      {
+        title: 'Динамика снижения трансаминаз (АЛТ/АСТ) на фоне курса УДХК',
+        badge: 'Лабораторный Мониторинг',
+        caption: 'Снижение уровня ферментов цитолиза на 48% через 12 недель комплексной доказательной терапии.'
+      },
+      {
+        title: 'ROC-кривая модели прогноза регресса (AUC = 0.827)',
+        badge: 'Диссертационная Модель №2',
+        caption: 'Валидированная прогностическая модель Уфимцевой И.В. (чувствительность 92.6%, специфичность 73.3%).'
+      }
+    ],
+    content: `
+      <div class="article-lead-box">
+        <p><strong>Бессимптомный убийца:</strong> Неалкогольная жировая болезнь печени (НАЖБП / МАСЖБ) выявляется более чем у 30% взрослого населения. Опасность жирового гепатоза кроется в его полном бессимптомном течении вплоть до стадии выраженного стеатогепатита и фиброза печени. Однако на ранних этапах стеатоз полностью обратим при грамотной тактике.</p>
+      </div>
+
+      <h2>1. Что определяет вероятность регресса жирового гепатоза?</h2>
+      <p>В рамках нашего диссертационного исследования были исследованы десятки биохимических и антропометрических параметров. Методом многофакторного логистического анализа доказано, что ключевыми независимыми предикторами регресса являются:</p>
+      <ul class="article-styled-list">
+        <li><strong>Уровень глюкозы плазмы натощак:</strong> Нормализация гликемии устраняет липотоксическое воздействие свободных жирных кислот на эндоплазматический ретикулум печеночных клеток.</li>
+        <li><strong>Окружность талии и ИМТ:</strong> Висцеральное абдоминальное ожирение — главный драйвер постоянного притока триглицеридов в портальный кровоток.</li>
+        <li><strong>Индекс FLI (Fatty Liver Index):</strong> Комплексный интегральный маркер, объединяющий триглицериды, ГГТП, талию и ИМТ.</li>
+      </ul>
+
+      <h2>2. Пошаговая стратегия терапии</h2>
+      <p>Доказанный протокол регресса включает модификацию образа жизни (снижение калоража с ограничением фруктозы и простых углеводов), регулярную аэробную физическую активность (не менее 150 мин в неделю) и фармакотерапию препаратами урсодезоксихолевой кислоты (УДХК) в дозе 13–15 мг/кг в сутки для мембраностабилизирующего и антиапоптотического эффекта на гепатоциты.</p>
+    `
+  },
+  {
+    id: 'homa',
+    title: 'Инсулинорезистентность и индекс HOMA-IR: невидимый фактор камнеобразования',
+    category: 'Инсулинорезистентность',
+    categoryKey: 'homa',
+    date: '05 сентября 2026',
+    readTime: '4 мин чтения',
+    coverGrad: 'linear-gradient(135deg, #6366f1, #4338ca)',
+    coverIcon: '🧬',
+    badge: 'Клинический маркер',
+    excerpt: 'Почему повышенный базальный инсулин меняет биохимический состав желчи и ускоряет образование холестериновых кристаллов в желчном пузыре.',
+    calcRoute: '#homa',
+    calcBtnText: '🧮 Рассчитать индекс HOMA-IR онлайн',
+    photos: [
+      {
+        title: 'Биохимическая схема регуляции печеночного синтеза холестерина',
+        badge: 'Патогенез',
+        caption: 'Активация фермента HMG-CoA редуктазы под действием гиперинсулинемии приводит к избыточной секреции холестерина в желчь.'
+      },
+      {
+        title: 'Лабораторные референсы HOMA-IR: Норма vs Инсулинорезистентность',
+        badge: 'Референсные Значения',
+        caption: 'Значения HOMA-IR выше 2.7 свидетельствуют о выраженной тканевой инсулинорезистентности.'
+      },
+      {
+        title: 'Микроскопия желчи: Преципитация кристаллов моногидрата холестерина',
+        badge: 'Микроскопия Желчи',
+        caption: 'Образование первичных микролитов при перенасыщении желчи холестерином (билиарный сладж).'
+      }
+    ],
+    content: `
+      <div class="article-lead-box">
+        <p>Многие пациенты удивляются, когда врач-гастроэнтеролог при камнях в желчном пузыре направляет их на исследование глюкозы и инсулина крови. Однако современная гастроэнтерология доказала: желчный пузырь — это орган-мишень метаболического синдрома.</p>
+      </div>
+
+      <h2>1. Механизм влияния инсулина на желчеобразование</h2>
+      <p>Инсулин — ключевой гормон регуляции липидного обмена в печени. При формировании периферической резистентности тканей поджелудочная железа компенсаторно вырабатывает избыточное количество инсулина (гиперинсулинемия). Это запускает три патологических каскада:</p>
+      <ul class="article-styled-list">
+        <li>Стимуляция печеночной ГМГ-КоА-редуктазы с лавинообразным ростом синтеза холестерина.</li>
+        <li>Подавление фермента холестерин-7-альфа-гидроксилазы, снижающее конверсию холестерина в защитные желчные кислоты.</li>
+        <li>Нарушение нервно-мышечной чувствительности стенки желчного пузыря к холецистокинину (гипотония пузыря и застой).</li>
+      </ul>
+
+      <h2>2. Интерпретация показателя HOMA-IR</h2>
+      <p>Формула расчета: <code>HOMA-IR = (Глюкоза натощак × Инсулин натощак) / 22.5</code>. Значение &lt; 2.0 считается физиологической нормой. Превышение порога 2.7 требует обязательной нутрициологической и терапевтической коррекции для успешного лечения заболеваний ЖКТ.</p>
+    `
+  },
+  {
+    id: 'bowel',
+    title: 'Вздутие, боли и нарушение стула: как отличить СРК от воспаления кишечника',
+    category: 'Кишечник и СРК',
+    categoryKey: 'bowel',
+    date: '18 августа 2026',
+    readTime: '5 мин чтения',
+    coverGrad: 'linear-gradient(135deg, #f59e0b, #b45309)',
+    coverIcon: '🩺',
+    badge: 'Дифференциальная диагностика',
+    excerpt: 'Пошаговый алгоритм дифференциальной диагностики синдрома раздраженного кишечника (Римские критерии IV), исключение органической патологии и диета Low-FODMAP.',
+    calcRoute: 'https://www.lotos74.ru/specialists/ufimtseva-irina-vladimirovna/',
+    calcBtnText: '🗓️ Записаться на прием к гастроэнтерологу в МЦ «Лотос»',
+    photos: [
+      {
+        title: 'Алгоритм Римских критериев IV поколения для СРК',
+        badge: 'Клинический Алгоритм',
+        caption: 'Рецидивирующая боль в животе по крайней мере 1 раз в неделю за последние 3 месяца, ассоциированная с дефекацией.'
+      },
+      {
+        title: 'Уровень фекального кальпротектина: СРК vs ВЗК',
+        badge: 'Лабораторный Маркер',
+        caption: 'Кальпротектин &lt; 50 мкг/г подтверждает функциональный генез (СРК) и исключает язвенный колит и болезнь Крона.'
+      },
+      {
+        title: 'Пирамида элиминационного протокола питания Low-FODMAP',
+        badge: 'Диетотерапия',
+        caption: 'Временное исключение ферментируемых олиго-, ди-, моносахаридов и полиолов для купирования метеоризма и вздутия.'
+      }
+    ],
+    content: `
+      <div class="article-lead-box">
+        <p>Хроническое вздутие живота (метеоризм), спазмы и нерегулярный стул — одна из самых частых причин обращения к гастроэнтерологу. Главная задача клинициста на первом этапе — не перепутать функциональный СРК с тяжелыми органическими заболеваниями ЖКТ.</p>
+      </div>
+
+      <h2>1. Симптомы «красных флагов» (требуют срочной эндоскопии)</h2>
+      <p>Функциональный синдром раздраженного кишечника никогда не сопровождается следующими признаками:</p>
+      <ul class="article-styled-list">
+        <li>Появление болей или позывов на дефекацию в ночные часы (функциональная боль никогда не будит спящего человека).</li>
+        <li>Появление видимой крови в стуле или положительный тест на скрытую кровь.</li>
+        <li>Необъяснимая потеря веса, анемия (снижение гемоглобина и ферритина), лихорадка.</li>
+        <li>Повышение уровня СОЭ, С-реактивного белка и фекального кальпротектина &gt; 150–200 мкг/г.</li>
+        <li>Впервые возникшие симптомы у пациентов старше 50 лет.</li>
+      </ul>
+
+      <h2>2. Доказательные подходы к терапии СРК</h2>
+      <p>При подтвержденном функциональном характере расстройства терапия строится на нормализации оси «мозг–кишечник», селективных миотропных спазмолитиках (мебеверин, отилония бромид), таргетных пробиотиках и временном переходе на протокол Low-FODMAP под контролем врача.</p>
+    `
+  },
+  {
+    id: 'udca',
+    title: 'Правильный расчет суточной дозы УДХК: частые ошибки при терапии',
+    category: 'Фармакотерапия',
+    categoryKey: 'pharma',
+    date: '02 августа 2026',
+    readTime: '4 мин чтения',
+    coverGrad: 'linear-gradient(135deg, #0284c7, #0369a1)',
+    coverIcon: '⚖️',
+    badge: 'Клиническая фармакология',
+    excerpt: 'Почему не работает назначение «1 капсула на ночь» и как правильно рассчитывать терапевтическую дозу урсодезоксихолевой кислоты по весу пациента.',
+    calcRoute: '#udca',
+    calcBtnText: '🧮 Рассчитать точную дозу УДХК в калькуляторе',
+    photos: [
+      {
+        title: 'График зависимости насыщения желчи УДХК от дозировки (мг/кг/сут)',
+        badge: 'Фармакокинетика',
+        caption: 'Терапевтическая концентрация УДХК в пуле желчных кислот (> 60%) достигается только при дозе не менее 10–12 мг/кг.'
+      },
+      {
+        title: 'Схема приема препарата в зависимости от клинической нозологии',
+        badge: 'Протокол Приема',
+        caption: 'При ЖКБ — вся доза однократно перед сном; при билиарном рефлюксе и холестазе — дробный прием во время еды.'
+      }
+    ],
+    content: `
+      <div class="article-lead-box">
+        <p>Урсодезоксихолевая кислота (УДХК) — эталонный препарат гепато- и холелитолитического действия. Однако в амбулаторной практике мы регулярно сталкиваемся с ситуацией, когда препарат «не помог» только из-за грубых ошибок в дозировании.</p>
+      </div>
+
+      <h2>1. Главная ошибка: фиксированная низкая доза</h2>
+      <p>Назначение 1–2 капсул (250–500 мг) взрослому пациенту с массой тела 80–90 кг создает субтерапевтическую концентрацию. Для надежного литолиза и гепатопротекции необходима доза строго <strong>10–15 мг на каждый килограмм массы тела</strong>. Пациент весом 85 кг должен получать не менее 1000–1250 мг в сутки (4–5 капсул по 250 мг).</p>
+
+      <h2>2. Время приема: почему именно на ночь?</h2>
+      <p>При желчнокаменной болезни всю суточную дозу необходимо принимать однократно перед сном. Ночью, в условиях длительного перерыва между приемами пищи, желчный пузырь не сокращается, и концентрация холестерина достигает максимума. Именно в эти часы высокая концентрация УДХК создает эффект обратного растворения холестериновых кристаллов.</p>
+    `
+  },
+  {
+    id: 'gastritis',
+    title: 'Хронический гастрит и Helicobacter pylori: современные стандарты эрадикации',
+    category: 'Заболевания желудка',
+    categoryKey: 'pharma',
+    date: '15 июля 2026',
+    readTime: '5 мин чтения',
+    coverGrad: 'linear-gradient(135deg, #ec4899, #be185d)',
+    coverIcon: '🔬',
+    badge: 'Гастроэнтерология',
+    excerpt: 'Критерии диагностики хеликобактерной инфекции, показания к антибактериальной терапии первой линии и предотвращение атрофии слизистой оболочки.',
+    calcRoute: 'https://www.lotos74.ru/specialists/ufimtseva-irina-vladimirovna/',
+    calcBtnText: '🗓️ Записаться на прием к гастроэнтерологу в МЦ «Лотос»',
+    photos: [
+      {
+        title: 'Эндоскопия желудка в узкоспектральном режиме NBI',
+        badge: 'NBI-Эндоскопия',
+        caption: 'Визуализация архитектоники микрососудистого русла слизистой оболочки антрального отдела желудка при хеликобактерном гастрите.'
+      },
+      {
+        title: 'Схема Маастрихт-VI: Квадротерапия первой линии с препаратами висмута',
+        badge: 'Протокол Эрадикации',
+        caption: '14-дневный протокол: ИПП + висмута трикалия дицитрат + амоксициллин + кларитромицин (или метронидазол).'
+      }
+    ],
+    content: `
+      <div class="article-lead-box">
+        <p>Бактерия <em>Helicobacter pylori</em> — основной этиологический фактор хронического активного гастрита, язвенной болезни желудка и двенадцатиперстной кишки, а также доказанный канцероген I класса. Своевременная эрадикация предотвращает каскад Корреа (атрофия → метаплазия → дисплазия).</p>
+      </div>
+
+      <h2>1. Достоверная диагностика перед лечением</h2>
+      <p>Для назначения антибактериальной терапии требуется точное подтверждение активной инфекции. Золотой стандарт неинвазивной диагностики — 13С-уреазный дыхательный тест или определение антигена H. pylori в кале методом ИФА (моноклональные антитела). За 2 недели до исследования обязательно отменяются препараты ИПП.</p>
+
+      <h2>2. Современные клинические рекомендации Маастрихт-VI</h2>
+      <p>В связи с ростом резистентности к антибиотикам продолжительность эрадикационной терапии увеличена до строгих 14 дней. Стандартом первой линии в регионах с высокой резистентностью является классическая квадротерапия с препаратами висмута, обеспечивающая частоту эрадикации свыше 90%.</p>
+    `
+  }
+];
+
+// РЕНДЕРИНГ КАТАЛОГА СТАТЕЙ
+function renderArticlesCatalog() {
+  const container = document.getElementById('articlesCatalogGrid');
+  if (!container) return;
+
+  container.innerHTML = ARTICLES_DATA.map((art, idx) => `
+    <article class="catalog-article-card" data-category="${art.categoryKey}">
+      <div class="catalog-article-cover" style="background: ${art.coverGrad};">
+        <div class="catalog-cover-icon">${art.coverIcon}</div>
+        <span class="catalog-cat-badge">${art.category}</span>
+        ${art.badge ? `<span class="catalog-special-badge">${art.badge}</span>` : ''}
+      </div>
+      <div class="catalog-article-body">
+        <div class="catalog-meta-row">
+          <span>${art.date}</span>
+          <span>•</span>
+          <span>⏱ ${art.readTime}</span>
+        </div>
+        <h3 class="catalog-article-title">${art.title}</h3>
+        <p class="catalog-article-excerpt">${art.excerpt}</p>
+        <div class="catalog-article-footer">
+          <a href="#article-${art.id}" class="btn-read-article">
+            <span>Читать статью (с фото)</span> →
+          </a>
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
+
+// ЗАГРУЗКА И ОТОБРАЖЕНИЕ КОНКРЕТНОЙ СТАТЬИ
+function loadArticleDetail(articleId) {
+  const container = document.getElementById('articleReaderContainer');
+  const crumbTitle = document.getElementById('article-detail-crumb');
+  if (!container) return;
+
+  const article = ARTICLES_DATA.find(a => a.id === articleId) || ARTICLES_DATA[0];
+
+  if (crumbTitle) {
+    crumbTitle.textContent = article.title;
+  }
+
+  // Генерация галереи фото
+  const galleryHtml = article.photos && article.photos.length ? `
+    <div class="article-photos-section">
+      <div class="photos-section-header">
+        <span class="photos-kicker">КЛИНИЧЕСКИЙ ФОТОМАТЕРИАЛ & СХЕМЫ</span>
+        <h3>Иллюстрации, диагностические снимки и схемы к исследованию</h3>
+      </div>
+      <div class="article-gallery-grid">
+        ${article.photos.map((photo, pIdx) => `
+          <div class="article-photo-card">
+            <div class="article-photo-preview" style="background: ${article.coverGrad};">
+              <div class="photo-icon-overlay">${article.coverIcon}</div>
+              <span class="photo-badge">${photo.badge || 'Фото ' + (pIdx + 1)}</span>
+              <div class="photo-title-overlay">${photo.title}</div>
+            </div>
+            <div class="article-photo-caption">
+              <strong>Рис. ${pIdx + 1}:</strong> ${photo.caption}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  ` : '';
+
+  // Другие статьи для блока "Читайте также"
+  const otherArticles = ARTICLES_DATA.filter(a => a.id !== article.id).slice(0, 3);
+  const otherHtml = `
+    <div class="article-read-also-section">
+      <h3>Читайте также в библиотеке врача:</h3>
+      <div class="read-also-grid">
+        ${otherArticles.map(oa => `
+          <a href="#article-${oa.id}" class="read-also-card">
+            <div class="read-also-icon" style="background: ${oa.coverGrad};">${oa.coverIcon}</div>
+            <div>
+              <div class="read-also-category">${oa.category}</div>
+              <div class="read-also-title">${oa.title}</div>
+            </div>
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  container.innerHTML = `
+    <div class="article-reader-header">
+      <a href="#articles" class="btn-back-to-articles">← Назад ко всем статьям</a>
+      <div class="article-meta-chips">
+        <span class="article-chip-cat">${article.category}</span>
+        <span class="article-chip-date">${article.date}</span>
+        <span class="article-chip-time">⏱ ${article.readTime}</span>
+      </div>
+      <h1 class="article-reader-title">${article.title}</h1>
+      <div class="article-author-card">
+        <div class="author-avatar-stub">⚕</div>
+        <div class="author-info-text">
+          <div class="author-name">Уфимцева Ирина Владимировна</div>
+          <div class="author-title">Врач-гастроэнтеролог высшей категории • Кандидат медицинских наук • МЦ «Лотос»</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ТЕЛО СТАТЬИ -->
+    <div class="article-body-content">
+      ${article.content}
+    </div>
+
+    <!-- ГАЛЕРЕЯ МЕДИЦИНСКИХ ФОТО И СХЕМ -->
+    ${galleryHtml}
+
+    <!-- БЛОК ПЕРЕХОДА В КАЛЬКУЛЯТОР ИЛИ НА ЗАПИСЬ -->
+    <div class="article-action-box">
+      <div class="action-box-content">
+        <div class="action-box-kicker">ПРАКТИЧЕСКОЕ ПРИМЕНЕНИЕ</div>
+        <h3>Примените методику на практике</h3>
+        <p>Используйте валидированные клинические калькуляторы или запишитесь на очную консультацию к врачу-гастроэнтерологу Уфимцевой И.В. в МЦ «Лотос».</p>
+        <div class="action-box-btns">
+          ${article.calcRoute.startsWith('http') 
+            ? `<a href="${article.calcRoute}" target="_blank" class="btn-action-primary">${article.calcBtnText}</a>`
+            : `<a href="${article.calcRoute}" class="btn-action-primary">${article.calcBtnText}</a>`
+          }
+          <a href="https://www.lotos74.ru/specialists/ufimtseva-irina-vladimirovna/" target="_blank" class="btn-action-outline">
+            🗓️ Записаться на прием в МЦ «Лотос»
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ЧИТАЙТЕ ТАКЖЕ -->
+    ${otherHtml}
+  `;
+}
+
+// ИНИЦИАЛИЗАЦИЯ СТАТЕЙ И ФИЛЬТРОВ
+function initArticlesCatalog() {
+  renderArticlesCatalog();
+
+  const filterBtns = document.querySelectorAll('.article-filter-btn');
+  if (!filterBtns.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+
+      const cards = document.querySelectorAll('.catalog-article-card');
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          card.style.display = 'flex';
+          card.style.animation = 'springCardIn 0.45s cubic-bezier(0.34, 1.25, 0.64, 1) both';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Доктор Уфимцева И.В. — Врач-гастроэнтеролог | Персональный портал & Клинические калькуляторы</title>
+  <title>GastroUfimtseva — Портал врача-гастроэнтеролога Уфимцевой И.В. | Доказательная медицина & Клинические калькуляторы</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,8 +13,13 @@
   <header class="navbar">
     <div class="nav-container">
       <a href="#home" class="brand">
-        <div class="brand-icon">⚕</div>
-        <div class="brand-title">Доктор Уфимцева<span> И.В.</span></div>
+        <div class="brand-icon">
+          <img src="favicon.svg" alt="GastroUfimtseva" width="30" height="30" style="display:block; border-radius:7px;">
+        </div>
+        <div class="brand-text-wrap">
+          <div class="brand-title">GastroUfimtseva</div>
+          <div class="brand-subtitle">Врач-гастроэнтеролог Уфимцева И.В.</div>
+        </div>
       </a>
       
       <!-- Десктопные кнопки -->
@@ -100,7 +106,7 @@
       <section class="doctor-hero" id="doctor-hero">
         <div class="doctor-hero-container">
           
-          <!-- ЛЕВАЯ КОЛОНКА: КРУПНЫЙ ПЛАН - ФОТО ВРАЧА НА ВСЮ ВЫСОТУ ЭКРАНА -->
+          <!-- ЛЕВАЯ КОЛОНКА: ФОТО ВРАЧА КРУПНЫМ ПЛАНОМ НА ВСЮ ВЫСОТУ ЭКРАНА -->
           <div class="doctor-photo-col">
             <div class="doctor-photo-frame full-height" id="doctorPhotoFrame">
               <div class="glass-specular-edge"></div>
@@ -109,20 +115,20 @@
               <!-- Верхний бейдж науки -->
               <div class="doctor-top-chip">
                 <span class="chip-star">★</span>
-                <span>Автор диссертационных моделей</span>
+                <span>Врач-гастроэнтеролог • к.м.н.</span>
               </div>
 
               <!-- Центральная область под фото -->
               <div class="doctor-photo-display">
                 <div class="doctor-photo-placeholder">
                   <div class="placeholder-icon-wrap">
-                    <svg width="68" height="68" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                       <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                   </div>
-                  <div class="placeholder-title">Портретное фото врача</div>
-                  <div class="placeholder-sub">Крупный план на всю высоту экрана<br><span>(поместите файл doctor-photo.jpg)</span></div>
+                  <div class="placeholder-title">Фото врача</div>
+                  <div class="placeholder-sub">Уфимцева Ирина Владимировна<br><span>(поместите файл doctor-photo.jpg)</span></div>
                 </div>
               </div>
 
@@ -134,57 +140,86 @@
             </div>
           </div>
 
-          <!-- ПРАВАЯ КОЛОНКА: ИМЯ, РЕГАЛИИ, СЛОГАН И БИО КРУПНЫМ ПЛАНОМ -->
-          <div class="doctor-info-col">
-            <div class="doctor-tag-row">
-              <span class="doctor-tag">⚕ Доказательная гастроэнтерология</span>
-              <span class="doctor-tag tag-science">🎓 Врач-исследователь</span>
-              <span class="doctor-tag tag-location">📍 Челябинск, МЦ «Лотос»</span>
+          <!-- ПРАВАЯ КОЛОНКА: 3 БЛОКА ПО СХЕМЕ СО СКРИНШОТА -->
+          <div class="doctor-info-col doctor-three-tier">
+            
+            <!-- БЛОК 1 (ВЕРХНИЙ): ФИО ВРАЧА -->
+            <div class="doctor-tier-card doctor-fio-card">
+              <div class="doctor-card-badge-row">
+                <span class="doctor-tag">⚕ Врач-гастроэнтеролог</span>
+                <span class="doctor-tag tag-science">🎓 Кандидат медицинских наук</span>
+                <span class="doctor-tag tag-exp">⭐ Высшая категория • Стаж 20+ лет</span>
+              </div>
+              <h1 class="doctor-name">Уфимцева Ирина Владимировна</h1>
+              <div class="doctor-specialty">Врач-гастроэнтеролог высшей категории • Клинический исследователь • Член РГА</div>
             </div>
 
-            <h1 class="doctor-name">Уфимцева Ирина Владимировна</h1>
-            <div class="doctor-specialty">Врач-гастроэнтеролог высшей категории • Автор диссертационного исследования</div>
-
-            <div class="doctor-slogan-box">
-              <div class="slogan-quote-icon">“</div>
-              <p class="doctor-slogan">
-                Доказательный подход к здоровью пищеварительной системы: от фундаментальной научной модели к точному и бережному лечению каждого пациента.
+            <!-- БЛОК 2 (СЕРЕДИНА): ДЕВИЗ -->
+            <div class="doctor-tier-card doctor-motto-card">
+              <div class="motto-banner-label">
+                <span class="motto-pill">ДЕВИЗ ВРАЧА</span>
+              </div>
+              <p class="doctor-motto-text">
+                «Каждый диагноз — это поиск первопричины, а каждое назначение — строго выверенная доказательная стратегия для сохранения здоровья пациента.»
               </p>
             </div>
 
-            <p class="doctor-lead-text">
-              Специализируюсь на доказательной гастроэнтерологии: консервативном лечении желчнокаменной болезни (литолиз без операции с сохранением функционирующего органа), стеатоза печени (жирового гепатоза), кислотозависимых заболеваний желудка, патологий кишечника и поджелудочной железы. Автор двух валидированных математических моделей прогнозирования в гастроэнтерологии.
-            </p>
+            <!-- БЛОК 3 (НИЗ): МЕСТО РАБОТЫ, ЗАСЛУГИ И ОСТАЛЬНЫЕ КАЧЕСТВА -->
+            <div class="doctor-tier-card doctor-merits-card">
+              <div class="merits-grid-row">
+                
+                <div class="merit-box">
+                  <div class="merit-box-header">
+                    <span class="merit-icon">🏥</span>
+                    <span class="merit-label">Место работы</span>
+                  </div>
+                  <div class="merit-title">Медицинский центр «Лотос»</div>
+                  <div class="merit-desc">
+                    г. Челябинск, ул. Труда, 187Б. Ведущий врач-гастроэнтеролог клинико-диагностического отделения. Очный консультативный прием, ведение и диспансерное наблюдение пациентов.
+                  </div>
+                </div>
 
-            <div class="doctor-hero-actions">
-              <a href="https://www.lotos74.ru/specialists/ufimtseva-irina-vladimirovna/" target="_blank" class="btn-primary-action">
-                <span>🗓️ Записаться на прием (МЦ «Лотос»)</span>
-              </a>
-              <a href="#calcs" class="btn-glass-action">
-                <span>🩺 Клинические калькуляторы</span>
-              </a>
-              <a href="#articles" class="btn-glass-action">
-                <span>📚 Все статьи и обзоры</span>
-              </a>
-              <a href="https://t.me/alfosx" target="_blank" class="btn-glass-action">
-                <span>💬 Telegram: @alfosx</span>
-              </a>
+                <div class="merit-box">
+                  <div class="merit-box-header">
+                    <span class="merit-icon">🔬</span>
+                    <span class="merit-label">Научные заслуги и разработки</span>
+                  </div>
+                  <div class="merit-title">Автор 2-х диссертационных моделей</div>
+                  <div class="merit-desc">
+                    Разработчик оригинальных прогностических формул логистической регрессии для консервативного литолиза ЖКБ и регресса стеатоза печени. Более 20 публикаций в изданиях ВАК.
+                  </div>
+                </div>
+
+                <div class="merit-box merit-box-wide">
+                  <div class="merit-box-header">
+                    <span class="merit-icon">🛡️</span>
+                    <span class="merit-label">Клинические качества и подход</span>
+                  </div>
+                  <div class="merit-title">Органосохраняющая доказательная терапия</div>
+                  <div class="merit-desc">
+                    Приоритет сохранения функционирующего желчного пузыря без операции. Принцип «Zero-Overdiagnosis» — никаких ненужных анализов. Индивидуальный расчет терапии с учетом метаболического статуса (HOMA-IR) и соматической коморбидности (CIRS-G).
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- КНОПКИ ДЕЙСТВИЙ -->
+              <div class="doctor-hero-actions">
+                <a href="https://www.lotos74.ru/specialists/ufimtseva-irina-vladimirovna/" target="_blank" class="btn-primary-action">
+                  <span>🗓️ Записаться на прием (МЦ «Лотос»)</span>
+                </a>
+                <a href="#calcs" class="btn-glass-action">
+                  <span>🩺 Клинические калькуляторы</span>
+                </a>
+                <a href="#articles" class="btn-glass-action">
+                  <span>📚 Статьи и публикации</span>
+                </a>
+                <a href="https://t.me/alfosx" target="_blank" class="btn-glass-action">
+                  <span>💬 Telegram: @alfosx</span>
+                </a>
+              </div>
             </div>
 
-            <div class="doctor-mini-stats">
-              <div class="mini-stat">
-                <strong>15+ лет</strong>
-                <span>клинической практики</span>
-              </div>
-              <div class="mini-stat">
-                <strong>2 модели</strong>
-                <span>в диссертации (ЖКБ и стеатоз)</span>
-              </div>
-              <div class="mini-stat">
-                <strong>1000+</strong>
-                <span>сохраненных желчных пузырей</span>
-              </div>
-            </div>
           </div>
 
         </div>
@@ -199,7 +234,7 @@
             <p class="section-subtitle">Авторские разборы современных протоколов диагностики и лечения ЖКТ, основанные на доказательной медицине</p>
           </div>
           <div class="slider-header-actions">
-            <a href="#articles" class="btn-all-articles-link">Все статьи (4) →</a>
+            <a href="#articles" class="btn-all-articles-link">Все статьи (6) →</a>
           </div>
           <div class="slider-controls">
             <button type="button" class="slider-btn" id="artSliderPrev" aria-label="Предыдущая статья">←</button>
@@ -217,13 +252,13 @@
                 <span class="article-cat-badge">ЖКБ • УДХК</span>
               </div>
               <div class="article-card-body">
-                <div class="article-date">14 октября 2026</div>
+                <div class="article-date">14 октября 2026 • ⏱ 5 мин</div>
                 <h3 class="article-title">Консервативный литолиз камней желчного пузыря: когда операция не нужна?</h3>
                 <p class="article-desc">
                   Критерии отбора пациентов для медикаментозного растворения камней препаратами УДХК. Роль плотности по КТ, размера конкрементов и инсулинорезистентности.
                 </p>
                 <div class="article-footer">
-                  <a href="#articles" class="article-read-link">Читать полную статью →</a>
+                  <a href="#article-litoliz" class="article-read-link">Читать полную статью (с фото) →</a>
                 </div>
               </div>
             </article>
@@ -235,13 +270,13 @@
                 <span class="article-cat-badge">Гепатология • Стеатоз</span>
               </div>
               <div class="article-card-body">
-                <div class="article-date">28 сентября 2026</div>
+                <div class="article-date">28 сентября 2026 • ⏱ 6 мин</div>
                 <h3 class="article-title">Жировой гепатоз печени: от скрытого стеатоза к полному регрессу</h3>
                 <p class="article-desc">
                   Как прогнозировать обратное развитие стеатоза печени по авторской диссертационной модели, учитывающей гликемию натощак, ИМТ, окружность талии и индекс FLI.
                 </p>
                 <div class="article-footer">
-                  <a href="#articles" class="article-read-link">Читать полную статью →</a>
+                  <a href="#article-steatoz" class="article-read-link">Читать полную статью (с фото) →</a>
                 </div>
               </div>
             </article>
@@ -253,13 +288,13 @@
                 <span class="article-cat-badge">Эндокринология & ЖКТ</span>
               </div>
               <div class="article-card-body">
-                <div class="article-date">05 сентября 2026</div>
+                <div class="article-date">05 сентября 2026 • ⏱ 4 мин</div>
                 <h3 class="article-title">Инсулинорезистентность и индекс HOMA-IR: невидимый фактор камнеобразования</h3>
                 <p class="article-desc">
                   Почему повышенный базальный инсулин меняет биохимический состав желчи и ускоряет образование холестериновых кристаллов в желчном пузыре.
                 </p>
                 <div class="article-footer">
-                  <a href="#articles" class="article-read-link">Читать полную статью →</a>
+                  <a href="#article-homa" class="article-read-link">Читать полную статью (с фото) →</a>
                 </div>
               </div>
             </article>
@@ -271,13 +306,49 @@
                 <span class="article-cat-badge">Кишечник & Микробиота</span>
               </div>
               <div class="article-card-body">
-                <div class="article-date">18 августа 2026</div>
+                <div class="article-date">18 августа 2026 • ⏱ 5 мин</div>
                 <h3 class="article-title">Вздутие, боли и нарушение стула: как отличить СРК от воспаления кишечника</h3>
                 <p class="article-desc">
                   Пошаговый алгоритм дифференциальной диагностики синдрома раздраженного кишечника (Римские критерии IV), исключение органической патологии и диета Low-FODMAP.
                 </p>
                 <div class="article-footer">
-                  <a href="#articles" class="article-read-link">Читать полную статью →</a>
+                  <a href="#article-bowel" class="article-read-link">Читать полную статью (с фото) →</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Статья 5 -->
+            <article class="article-card">
+              <div class="article-card-cover" style="background: linear-gradient(135deg, #0284c7, #0369a1);">
+                <div class="article-cover-icon">⚖️</div>
+                <span class="article-cat-badge">Фармакотерапия</span>
+              </div>
+              <div class="article-card-body">
+                <div class="article-date">02 августа 2026 • ⏱ 4 мин</div>
+                <h3 class="article-title">Правильный расчет суточной дозы УДХК: частые ошибки при терапии</h3>
+                <p class="article-desc">
+                  Почему не работает дозировка «1 капсула на ночь» и как правильно рассчитывать терапевтическую дозу урсодезоксихолевой кислоты по весу пациента.
+                </p>
+                <div class="article-footer">
+                  <a href="#article-udca" class="article-read-link">Читать полную статью (с фото) →</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Статья 6 -->
+            <article class="article-card">
+              <div class="article-card-cover" style="background: linear-gradient(135deg, #ec4899, #be185d);">
+                <div class="article-cover-icon">🔬</div>
+                <span class="article-cat-badge">Заболевания желудка</span>
+              </div>
+              <div class="article-card-body">
+                <div class="article-date">15 июля 2026 • ⏱ 5 мин</div>
+                <h3 class="article-title">Хронический гастрит и Helicobacter pylori: современные стандарты эрадикации</h3>
+                <p class="article-desc">
+                  Критерии диагностики хеликобактерной инфекции, показания к антибактериальной терапии первой линии и предотвращение атрофии слизистой оболочки.
+                </p>
+                <div class="article-footer">
+                  <a href="#article-gastritis" class="article-read-link">Читать полную статью (с фото) →</a>
                 </div>
               </div>
             </article>
@@ -636,176 +707,39 @@
     <!-- ==================== 1B. СТРАНИЦА: СТАТЬИ И ПУБЛИКАЦИИ (#articles) ==================== -->
     <div id="page-articles" class="page-view">
       <div class="breadcrumbs">
-        <a href="#home">Главная (О враче)</a> <span>/</span> <span>Статьи и публикации</span>
+        <a href="#home">Главная (О враче)</a> <span>/</span> <span>Статьи и клинические публикации</span>
       </div>
 
       <div class="articles-page-hero">
         <div class="hero-tag">Библиотека доказательной медицины</div>
         <h1>Клинические статьи и рекомендации врача-гастроэнтеролога</h1>
-        <p>Научно обоснованные материалы о диагностике, критериях консервативного литолиза ЖКБ, лечении стеатоза печени и современных протоколах ведения пациентов.</p>
+        <p>Научно обоснованные материалы о диагностике, критериях консервативного литолиза ЖКБ, лечении стеатоза печени и современных протоколах ведения пациентов с иллюстрациями и практическими схемами.</p>
       </div>
 
       <!-- ФИЛЬТРЫ ПО КАТЕГОРИЯМ -->
       <div class="articles-filter-bar">
-        <button type="button" class="article-filter-btn active" data-filter="all">Все статьи (4)</button>
+        <button type="button" class="article-filter-btn active" data-filter="all">Все статьи (6)</button>
         <button type="button" class="article-filter-btn" data-filter="litoliz">ЖКБ и Литолиз</button>
         <button type="button" class="article-filter-btn" data-filter="steatoz">Стеатоз печени</button>
         <button type="button" class="article-filter-btn" data-filter="homa">Инсулинорезистентность</button>
         <button type="button" class="article-filter-btn" data-filter="bowel">Кишечник и СРК</button>
+        <button type="button" class="article-filter-btn" data-filter="pharma">Фармакотерапия & Желудок</button>
       </div>
 
-      <!-- СЕТКА ПОЛНОЦЕННЫХ СТАТЕЙ -->
-      <div class="articles-full-grid">
-        
-        <!-- СТАТЬЯ 1: ЛИТОЛИЗ ЖКБ -->
-        <article class="article-full-card" data-category="litoliz">
-          <div class="article-full-badge-row">
-            <span class="article-topic-badge" style="background:#e0f2fe; color:#0369a1;">⭐ Авторская модель №1</span>
-            <span class="article-topic-badge">ЖКБ • УДХК</span>
-            <span class="article-read-time">⏱ 5 мин чтения</span>
-          </div>
-          <h2 class="article-full-title">Консервативный литолиз камней желчного пузыря: когда операция не нужна?</h2>
-          <div class="article-author-byline">
-            <span>Автор: <strong>Уфимцева Ирина Владимировна</strong>, врач-гастроэнтеролог</span>
-            <span>•</span>
-            <span>14 октября 2026</span>
-          </div>
-          <div class="article-full-content">
-            <p>
-              Холецистэктомия (хирургическое удаление желчного пузыря) — распространенная операция, однако удаление органа не устраняет метаболическую причину литогенеза (камнеобразования) и нередко приводит к постхолецистэктомическому синдрому. В рамках диссертационного исследования доказана высокая эффективность медикаментозного растворения камней при соблюдении четких клинических критериев отбора.
-            </p>
-            <div class="article-key-points">
-              <h4>Ключевые критерии успеха консервативного литолиза:</h4>
-              <ul>
-                <li><strong>Рентген-плотность по КТ:</strong> строгий показатель &lt; 100 HU (холестериновые мягкие камни без признаков кальцификации).</li>
-                <li><strong>Размер конкрементов:</strong> одиночные или множественные камни диаметром преимущественно до 10–12 мм.</li>
-                <li><strong>Сохранная моторика пузыря:</strong> фракция выброса желчи более 50% по результатам динамического УЗИ с пробным завтраком.</li>
-                <li><strong>Учет инсулинорезистентности (HOMA-IR):</strong> избыток базального инсулина ускоряет кристаллизацию холестерина в желчи.</li>
-              </ul>
-            </div>
-            <p>
-              Для оценки персональной вероятности растворения конкрементов разработана многофакторная математическая модель логистической регрессии с высокой точностью (ROC AUC = 0.918).
-            </p>
-          </div>
-          <div class="article-full-action">
-            <a href="#litoliz" class="btn-article-calc-action">
-              <span>🧮 Рассчитать вероятность литолиза в калькуляторе →</span>
-            </a>
-            <a href="#udca" class="btn-article-secondary-action">
-              <span>Дозирование УДХК</span>
-            </a>
-          </div>
-        </article>
+      <!-- СЕТКА КАРТОЧЕК СТАТЕЙ (КАТАЛОГ) -->
+      <div class="articles-catalog-grid" id="articlesCatalogGrid">
+        <!-- Генерируется и наполняется через app.js / ARTICLES_DATA -->
+      </div>
+    </div>
 
-        <!-- СТАТЬЯ 2: СТЕАТОЗ ПЕЧЕНИ -->
-        <article class="article-full-card" data-category="steatoz">
-          <div class="article-full-badge-row">
-            <span class="article-topic-badge" style="background:#e0f2fe; color:#0369a1;">⭐ Авторская модель №2</span>
-            <span class="article-topic-badge">Стеатоз • НАЖБП</span>
-            <span class="article-read-time">⏱ 6 мин чтения</span>
-          </div>
-          <h2 class="article-full-title">Жировой гепатоз печени: от скрытого стеатоза к полному регрессу</h2>
-          <div class="article-author-byline">
-            <span>Автор: <strong>Уфимцева Ирина Владимировна</strong>, врач-гастроэнтеролог</span>
-            <span>•</span>
-            <span>28 сентября 2026</span>
-          </div>
-          <div class="article-full-content">
-            <p>
-              Неалкогольная жировая болезнь печени (НАЖБП / МАСЖБ) — одна из наиболее частых патологий в практике гастроэнтеролога. Коварство жирового гепатоза заключается в бессимптомном течении вплоть до стадии выраженного стеатогепатита и фиброза.
-            </p>
-            <div class="article-key-points">
-              <h4>Научные выводы диссертационной модели регресса стеатоза:</h4>
-              <ul>
-                <li><strong>Взаимосвязь факторов:</strong> доказана взаимозависимость гликемии натощак, ИМТ, окружности талии и расчетного индекса FLI.</li>
-                <li><strong>Критический порог отсечения:</strong> при значении прогностического индекса P &gt; 0.50 фиксируется устойчивый регресс стеатоза (ROC AUC = 0.827, чувствительность 92.6%).</li>
-                <li><strong>Комплексная тактика:</strong> диета с ограничением простых сахаров, дозированная аэробная нагрузка и гепатопротективная терапия УДХК в адекватных дозировках.</li>
-              </ul>
-            </div>
-            <p>
-              Калькулятор на сайте позволяет за несколько секунд рассчитать индивидуальный шанс регресса жирового гепатоза и скорректировать лечебный план.
-            </p>
-          </div>
-          <div class="article-full-action">
-            <a href="#steatoz" class="btn-article-calc-action">
-              <span>🧮 Рассчитать прогноз регресса стеатоза в калькуляторе →</span>
-            </a>
-            <a href="#fli" class="btn-article-secondary-action">
-              <span>Индекс стеатоза FLI</span>
-            </a>
-          </div>
-        </article>
+    <!-- ==================== 1C. СТРАНИЦА КОНКРЕТНОЙ СТАТЬИ (#article) ==================== -->
+    <div id="page-article" class="page-view">
+      <div class="breadcrumbs">
+        <a href="#home">Главная</a> <span>/</span> <a href="#articles">Статьи врача</a> <span>/</span> <span id="article-detail-crumb">Статья</span>
+      </div>
 
-        <!-- СТАТЬЯ 3: HOMA-IR -->
-        <article class="article-full-card" data-category="homa">
-          <div class="article-full-badge-row">
-            <span class="article-topic-badge">Эндокринология & ЖКТ</span>
-            <span class="article-topic-badge">Инсулинорезистентность</span>
-            <span class="article-read-time">⏱ 4 мин чтения</span>
-          </div>
-          <h2 class="article-full-title">Инсулинорезистентность и индекс HOMA-IR: невидимый фактор камнеобразования</h2>
-          <div class="article-author-byline">
-            <span>Автор: <strong>Уфимцева Ирина Владимировна</strong>, врач-гастроэнтеролог</span>
-            <span>•</span>
-            <span>05 сентября 2026</span>
-          </div>
-          <div class="article-full-content">
-            <p>
-              Почему врач-гастроэнтеролог на первичном приеме исследует уровень глюкозы и инсулина крови? Клинические исследования наглядно показывают: скрытая инсулинорезистентность напрямую влияет на синтез холестерина в печени и кинетику желчевыводящих путей.
-            </p>
-            <div class="article-key-points">
-              <h4>Как инсулинорезистентность провоцирует ЖКБ:</h4>
-              <ul>
-                <li><strong>Перенасыщение желчи:</strong> гиперинсулинемия стимулирует печеночный рецептор HMG-CoA редуктазы, увеличивая секрецию холестерина в желчь.</li>
-                <li><strong>Снижение моторики:</strong> снижается чувствительность гладкой мускулатуры стенки пузыря к холецистокинину, формируется застой желчи (билиарный сладж).</li>
-                <li><strong>Референсные значения:</strong> балл HOMA-IR &gt; 2.7 указывает на метаболические нарушения, требующие параллельной нутрициологической коррекции.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="article-full-action">
-            <a href="#homa" class="btn-article-calc-action">
-              <span>🧮 Рассчитать индекс HOMA-IR онлайн →</span>
-            </a>
-          </div>
-        </article>
-
-        <!-- СТАТЬЯ 4: СРК И КИШЕЧНИК -->
-        <article class="article-full-card" data-category="bowel">
-          <div class="article-full-badge-row">
-            <span class="article-topic-badge">Кишечник & Микробиота</span>
-            <span class="article-topic-badge">Диагностика СРК</span>
-            <span class="article-read-time">⏱ 5 мин чтения</span>
-          </div>
-          <h2 class="article-full-title">Вздутие, боли и нарушение стула: как отличить СРК от воспаления кишечника</h2>
-          <div class="article-author-byline">
-            <span>Автор: <strong>Уфимцева Ирина Владимировна</strong>, врач-гастроэнтеролог</span>
-            <span>•</span>
-            <span>18 августа 2026</span>
-          </div>
-          <div class="article-full-content">
-            <p>
-              Синдром раздраженного кишечника (СРК) — распространенное функциональное расстройство, существенно снижающее качество жизни. Первостепенная задача клинициста — исключить органическую патологию (болезнь Крона, язвенный колит, полипоз, целиакию).
-            </p>
-            <div class="article-key-points">
-              <h4>Симптомы «красных флагов» (требуют углубленной диагностики):</h4>
-              <ul>
-                <li>Появление болей и диареи в ночные часы (функциональные боли ночью не будят).</li>
-                <li>Примесь крови в кале, необъяснимое снижение массы тела, анемия.</li>
-                <li>Повышение уровня фекального кальпротектина и С-реактивного белка.</li>
-                <li>Дебют симптомов в возрасте старше 50 лет или отягощенный онкоанамнез.</li>
-              </ul>
-            </div>
-            <p>
-              При подтвержденном функциональном характере расстройства высокую эффективность демонстрирует протокол Low-FODMAP, спазмолитическая терапия и нормализация моторики ЖКТ.
-            </p>
-          </div>
-          <div class="article-full-action">
-            <a href="https://www.lotos74.ru/specialists/ufimtseva-irina-vladimirovna/" target="_blank" class="btn-article-calc-action" style="background: linear-gradient(135deg, #10b981, #059669);">
-              <span>🗓️ Записаться на очную консультацию в МЦ «Лотос» →</span>
-            </a>
-          </div>
-        </article>
-
+      <div class="article-reader-container" id="articleReaderContainer">
+        <!-- Контент конкретной статьи с полным текстом, галереей фото, схемами и калькулятором -->
       </div>
     </div>
 
@@ -1003,12 +937,7 @@
     <!-- ==================== 2. СТРАНИЦА: АВТОРСКИЙ КАЛЬКУЛЯТОР ЛИТОЛИЗА (#litoliz) ==================== -->
     <div id="page-litoliz" class="page-view">
       <div class="breadcrumbs">
-        <a href="#calcs">Каталог</a> <span>/</span> <span>Литолиз при ЖКБ</span>
-      </div>
-
-    <div id="page-litoliz" class="page-view">
-      <div class="breadcrumbs">
-        <a href="#home">Главная</a> <span>/</span> <span>Литолиз при ЖКБ</span>
+        <a href="#home">Главная</a> <span>/</span> <a href="#calcs">Калькуляторы</a> <span>/</span> <span>Литолиз при ЖКБ</span>
       </div>
 
       <div class="calc-container">
@@ -1095,9 +1024,7 @@
 
     <!-- ==================== 2B. СТРАНИЦА: АВТОРСКИЙ КАЛЬКУЛЯТОР РЕГРЕССА СТЕАТОЗА (#steatoz) ==================== -->
     <div id="page-steatoz" class="page-view">
-      <div class="breadcrumbs">
-        <a href="#home">Главная</a> <span>/</span> <span>Регресс стеатоза печени</span>
-      </div>
+      <div class="breadcrumbs"><a href="#home">Главная</a> <span>/</span> <a href="#calcs">Калькуляторы</a> <span>/</span> <span>Регресс стеатоза печени</span></div>
 
       <div class="calc-container">
         <!-- БЛОК ССЫЛКИ НА АВТОРЕФЕРАТ ДИССЕРТАЦИИ -->
@@ -1174,9 +1101,7 @@
 
     <!-- ==================== 3. СТРАНИЦА: ДОЗИРОВАНИЕ УДХК (#udca) ==================== -->
     <div id="page-udca" class="page-view">
-      <div class="breadcrumbs">
-        <a href="#home">Главная</a> <span>/</span> <span>Дозирование УДХК</span>
-      </div>
+      <div class="breadcrumbs"><a href="#home">Главная</a> <span>/</span> <a href="#calcs">Калькуляторы</a> <span>/</span> <span>Дозирование УДХК</span></div>
 
       <div class="calc-container">
         <div class="calc-box">
@@ -1222,9 +1147,7 @@
 
     <!-- ==================== 4. СТРАНИЦА: HOMA-IR (#homa) ==================== -->
     <div id="page-homa" class="page-view">
-      <div class="breadcrumbs">
-        <a href="#home">Главная</a> <span>/</span> <span>Индекс HOMA-IR</span>
-      </div>
+      <div class="breadcrumbs"><a href="#home">Главная</a> <span>/</span> <a href="#calcs">Калькуляторы</a> <span>/</span> <span>Индекс HOMA-IR</span></div>
 
       <div class="calc-container">
         <div class="calc-box">
@@ -1268,9 +1191,7 @@
 
     <!-- ==================== 5. СТРАНИЦА: CIRS-G ОПРОСНИК (#cirsg) ==================== -->
     <div id="page-cirsg" class="page-view">
-      <div class="breadcrumbs">
-        <a href="#home">Главная</a> <span>/</span> <span>Шкала CIRS-G</span>
-      </div>
+      <div class="breadcrumbs"><a href="#home">Главная</a> <span>/</span> <a href="#calcs">Калькуляторы</a> <span>/</span> <span>Шкала CIRS-G</span></div>
 
       <div class="calc-container" style="max-width: 760px;">
         <div class="calc-box">
@@ -1486,9 +1407,7 @@
 
     <!-- ==================== 6. СТРАНИЦА: FIB-4 (#fib4) ==================== -->
     <div id="page-fib4" class="page-view">
-      <div class="breadcrumbs">
-        <a href="#home">Главная</a> <span>/</span> <span>Индекс FIB-4</span>
-      </div>
+      <div class="breadcrumbs"><a href="#home">Главная</a> <span>/</span> <a href="#calcs">Калькуляторы</a> <span>/</span> <span>Индекс FIB-4</span></div>
 
       <div class="calc-container">
         <div class="calc-box">
@@ -1541,9 +1460,7 @@
 
     <!-- ==================== 7. СТРАНИЦА: APRI (#apri) ==================== -->
     <div id="page-apri" class="page-view">
-      <div class="breadcrumbs">
-        <a href="#home">Главная</a> <span>/</span> <span>Индекс APRI</span>
-      </div>
+      <div class="breadcrumbs"><a href="#home">Главная</a> <span>/</span> <a href="#calcs">Калькуляторы</a> <span>/</span> <span>Индекс APRI</span></div>
 
       <div class="calc-container">
         <div class="calc-box">
@@ -1590,9 +1507,7 @@
 
     <!-- ==================== 8. СТРАНИЦА: FLI (#fli) ==================== -->
     <div id="page-fli" class="page-view">
-      <div class="breadcrumbs">
-        <a href="#home">Главная</a> <span>/</span> <span>Индекс FLI</span>
-      </div>
+      <div class="breadcrumbs"><a href="#home">Главная</a> <span>/</span> <a href="#calcs">Калькуляторы</a> <span>/</span> <span>Индекс FLI</span></div>
 
       <div class="calc-container">
         <div class="calc-box">
@@ -1648,9 +1563,7 @@
 
     <!-- ==================== 9. СТРАНИЦА: CHILD-PUGH (#childpugh) ==================== -->
     <div id="page-childpugh" class="page-view">
-      <div class="breadcrumbs">
-        <a href="#home">Главная</a> <span>/</span> <span>Шкала Child-Pugh</span>
-      </div>
+      <div class="breadcrumbs"><a href="#home">Главная</a> <span>/</span> <a href="#calcs">Калькуляторы</a> <span>/</span> <span>Шкала Child-Pugh</span></div>
 
       <div class="calc-container">
         <div class="calc-box">
@@ -1726,9 +1639,7 @@
 
     <!-- ==================== 10. СТРАНИЦА: MELD (#meld) ==================== -->
     <div id="page-meld" class="page-view">
-      <div class="breadcrumbs">
-        <a href="#home">Главная</a> <span>/</span> <span>Шкала MELD</span>
-      </div>
+      <div class="breadcrumbs"><a href="#home">Главная</a> <span>/</span> <a href="#calcs">Калькуляторы</a> <span>/</span> <span>Шкала MELD</span></div>
 
       <div class="calc-container">
         <div class="calc-box">
@@ -1892,7 +1803,7 @@
       <div class="footer-grid">
         <!-- Колонка 1: О враче -->
         <div class="footer-col">
-          <h4>Доктор Уфимцева И.В.</h4>
+          <h4>GastroUfimtseva</h4>
           <p>
             Персональный клинический и научный портал врача-гастроэнтеролога Уфимцевой Ирины Владимировны (МЦ «Лотос», г. Челябинск). 
             Доказательная медицина, консервативный литолиз ЖКБ и авторские прогностические модели.
@@ -1948,7 +1859,7 @@
       </div>
 
       <div class="footer-bottom">
-        <div>© Доктор Уфимцева Ирина Владимировна. Персональный врачебный портал & научные модели.</div>
+        <div>© GastroUfimtseva — Портал врача-гастроэнтеролога Уфимцевой И.В. Все права защищены.</div>
         <div>Медицинский информационно-справочный сервис. Не заменяет очный прием врача.</div>
       </div>
     </div>
