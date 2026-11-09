@@ -1063,14 +1063,21 @@ function initServicesToggle() {
   const extraItems = document.querySelectorAll('.extra-service');
   if (!toggleBtn || !textEl || !iconEl || !extraItems.length) return;
 
-  let isExpanded = true;
+  let isExpanded = false; // По умолчанию показываем только первые 2 направления
+
+  // Убеждаемся что скрытые направления спрятаны
+  extraItems.forEach(item => {
+    item.style.display = 'none';
+  });
+  textEl.textContent = 'Показать все направления (еще 6)';
+  iconEl.style.transform = 'rotate(0deg)';
 
   toggleBtn.addEventListener('click', () => {
     isExpanded = !isExpanded;
     extraItems.forEach(item => {
       item.style.display = isExpanded ? 'list-item' : 'none';
     });
-    textEl.textContent = isExpanded ? 'Скрыть' : 'Показать всё (еще 2 направления)';
+    textEl.textContent = isExpanded ? 'Скрыть дополнительные направления' : 'Показать все направления (еще 6)';
     iconEl.style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
   });
 }

@@ -480,19 +480,19 @@
             <ul class="services-bullet-list">
               <li><strong>Заболевания желудка:</strong> гастрит, язвенная болезнь желудка и двенадцатиперстной кишки, эрозивные поражения слизистой.</li>
               <li><strong>Заболевания пищевода:</strong> гастроэзофагеальная рефлюксная болезнь (ГЭРБ), грыжи пищеводного отверстия диафрагмы, эзофагиты, ахалазия кардии.</li>
-              <li><strong>Заболевания кишечника:</strong> дисбиоз кишечника, колиты, язвенный колит, болезнь Крона, дивертикулярная болезнь, полипы кишечника, синдром раздраженного кишечника (СРК).</li>
-              <li><strong>Заболевания печени:</strong> стеатоз (жировой гепатоз), неалкогольная жировая болезнь печени (НАЖБП/МАСЖБ), фиброз, цирроз печени, хронические гепатиты.</li>
-              <li><strong>Заболевания желчного пузыря:</strong> хронический и калькулезный холецистит, желчнокаменная болезнь (ЖКБ), полипы желчного пузыря, билиарный сладж.</li>
-              <li><strong>Заболевания поджелудочной железы:</strong> панкреатиты (острый и хронический), дисфункция сфинктера Одди, кисты поджелудочной железы.</li>
-              <li class="extra-service"><strong>Инфекционные заболевания ЖКТ:</strong> лямблиоз, аскаридоз, энтеробиоз, вирусный гепатит С, сальмонеллез, бластоцистоз.</li>
-              <li class="extra-service"><strong>Метаболические нарушения:</strong> абдоминальное ожирение, инсулинорезистентность, метаболический синдром, жировая болезнь печени.</li>
+              <li class="extra-service" style="display: none;"><strong>Заболевания кишечника:</strong> дисбиоз кишечника, колиты, язвенный колит, болезнь Крона, дивертикулярная болезнь, полипы кишечника, синдром раздраженного кишечника (СРК).</li>
+              <li class="extra-service" style="display: none;"><strong>Заболевания печени:</strong> стеатоз (жировой гепатоз), неалкогольная жировая болезнь печени (НАЖБП/МАСЖБ), фиброз, цирроз печени, хронические гепатиты.</li>
+              <li class="extra-service" style="display: none;"><strong>Заболевания желчного пузыря:</strong> хронический и калькулезный холецистит, желчнокаменная болезнь (ЖКБ), полипы желчного пузыря, билиарный сладж.</li>
+              <li class="extra-service" style="display: none;"><strong>Заболевания поджелудочной железы:</strong> панкреатиты (острый и хронический), дисфункция сфинктера Одди, кисты поджелудочной железы.</li>
+              <li class="extra-service" style="display: none;"><strong>Инфекционные заболевания ЖКТ:</strong> лямблиоз, аскаридоз, энтеробиоз, вирусный гепатит С, сальмонеллез, бластоцистоз.</li>
+              <li class="extra-service" style="display: none;"><strong>Метаболические нарушения:</strong> абдоминальное ожирение, инсулинорезистентность, метаболический синдром, жировая болезнь печени.</li>
             </ul>
           </div>
 
           <div class="services-toggle-row">
             <button type="button" class="btn-toggle-services" id="toggleServicesBtn">
-              <span id="toggleServicesText">Скрыть</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" id="toggleServicesIcon" style="transform: rotate(180deg); transition: transform 0.3s ease;">
+              <span id="toggleServicesText">Показать все направления (еще 6)</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" id="toggleServicesIcon" style="transform: rotate(0deg); transition: transform 0.3s ease;">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </button>
@@ -756,41 +756,75 @@
 
       <!-- ФЛАГМАНСКИЙ БАННЕР 1 (АВТОРСКИЙ КАЛЬКУЛЯТОР ЛИТОЛИЗА) -->
       <section class="flagship-banner">
-        <div class="flagship-badge-row">
-          <span class="flagship-badge">⭐ Авторская разработка №1</span>
-          <span class="patent-badge">Диссертационная модель (табл. 3.20)</span>
+        <div class="flagship-calc-watermark" aria-hidden="true">
+          <svg width="150" height="180" viewBox="0 0 100 120" fill="none">
+            <rect x="8" y="8" width="84" height="104" rx="16" stroke="#0284c7" stroke-width="6" fill="rgba(224, 242, 254, 0.45)"/>
+            <rect x="20" y="20" width="60" height="22" rx="6" stroke="#0284c7" stroke-width="4.5" fill="rgba(2, 132, 199, 0.12)"/>
+            <circle cx="30" cy="56" r="5" fill="#0284c7"/>
+            <circle cx="50" cy="56" r="5" fill="#0284c7"/>
+            <circle cx="70" cy="56" r="5" fill="#0284c7"/>
+            <circle cx="30" cy="74" r="5" fill="#0284c7"/>
+            <circle cx="50" cy="74" r="5" fill="#0284c7"/>
+            <circle cx="70" cy="74" r="5" fill="#0284c7"/>
+            <circle cx="30" cy="92" r="5" fill="#0284c7"/>
+            <circle cx="50" cy="92" r="5" fill="#0284c7"/>
+            <rect x="65" y="86" width="11" height="11" rx="3" fill="#0284c7"/>
+          </svg>
         </div>
-        <h2>Определение вероятности литолиза при желчнокаменной болезни</h2>
-        <p>
-          Оригинальная математическая модель прогнозирования успешности консервативного медикаментозного растворения 
-          камней желчного пузыря препаратами урсодезоксихолевой кислоты (УДХК). Учитывает точный размер конкрементов, 
-          КТ-денситометрию, показатель инсулинорезистентности (HOMA-IR) и соматическую коморбидность (CIRS-G).
-        </p>
-        <div class="flagship-actions">
-          <a href="#litoliz" class="btn-flagship">Открыть калькулятор литолиза →</a>
-          <a href="https://example.com/dissertation" target="_blank" class="btn-dissertation track-abstract-btn" id="hero-abstract-btn">
-            📄 Автореферат диссертации (PDF / eLibrary)
-          </a>
+        <div class="flagship-content-wrap">
+          <div class="flagship-badge-row">
+            <span class="flagship-badge">⭐ Авторская разработка №1</span>
+            <span class="patent-badge">Диссертационная модель (табл. 3.20)</span>
+          </div>
+          <h2>Определение вероятности литолиза при желчнокаменной болезни</h2>
+          <p>
+            Оригинальная математическая модель прогнозирования успешности консервативного медикаментозного растворения 
+            камней желчного пузыря препаратами урсодезоксихолевой кислоты (УДХК). Учитывает точный размер конкрементов, 
+            КТ-денситометрию, показатель инсулинорезистентности (HOMA-IR) и соматическую коморбидность (CIRS-G).
+          </p>
+          <div class="flagship-actions">
+            <a href="#litoliz" class="btn-flagship">Открыть калькулятор литолиза →</a>
+            <a href="https://example.com/dissertation" target="_blank" class="btn-dissertation track-abstract-btn" id="hero-abstract-btn">
+              📄 Автореферат диссертации (PDF / eLibrary)
+            </a>
+          </div>
         </div>
       </section>
 
       <!-- ФЛАГМАНСКИЙ БАННЕР 2 (АВТОРСКИЙ КАЛЬКУЛЯТОР СТЕАТОЗА) -->
-      <section class="flagship-banner" style="background: linear-gradient(135deg, rgba(224, 242, 254, 0.7) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(240, 253, 244, 0.7) 100%); border-color: rgba(2, 132, 199, 0.3);">
-        <div class="flagship-badge-row">
-          <span class="flagship-badge" style="background: linear-gradient(135deg, #0284c7, #0369a1);">⭐ Авторская разработка №2</span>
-          <span class="patent-badge">Диссертационная модель (табл. 3.22)</span>
+      <section class="flagship-banner">
+        <div class="flagship-calc-watermark" aria-hidden="true">
+          <svg width="150" height="180" viewBox="0 0 100 120" fill="none">
+            <rect x="8" y="8" width="84" height="104" rx="16" stroke="#0284c7" stroke-width="6" fill="rgba(224, 242, 254, 0.45)"/>
+            <rect x="20" y="20" width="60" height="22" rx="6" stroke="#0284c7" stroke-width="4.5" fill="rgba(2, 132, 199, 0.12)"/>
+            <circle cx="30" cy="56" r="5" fill="#0284c7"/>
+            <circle cx="50" cy="56" r="5" fill="#0284c7"/>
+            <circle cx="70" cy="56" r="5" fill="#0284c7"/>
+            <circle cx="30" cy="74" r="5" fill="#0284c7"/>
+            <circle cx="50" cy="74" r="5" fill="#0284c7"/>
+            <circle cx="70" cy="74" r="5" fill="#0284c7"/>
+            <circle cx="30" cy="92" r="5" fill="#0284c7"/>
+            <circle cx="50" cy="92" r="5" fill="#0284c7"/>
+            <rect x="65" y="86" width="11" height="11" rx="3" fill="#0284c7"/>
+          </svg>
         </div>
-        <h2>Прогнозирование регресса стеатоза печени при консервативной терапии</h2>
-        <p>
-          Оригинальная математическая модель прогнозирования вероятности регресса стеатоза (жирового гепатоза) на фоне проводимой терапии. 
-          Построена на базе многофакторной бинарной логистической регрессии по результатам диссертационного исследования (ROC AUC = 0.827, 
-          чувствительность 92.6%, специфичность 73.3%). Учитывает базальную гликемию, ИМТ, окружность талии и расчетный индекс стеатоза FLI.
-        </p>
-        <div class="flagship-actions">
-          <a href="#steatoz" class="btn-flagship" style="background: linear-gradient(135deg, #0284c7, #0369a1);">Открыть калькулятор регресса стеатоза →</a>
-          <a href="https://example.com/dissertation" target="_blank" class="btn-dissertation track-abstract-btn" id="hero-steatoz-abstract-btn">
-            📄 Автореферат диссертации (PDF / eLibrary)
-          </a>
+        <div class="flagship-content-wrap">
+          <div class="flagship-badge-row">
+            <span class="flagship-badge">⭐ Авторская разработка №2</span>
+            <span class="patent-badge">Диссертационная модель (табл. 3.22)</span>
+          </div>
+          <h2>Прогнозирование регресса стеатоза печени при консервативной терапии</h2>
+          <p>
+            Оригинальная математическая модель прогнозирования вероятности регресса стеатоза (жирового гепатоза) на фоне проводимой терапии. 
+            Построена на базе многофакторной бинарной логистической регрессии по результатам диссертационного исследования (ROC AUC = 0.827, 
+            чувствительность 92.6%, специфичность 73.3%). Учитывает базальную гликемию, ИМТ, окружность талии и расчетный индекс стеатоза FLI.
+          </p>
+          <div class="flagship-actions">
+            <a href="#steatoz" class="btn-flagship">Открыть калькулятор регресса стеатоза →</a>
+            <a href="https://example.com/dissertation" target="_blank" class="btn-dissertation track-abstract-btn" id="hero-steatoz-abstract-btn">
+              📄 Автореферат диссертации (PDF / eLibrary)
+            </a>
+          </div>
         </div>
       </section>
 
@@ -800,7 +834,10 @@
         <p>Расчет вероятности растворения камней и подбор терапевтических доз</p>
       </div>
       <div class="calc-grid">
-        <a href="#litoliz" class="calc-card">
+        <a href="#litoliz" class="calc-card calc-card-author">
+          <div class="calc-card-watermark" aria-hidden="true">
+            <svg width="60" height="72" viewBox="0 0 100 120" fill="none"><rect x="8" y="8" width="84" height="104" rx="16" stroke="#0284c7" stroke-width="7"/><rect x="20" y="20" width="60" height="22" rx="6" stroke="#0284c7" stroke-width="5"/><circle cx="30" cy="56" r="6" fill="#0284c7"/><circle cx="50" cy="56" r="6" fill="#0284c7"/><circle cx="70" cy="56" r="6" fill="#0284c7"/><circle cx="30" cy="76" r="6" fill="#0284c7"/><circle cx="50" cy="76" r="6" fill="#0284c7"/><circle cx="70" cy="76" r="6" fill="#0284c7"/><circle cx="30" cy="94" r="6" fill="#0284c7"/><circle cx="50" cy="94" r="6" fill="#0284c7"/><rect x="64" y="88" width="13" height="13" rx="3" fill="#0284c7"/></svg>
+          </div>
           <div class="calc-card-top">
             <span class="calc-category-tag" style="background:#e0f2fe; color:#0369a1;">⭐ Авторский (Модель 1)</span>
             <h4>Вероятность литолиза при ЖКБ</h4>
@@ -858,13 +895,16 @@
         <p>Скрининг жирового гепатоза и выраженности фиброза при НАЖБП и гепатитах</p>
       </div>
       <div class="calc-grid">
-        <a href="#steatoz" class="calc-card" style="border-color: rgba(2, 132, 199, 0.35); background: linear-gradient(180deg, rgba(240, 249, 255, 0.7) 0%, var(--surface-card) 100%);">
+        <a href="#steatoz" class="calc-card calc-card-author">
+          <div class="calc-card-watermark" aria-hidden="true">
+            <svg width="60" height="72" viewBox="0 0 100 120" fill="none"><rect x="8" y="8" width="84" height="104" rx="16" stroke="#0284c7" stroke-width="7"/><rect x="20" y="20" width="60" height="22" rx="6" stroke="#0284c7" stroke-width="5"/><circle cx="30" cy="56" r="6" fill="#0284c7"/><circle cx="50" cy="56" r="6" fill="#0284c7"/><circle cx="70" cy="56" r="6" fill="#0284c7"/><circle cx="30" cy="76" r="6" fill="#0284c7"/><circle cx="50" cy="76" r="6" fill="#0284c7"/><circle cx="70" cy="76" r="6" fill="#0284c7"/><circle cx="30" cy="94" r="6" fill="#0284c7"/><circle cx="50" cy="94" r="6" fill="#0284c7"/><rect x="64" y="88" width="13" height="13" rx="3" fill="#0284c7"/></svg>
+          </div>
           <div class="calc-card-top">
             <span class="calc-category-tag" style="background:#e0f2fe; color:#0369a1;">⭐ Авторский (Модель 2)</span>
             <h4>Регресс стеатоза печени при терапии</h4>
             <p>Прогноз вероятности купирования жирового гепатоза по уровню глюкозы, ИМТ, окружности талии и индексу FLI.</p>
           </div>
-          <div class="calc-card-footer" style="color:#0284c7;">
+          <div class="calc-card-footer">
             <span>Рассчитать прогноз</span> →
           </div>
         </a>
@@ -1027,7 +1067,7 @@
 
       <div class="calc-container">
         <!-- БЛОК ССЫЛКИ НА АВТОРЕФЕРАТ ДИССЕРТАЦИИ -->
-        <div class="dissertation-box" style="border-color: rgba(2, 132, 199, 0.25);">
+        <div class="dissertation-box">
           <div class="dissertation-box-header">
             <span>🎓 Научная публикация & Автореферат</span>
           </div>
