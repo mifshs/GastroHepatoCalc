@@ -1,0 +1,21 @@
+{
+  "name": "gastro-hepato-calc",
+  "version": "1.0.0",
+  "description": "Clinical calculator portal for gastroenterologists and hepatologists",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "medical",
+    "calculator",
+    "hepatology",
+    "gastroenterology",
+    "litoliz"
+  ],
+  "author": "mifshs",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

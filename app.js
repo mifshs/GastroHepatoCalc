@@ -209,6 +209,51 @@ function fallbackCopy(text) {
 
 // --- 3. CALCULATORS LOGIC ---
 
+// Демонстрационные расчетные модули (диссертационные модели для автономной работы и GitHub Pages)
+function calculateLitolizClient(rk, homa, bsd, cirs) {
+  const x = 11.06 + (-0.205 * rk) + (-0.948 * homa) + (-2.27 * bsd) + (-3.378 * cirs);
+  const p = 1 / (1 + Math.exp(-x));
+  const percent = Number((p * 100).toFixed(1));
+
+  let status = '';
+  let statusClass = '';
+  let desc = '';
+
+  if (p > 0.50) {
+    status = 'Высокая вероятность успеха (> 50%) — Литолиз произойдет';
+    statusClass = 'status-high';
+    desc = '<strong>Клиническое заключение:</strong> Согласно диссертационной модели (ROC AUC = 0.918, чувствительность 83.9%, специфичность 82.8%), при значении P > 0.5 прогнозируется успешный литолиз конкрементов препаратами УДХК (10–15 мг/кг/сут). Рекомендован контрольный УЗ-мониторинг через 3 и 6 месяцев.';
+  } else {
+    status = 'Низкая вероятность успеха (≤ 50%) — Литолиз маловероятен';
+    statusClass = 'status-low';
+    desc = '<strong>Клиническое заключение:</strong> По прогностической модели вероятность растворения конкрементов не превышает порог отсечения (P ≤ 0.5). Факторы низкой эффективности: размеры/высокая КТ-плотность камней, выраженная инсулинорезистентность или тяжелый соматический фон CIRS-G. Рекомендована консультация хирурга для рассмотрения плановой холецистэктомии.';
+  }
+
+  return { p, percent, status, statusClass, desc };
+}
+
+function calculateSteatozClient(glucose, bmi, wc, fli) {
+  const z = 33.501 + (-3.100 * glucose) + (0.439 * bmi) + (-0.376 * wc) + (0.106 * fli);
+  const p = 1 / (1 + Math.exp(-z));
+  const percent = Number((p * 100).toFixed(1));
+
+  let status = '';
+  let statusClass = '';
+  let desc = '';
+
+  if (p > 0.50) {
+    status = 'Высокая вероятность регресса (> 50%) — Регресс стеатоза произойдет';
+    statusClass = 'status-high';
+    desc = '<strong>Клиническое заключение:</strong> Согласно диссертационной модели (Таблица 3.22, ROC AUC = 0.827, чувствительность 92.6%, специфичность 73.3%), при значении P > 0.5 прогнозируется регресс жирового гепатоза на фоне гепатопротективной терапии УДХК и коррекции метаболического статуса.';
+  } else {
+    status = 'Низкая вероятность регресса (≤ 50%) — Регресс стеатоза маловероятен';
+    statusClass = 'status-low';
+    desc = '<strong>Клиническое заключение:</strong> Значение вероятности регресса стеатоза ниже критического порога (P ≤ 0.5). Ограничивающие факторы: высокий уровень гликемии натощак и абдоминальное ожирение (окружность талии). Требуется интенсификация гипогликемической терапии и снижение массы тела.';
+  }
+
+  return { p, percent, status, statusClass, desc };
+}
+
 // А) АВТОРСКИЙ КАЛЬКУЛЯТОР ЛИТОЛИЗА
 let lastLitolizData = null;
 
@@ -244,7 +289,7 @@ function initLitolizCalc() {
 
     let resData = null;
 
-    // Расчет выполняется строго на защищенном бэкенде (формула изолирована)
+    // Расчет (сначала пробуем сервер, при автономной работе/Pages — расчет в клиенте)
     try {
       const response = await fetch('/api/calc/litoliz', {
         method: 'POST',
@@ -260,17 +305,12 @@ function initLitolizCalc() {
         submitBtn.disabled = false;
         return;
       } else {
-        const err = await response.json().catch(() => ({}));
-        alert(err.error || 'Ошибка при вычислении на сервере.');
-        submitBtn.textContent = originalBtnText;
-        submitBtn.disabled = false;
-        return;
+        // Fallback для статического хостинга (GitHub Pages)
+        resData = calculateLitolizClient(rk, homa, bsd, cirs);
       }
     } catch (err) {
-      alert('🔒 Формула защищена от копирования и рассчитывается на бэкенде.\nДля расчета запустите сервер: node server.js и откройте http://localhost:3000');
-      submitBtn.textContent = originalBtnText;
-      submitBtn.disabled = false;
-      return;
+      // Автономный демонстрационный режим без Node.js-бэкенда
+      resData = calculateLitolizClient(rk, homa, bsd, cirs);
     }
 
     submitBtn.textContent = originalBtnText;
@@ -344,6 +384,7 @@ function initSteatozCalc() {
 
     let resData = null;
 
+    // Расчет (сначала пробуем сервер, при автономной работе/Pages — расчет в клиенте)
     try {
       const response = await fetch('/api/calc/steatoz', {
         method: 'POST',
@@ -359,17 +400,12 @@ function initSteatozCalc() {
         submitBtn.disabled = false;
         return;
       } else {
-        const err = await response.json().catch(() => ({}));
-        alert(err.error || 'Ошибка при вычислении на сервере.');
-        submitBtn.textContent = originalBtnText;
-        submitBtn.disabled = false;
-        return;
+        // Fallback для статического хостинга (GitHub Pages)
+        resData = calculateSteatozClient(glucose, bmi, wc, fli);
       }
     } catch (err) {
-      alert('🔒 Формула защищена от копирования и рассчитывается на бэкенде.\nДля расчета запустите сервер: node server.js и откройте http://localhost:3000');
-      submitBtn.textContent = originalBtnText;
-      submitBtn.disabled = false;
-      return;
+      // Автономный демонстрационный режим без Node.js-бэкенда
+      resData = calculateSteatozClient(glucose, bmi, wc, fli);
     }
 
     submitBtn.textContent = originalBtnText;
