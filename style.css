@@ -3497,21 +3497,249 @@ footer {
   filter: blur(0px);
 }
 
-/* Мобильная адаптация 3-tier и галереи */
+/* ==================== МОБИЛЬНАЯ АДАПТАЦИЯ ПЕРВОГО БЛОКА (HERO & 3-TIER) ==================== */
 @media (max-width: 992px) {
+  .doctor-hero {
+    min-height: auto !important;
+    padding: 10px 0 36px !important;
+  }
+
   .doctor-hero-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+
+  .doctor-photo-col {
+    width: 100% !important;
+    max-width: 380px !important;
+    margin: 0 auto !important;
+    height: auto !important;
+  }
+
+  .doctor-photo-frame.full-height {
+    min-height: 320px !important;
+    height: 340px !important;
+    width: 100% !important;
   }
 
   .merits-grid-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
   }
 
   .article-gallery-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
+
+@media (max-width: 768px) {
+  .doctor-hero {
+    padding: 6px 0 28px !important;
+  }
+
+  .doctor-hero-container {
+    gap: 16px !important;
+  }
+
+  .doctor-photo-col {
+    max-width: 320px !important;
+  }
+
+  .doctor-photo-frame.full-height {
+    min-height: 270px !important;
+    height: 270px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .doctor-top-chip {
+    top: 10px !important;
+    left: 10px !important;
+    padding: 4px 10px !important;
+    font-size: 10.5px !important;
+  }
+
+  .doctor-photo-display {
+    padding: 16px 12px !important;
+  }
+
+  .placeholder-icon-wrap {
+    width: 70px !important;
+    height: 70px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .placeholder-icon-wrap svg {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .placeholder-title {
+    font-size: 16px !important;
+    margin-bottom: 2px !important;
+  }
+
+  .placeholder-sub {
+    font-size: 11.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  .doctor-photo-badge {
+    bottom: 10px !important;
+    padding: 5px 12px !important;
+    font-size: 10.5px !important;
+    max-width: 90% !important;
+    text-align: center !important;
+  }
+
+  /* 3-TIER КАРТОЧКИ ВРАЧА */
+  .doctor-three-tier {
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  .doctor-tier-card {
+    border-radius: var(--radius-lg) !important;
+  }
+
+  /* БЛОК 1: ФИО */
+  .doctor-fio-card,
+  .doctor-tier-card.doctor-fio-card {
+    padding: 20px 16px !important;
+  }
+
+  .doctor-tier-card .doctor-name,
+  .doctor-name {
+    font-size: clamp(24px, 6.2vw, 32px) !important;
+    letter-spacing: -0.6px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 10px !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .doctor-tier-card .doctor-specialty,
+  .doctor-specialty {
+    font-size: 14.5px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .doctor-card-badge-row {
+    gap: 6px !important;
+    margin-top: 6px !important;
+  }
+
+  .doctor-card-badge-row .doctor-tag {
+    font-size: 11.5px !important;
+    padding: 5px 10px !important;
+    line-height: 1.3 !important;
+  }
+
+  /* БЛОК 2: ДЕВИЗ */
+  .doctor-motto-card,
+  .doctor-tier-card.doctor-motto-card {
+    padding: 16px 16px !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .motto-banner-label {
+    margin-bottom: 6px !important;
+  }
+
+  .motto-pill {
+    font-size: 10.5px !important;
+    padding: 3px 10px !important;
+  }
+
+  .doctor-motto-text {
+    font-size: 14.5px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* БЛОК 3: ЗАСЛУГИ И КАЧЕСТВА */
+  .doctor-merits-card,
+  .doctor-tier-card.doctor-merits-card {
+    padding: 20px 16px !important;
+  }
+
+  .merits-grid-row {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .merit-box {
+    padding: 14px 14px !important;
+  }
+
+  .merit-box-header {
+    margin-bottom: 6px !important;
+  }
+
+  .merit-title {
+    font-size: 15.5px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .merit-desc {
+    font-size: 13.5px !important;
+    line-height: 1.48 !important;
+  }
+
+  /* КНОПКИ ДЕЙСТВИЙ */
+  .doctor-hero-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 8px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .doctor-hero-actions .btn-primary-action,
+  .doctor-hero-actions .btn-glass-action {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 13px 16px !important;
+    font-size: 13.5px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .doctor-photo-col {
+    max-width: 270px !important;
+  }
+
+  .doctor-photo-frame.full-height {
+    min-height: 240px !important;
+    height: 240px !important;
+  }
+
+  .doctor-tier-card .doctor-name,
+  .doctor-name {
+    font-size: 23px !important;
+  }
+
+  .doctor-tier-card.doctor-fio-card,
+  .doctor-tier-card.doctor-motto-card,
+  .doctor-tier-card.doctor-merits-card {
+    padding: 16px 14px !important;
+  }
+
+  .doctor-motto-text {
+    font-size: 13.5px !important;
+  }
+
+  .merit-title {
+    font-size: 14.5px !important;
+  }
+
+  .merit-desc {
+    font-size: 12.8px !important;
+  }
+}
+
 
 
 /* ==================== АВТОРСКИЕ РАЗРАБОТКИ (ЕДИНЫЙ СТИЛЬ & ВОДЯНОЙ ЗНАК) ==================== */
