@@ -39,56 +39,68 @@ function saveStats(stats) {
 }
 
 function trackCalculation(type) {
-  const stats = getStats();
-  stats.total += 1;
-  if (stats.byType[type] !== undefined) {
-    stats.byType[type] += 1;
-  }
-  saveStats(stats);
+  try {
+    const stats = getStats();
+    stats.total += 1;
+    if (stats.byType && stats.byType[type] !== undefined) {
+      stats.byType[type] += 1;
+    }
+    saveStats(stats);
 
-  // Отправка цели в Яндекс.Метрику (если подключена)
-  const ymId = localStorage.getItem(YM_KEY);
-  if (ymId && typeof window[`yaCounter${ymId}`] !== 'undefined') {
-    window[`yaCounter${ymId}`].reachGoal(`calc_${type}`);
-  } else if (typeof ym === 'function' && ymId) {
-    ym(parseInt(ymId, 10), 'reachGoal', `calc_${type}`);
+    // Отправка цели в Яндекс.Метрику (если подключена)
+    const ymId = localStorage.getItem(YM_KEY);
+    if (ymId && typeof window[`yaCounter${ymId}`] !== 'undefined') {
+      window[`yaCounter${ymId}`].reachGoal(`calc_${type}`);
+    } else if (typeof ym === 'function' && ymId) {
+      ym(parseInt(ymId, 10), 'reachGoal', `calc_${type}`);
+    }
+  } catch (e) {
+    console.warn('[Analytics error]', e);
   }
 }
 
 function trackCopy() {
-  const stats = getStats();
-  stats.copies += 1;
-  saveStats(stats);
-  const ymId = localStorage.getItem(YM_KEY);
-  if (ymId && typeof ym === 'function') ym(parseInt(ymId, 10), 'reachGoal', 'copy_record');
+  try {
+    const stats = getStats();
+    stats.copies += 1;
+    saveStats(stats);
+    const ymId = localStorage.getItem(YM_KEY);
+    if (ymId && typeof ym === 'function') ym(parseInt(ymId, 10), 'reachGoal', 'copy_record');
+  } catch (e) {}
 }
 
 function trackAbstractClick() {
-  const stats = getStats();
-  stats.abstractClicks += 1;
-  saveStats(stats);
-  const ymId = localStorage.getItem(YM_KEY);
-  if (ymId && typeof ym === 'function') ym(parseInt(ymId, 10), 'reachGoal', 'click_dissertation');
+  try {
+    const stats = getStats();
+    stats.abstractClicks += 1;
+    saveStats(stats);
+    const ymId = localStorage.getItem(YM_KEY);
+    if (ymId && typeof ym === 'function') ym(parseInt(ymId, 10), 'reachGoal', 'click_dissertation');
+  } catch (e) {}
 }
 
 // Инициализация скрипта Яндекс.Метрики
 function initYandexMetrika() {
-  const ymId = localStorage.getItem(YM_KEY);
-  if (!ymId || !/^\d+$/.test(ymId)) return;
+  try {
+    const ymId = localStorage.getItem(YM_KEY);
+    if (!ymId || !/^\d+$/.test(ymId)) return;
 
-  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-  m[i].l=1*new Date();
-  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-  ym(parseInt(ymId, 10), "init", {
-    clickmap: true,
-    trackLinks: true,
-    accurateTrackBounce: true,
-    webvisor: true
-  });
-  console.log(`[Yandex.Metrika] Инициализирован счетчик: ${ymId}`);
+    ym(parseInt(ymId, 10), "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
+    });
+    console.log(`[Yandex.Metrika] Инициализирован счетчик: ${ymId}`);
+  } catch (e) {
+    console.warn('[Metrika init error]', e);
+  }
 }
 
 // --- 2. HASH ROUTER ---
@@ -1145,42 +1157,7 @@ function initScrollReveal() {
   }
 }
 
-// --- 6. СТРАНИЦА СТАТЕЙ И ФИЛЬТРАЦИЯ ---
-
-
-// --- INITIALIZATION ---
-document.addEventListener('DOMContentLoaded', () => {
-  initYandexMetrika();
-  initMobileMenu();
-  initArticlesSlider();
-  initServicesToggle();
-  initScrollReveal();
-  initArticlesCatalog();
-
-  // Навешиваем клик на ссылки автореферата для аналитики
-  document.querySelectorAll('.track-abstract-btn').forEach(btn => {
-    btn.addEventListener('click', trackAbstractClick);
-  });
-
-  // Инициализация калькуляторов
-  initLitolizCalc();
-  initSteatozCalc();
-  initUdcaCalc();
-  initHomaCalc();
-  initCirsgCalc();
-  initFib4Calc();
-  initApriCalc();
-  initFliCalc();
-  initChildPughCalc();
-  initMeldCalc();
-  initAdminPanel();
-
-  // Стартовый роутинг
-  handleHashChange();
-});
-
-
-// ==================== БАЗА СТАТЕЙ И ПУБЛИКАЦИЙ (ARTICLES_DATA) ====================
+// --- 6. СТРАНИЦА СТАТЕЙ И ПУБЛИКАЦИЙ (ARTICLES_DATA) ---
 const ARTICLES_DATA = [
   {
     id: 'litoliz',
@@ -1622,3 +1599,54 @@ function initArticlesCatalog() {
     });
   });
 }
+
+// ==================== ГЛАВНАЯ ТОЧКА ВХОДА (ОТКАЗОУСТОЙЧИВАЯ ИНИЦИАЛИЗАЦИЯ) ====================
+function initApp() {
+  function safe(name, fn) {
+    try {
+      fn();
+    } catch (err) {
+      console.warn(`[SafeInit] Ошибка при запуске ${name}:`, err);
+    }
+  }
+
+  // 1. Интерфейсные модули
+  safe('metrika', initYandexMetrika);
+  safe('mobileMenu', initMobileMenu);
+  safe('articlesSlider', initArticlesSlider);
+  safe('servicesToggle', initServicesToggle);
+  safe('scrollReveal', initScrollReveal);
+  safe('articlesCatalog', initArticlesCatalog);
+
+  // 2. Трекинг кликов по диссертации
+  try {
+    document.querySelectorAll('.track-abstract-btn').forEach(btn => {
+      btn.addEventListener('click', trackAbstractClick);
+    });
+  } catch (e) {}
+
+  // 3. Клинические калькуляторы (каждый изолирован в try/catch)
+  safe('calc-litoliz', initLitolizCalc);
+  safe('calc-steatoz', initSteatozCalc);
+  safe('calc-udca', initUdcaCalc);
+  safe('calc-homa', initHomaCalc);
+  safe('calc-cirsg', initCirsgCalc);
+  safe('calc-fib4', initFib4Calc);
+  safe('calc-apri', initApriCalc);
+  safe('calc-fli', initFliCalc);
+  safe('calc-childpugh', initChildPughCalc);
+  safe('calc-meld', initMeldCalc);
+  safe('adminPanel', initAdminPanel);
+
+  // 4. Первичный роутинг по хэшу
+  safe('router', handleHashChange);
+}
+
+// Запуск приложения: поддержка как обычного события DOMContentLoaded,
+// так и мгновенного запуска, если DOM уже загружен (на GitHub Pages/быстрых CDN)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
+
