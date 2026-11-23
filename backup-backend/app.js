@@ -307,7 +307,7 @@ function initLitolizCalc() {
     if (!lastLitolizData) return;
     const d = lastLitolizData;
     const bsdTxt = d.bsd === 1 ? '≥ 100 HU (плотные/кальцинированные)' : '< 100 HU (холестериновые)';
-    const text = `Оценка вероятности литолиза при ЖКБ (диссертационная модель):
+    const text = `Оценка вероятности литолиза при ЖКБ:
 - Размер конкрементов: ${d.rk} мм
 - Индекс HOMA-IR: ${d.homa}
 - Плотность по КТ: ${bsdTxt}
@@ -403,7 +403,7 @@ function initSteatozCalc() {
   document.getElementById('steat-copy')?.addEventListener('click', () => {
     if (!lastSteatozData) return;
     const d = lastSteatozData;
-    const text = `Прогноз регресса стеатоза печени (диссертационная модель):
+    const text = `Прогноз регресса стеатоза печени:
 - Глюкоза натощак: ${d.glucose} ммоль/л
 - ИМТ: ${d.bmi} кг/м²
 - Окружность талии: ${d.wc} см
